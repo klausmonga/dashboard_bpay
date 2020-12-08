@@ -5,6 +5,8 @@ class Bpay extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('dashboard');
+		$style['style'] = $this->load->view('style' ,"" , true);
+		
+		$this->load->view('dashboard',$style);
 	}
 }
