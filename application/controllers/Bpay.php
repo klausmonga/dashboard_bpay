@@ -10,4 +10,11 @@ class Bpay extends CI_Controller {
 		
 		$this->load->view('dashboard',$style);
 	}
+	
+	public function profile()
+	{
+		$style['style'] = $this->load->view('style' ,"" , true);
+		$style['dashboardlink'] = $this->load->view('dashboardlink' ,"" , true);
+		$this->load->view('profile',$style);
+	}
 }
