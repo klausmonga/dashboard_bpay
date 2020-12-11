@@ -245,20 +245,57 @@
 <div class="tab-content" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
 
-  
+  <div class="">
 <pre>
-   <code class="language-php">
+   <code class="">
+	 <h5>Configuration composer</h5>
+	 <h6># Depuis le terminal ou le CMD, dans le repertoire de votre projet. 
+	 <h6># Tapez les commandes suivantes pour configurer le projet.</h6>
+	 composer init
 
+	 <h6># Certains parametres vous seront demandés. </h6>
+    
+
+   </code>
+</pre>
+<h5>Exemple d'integration</h5>
+<pre>
+   <code class="">
      &lt;?php
-       echo "salut";
+	  require_once __DIR__"vendor/autoload.php";
+	  use yetupay\api\ProcessPayment;
+	  # initialisation du processus de paiement
+	  $YP = new ProcessPayment();
+	  #init dev information 
+	  $CLIENT_ID= votre clé client_id permettant d identifier votre projet;
+	  $CLIENT_SECRETE= votre clé client_secrete permettant de valider votre operation;
+	  $USER_NUMBER= XXX XXX XXX;
+	  $USER_PASSWORD= XXXXXXXXXXX;
 
-       function do(){
-          // to do
-       }
+	  #Authentification 
+	  $YP->addDev($CLIENT_ID,$CLIENT_SECRETE,$USER_NUMBER,$USER_PASSWORD);
+
+	  #Add product
+	  $YP->addProduct(SELLER_NUMBER,PRICE,QUANTITY,"NAME","DESCRIPTION");
+
+	  #Add info transaction 
+	  - CURRENCY = usd ou cdf
+	  - Tax = pourcentage qui sera retenue sur la transaction.
+	  $YP->addP_info(CURRENCY,TAX);
+	  
+	  #Information du client qui effectuer l'achat (son numero de telephone)
+	  $YP->addBill_to(CUSTOMER_NUMBER);
+	  
+	  #Le type ou le format du document qui vous sera renvoye apres l'operation
+	  $YP->addRun_env(json);
+	  #Retourne une facture ou bordereau sous format JSON
+	  $slip = $YP->commit();
+   
      ?&gt;
 
    </code>
 </pre>
+</div>
   </div>
   <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">android</div>
   
