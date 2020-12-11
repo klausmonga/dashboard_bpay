@@ -40,7 +40,7 @@
 	</a>
 	<ul class="treeview-menu">
 		 
-		<li><a href="charts_chartist.html"><i class="ti-more"></i>Documentation</a></li>
+		<li><a href="<?=site_url('bpay\documentation')?>"><i class="ti-more"></i>Documentation</a></li>
 	</ul>
 </li>
  

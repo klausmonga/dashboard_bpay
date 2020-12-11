@@ -17,4 +17,11 @@ class Bpay extends CI_Controller {
 		$style['dashboardlink'] = $this->load->view('dashboardlink' ,"" , true);
 		$this->load->view('profile',$style);
 	}
+
+	function documentation()
+	{
+		$style['style'] = $this->load->view('style' ,"" , true);
+		$style['dashboardlink'] = $this->load->view('dashboardlink' ,"" , true);
+		$this->load->view('documentation',$style);
+	}
 }

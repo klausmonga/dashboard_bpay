@@ -58,3 +58,6 @@
 <link rel="stylesheet" href="<?= base_url('assets/css/icons/weather-icons/css/weather-icons.min.css')?>">
 <link rel="stylesheet" href="<?= base_url('assets/css/icons/iconsmind/style.css')?>"> 
 <!-- end importation -->
+
+<!-- highlightjs -->
+<link href="<?= base_url('assets\highlight\styles\a11y-dark.css')?>" rel="stylesheet" /> 
