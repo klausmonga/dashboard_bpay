@@ -140,36 +140,7 @@
 							</ul>
 						</li>
 
-						<!-- User Account-->
-						<li class="dropdown user user-menu">
-							<a href="#" class="waves-effect waves-light dropdown-toggle" data-toggle="dropdown" title="User">
-								<img src="<?= base_url('assets/images/svg-icon/user.svg') ?>" class="rounded svg-icon" alt="" />
-							</a>
-							<ul class="dropdown-menu animated flipInX">
-								<!-- User image -->
-								<li class="user-header bg-img" style="background-image: url(<?= base_url('assets/images/user-info.jpg') ?>)" data-overlay="3">
-									<div class="flexbox align-self-center">
-										<img src="<?= base_url('assets/images/avatar/7.jpg') ?>" class="float-left rounded-circle" alt="User Image">
-										<h4 class="user-name align-self-center">
-											<span>Samuel Brus</span>
-											<small>samuel@gmail.com</small>
-										</h4>
-									</div>
-								</li>
-								<!-- Menu Body -->
-								<li class="user-body">
-									<a class="dropdown-item" href="javascript:void(0)"><i class="ion ion-person"></i> My Profile</a>
-									<a class="dropdown-item" href="javascript:void(0)"><i class="ion ion-bag"></i> My Balance</a>
-									<a class="dropdown-item" href="javascript:void(0)"><i class="ion ion-email-unread"></i> Inbox</a>
-									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="javascript:void(0)"><i class="ion ion-settings"></i> Account Setting</a>
-									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="javascript:void(0)"><i class="ion-log-out"></i> Logout</a>
-									<div class="dropdown-divider"></div>
-									<div class="p-10"><a href="javascript:void(0)" class="btn btn-sm btn-rounded btn-success">View Profile</a></div>
-								</li>
-							</ul>
-						</li>
+					 
 
 						<!-- Control Sidebar Toggle Button -->
 						<li>
@@ -204,8 +175,9 @@
 									<div class="box pull-up">
 										<div class="box-body">
 											<h5 class="mb-0">
-												<span class="text-uppercase font-size-18"><i class="cc BTC" title="BTC"></i>Bitcoin</span>
-												<span class="float-right badge badge-light">24h</span>
+											<img src="<?=base_url('assets\logo\orange.png')?>" alt="">
+												<!-- <span class="text-uppercase font-size-14"><i class="cc BTC" title="BTC"></i>Orange money</span>
+												<span class="float-right badge badge-light">24h</span> -->
 											</h5>
 											<br>
 											<div class="d-flex justify-content-between">
@@ -222,8 +194,9 @@
 									<div class="box pull-up">
 										<div class="box-body">
 											<h5 class="mb-0">
-												<span class="text-uppercase font-size-18"><i class="cc ETH" title="ETH"></i>Ethereum</span>
-												<span class="float-right badge badge-light">24h</span>
+												<img src="<?=base_url('assets\logo\airtel.png')?>" alt="">
+												<!-- <span class="text-uppercase font-size-14"> </i>Airtel money</span> -->
+												<!-- <span class="float-right badge badge-light">24h</span> -->
 											</h5>
 											<br>
 											<div class="d-flex justify-content-between">
@@ -232,7 +205,7 @@
 											</div>
 										</div>
 										<div class="box-body p-0">
-											<div id="spark2"></div>
+											<div id="spark3"></div>
 										</div>
 									</div>
 								</div>
@@ -240,8 +213,8 @@
 									<div class="box pull-up">
 										<div class="box-body">
 											<h5 class="mb-0">
-												<span class="text-uppercase font-size-18"><i class="cc LTC" title="LTC"></i>Litecoin</span>
-												<span class="float-right badge badge-light">24h</span>
+											<img src="<?=base_url('assets\logo\mpsa.png')?>" alt="">
+												 
 											</h5>
 											<br>
 											<div class="d-flex justify-content-between">
@@ -250,7 +223,7 @@
 											</div>
 										</div>
 										<div class="box-body p-0">
-											<div id="spark3"></div>
+											<div id="spark4"></div>
 										</div>
 									</div>
 								</div>

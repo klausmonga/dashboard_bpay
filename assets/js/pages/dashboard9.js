@@ -70,7 +70,7 @@ $(function () {
 	  xaxis: {
 		type: 'datetime',
 	  },
-      colors: ['#e2bb33'],
+      colors: ['#ff7f00'],
 		tooltip: {
 			theme: 'dark'
   		},
@@ -138,7 +138,42 @@ $(function () {
       yaxis: {
         min: 0
       },
-      colors: ['#ee1044'],
+      colors: ['#ee1010'],
+		tooltip: {
+			theme: 'dark'
+  		},
+		};
+		
+
+    var spark4 = {
+      chart: {
+        type: 'area',
+        height: 120,
+        sparkline: {
+          enabled: true
+        },
+      },
+      stroke: {
+        curve: 'smooth'
+      },
+      fill: {
+        opacity: 0,
+        type: 'solid',
+		gradient: {
+		  gradientToColors: ['#ee1044', '#ee1044']
+		},
+      },
+      series: [{
+        data: randomizeArray(sparklineData)
+      }],
+	  labels: [...Array(24).keys()].map(n => `2018-09-0${n+1}`),
+	  xaxis: {
+		type: 'datetime',
+	  },
+      yaxis: {
+        min: 0
+      },
+      colors: ['#ee1020'],
 		tooltip: {
 			theme: 'dark'
   		},
@@ -151,7 +186,9 @@ $(function () {
 	var spark2 = new ApexCharts(document.querySelector("#spark2"), spark2);
     spark2.render();
     var spark3 = new ApexCharts(document.querySelector("#spark3"), spark3);
-    spark3.render();
+		spark3.render();
+		var spark4= new ApexCharts(document.querySelector("#spark4"), spark4);
+    spark4.render();
 	
 	
 	
