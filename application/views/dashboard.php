@@ -175,7 +175,7 @@
 									<div class="box pull-up">
 										<div class="box-body">
 											<h5 class="mb-0">
-											<img src="<?=base_url('assets\logo\orange.png')?>" alt="">
+											<img src="<?=base_url('assets\logo\orange.png')?>" alt=""><hr>
 												<!-- <span class="text-uppercase font-size-14"><i class="cc BTC" title="BTC"></i>Orange money</span>
 												<span class="float-right badge badge-light">24h</span> -->
 											</h5>
@@ -194,7 +194,7 @@
 									<div class="box pull-up">
 										<div class="box-body">
 											<h5 class="mb-0">
-												<img src="<?=base_url('assets\logo\airtel.png')?>" alt="">
+												<img src="<?=base_url('assets\logo\airtel.png')?>" alt=""><hr>
 												<!-- <span class="text-uppercase font-size-14"> </i>Airtel money</span> -->
 												<!-- <span class="float-right badge badge-light">24h</span> -->
 											</h5>
@@ -213,7 +213,7 @@
 									<div class="box pull-up">
 										<div class="box-body">
 											<h5 class="mb-0">
-											<img src="<?=base_url('assets\logo\mpsa.png')?>" alt="">
+											<img src="<?=base_url('assets\logo\mpsa.png')?>" alt=""><hr>
 												 
 											</h5>
 											<br>

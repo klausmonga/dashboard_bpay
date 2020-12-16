@@ -9,7 +9,7 @@
 	<meta name="author" content="">
 	<link rel="icon" href="<?= base_url('assets/images/favicon.ico') ?>">
 
-	<title>Crypto Tokenizer UI Interface & Cryptocurrency Admin Template</title>
+	<title>Bpay</title>
 
 	<!-- Vendors Style-->
 	<link rel="stylesheet" href="<?= base_url('assets/css/vendors_css.css') ?>">
@@ -200,25 +200,25 @@
 					<div class="row">
 						<div class="col-lg-6 col-12">
 							<div class="box">
-								<div class="box-header with-border">
-									<h4 class="box-title">Sample form 1</h4>
-								</div>
+								<!-- <div class="box-header with-border">
+									<h4 class="box-title">Infos personnelles</h4>
+								</div> -->
 								<!-- /.box-header -->
 								<form class="form">
 									<div class="box-body">
-										<h4 class="box-title text-info"><i class="ti-user mr-15"></i> Personal Info</h4>
+										<h4 class="box-title text-info"><i class="ti-user mr-15"></i>Infos personnelles</h4>
 										<hr class="my-15">
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
-													<label>First Name</label>
+													<label>Nom</label>
 													<input type="text" class="form-control" readonly placeholder="First Name" value="datauser here">
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
-													<label>Last Name</label>
-													<input type="text" class="form-control" placeholder="Last Name">
+													<label>Pseudo</label>
+													<input type="text" class="form-control" readonly placeholder="Last Name">
 												</div>
 											</div>
 										</div>
@@ -226,69 +226,27 @@
 											<div class="col-md-6">
 												<div class="form-group">
 													<label>E-mail</label>
-													<input type="text" class="form-control" placeholder="E-mail">
+													<input type="text" class="form-control" readonly placeholder="E-mail">
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
-													<label>Contact Number</label>
-													<input type="text" class="form-control" placeholder="Phone">
+													<label>Mot de passe</label>
+													<input type="text" class="form-control" readonly placeholder="Phone">
 												</div>
 											</div>
 										</div>
-										<h4 class="box-title text-info"><i class="ti-save mr-15"></i> Requirements</h4>
-										<hr class="my-15">
-										<div class="form-group">
-											<label>Company</label>
-											<input type="text" class="form-control" placeholder="Company Name">
-										</div>
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group">
-													<label>Interested in</label>
-													<select class="form-control">
-														<option>Interested in</option>
-														<option>design</option>
-														<option>development</option>
-														<option>illustration</option>
-														<option>branding</option>
-														<option>video</option>
-													</select>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="form-group">
-													<label>Budget</label>
-													<select class="form-control">
-														<option>Budget</option>
-														<option>less than 5000$</option>
-														<option>5000$ - 10000$</option>
-														<option>10000$ - 20000$</option>
-														<option>more than 20000$</option>
-													</select>
-												</div>
-											</div>
-										</div>
-										<div class="form-group">
-											<label>Select File</label>
-											<label class="file">
-												<input type="file" id="file">
-											</label>
-										</div>
-										<div class="form-group">
-											<label>About Project</label>
-											<textarea rows="5" class="form-control" placeholder="About Project"></textarea>
-										</div>
+
 									</div>
 									<!-- /.box-body -->
-									<div class="box-footer">
+									<!-- <div class="box-footer">
 										<button type="button" class="btn btn-rounded btn-warning btn-outline mr-1">
 											<i class="ti-trash"></i> Cancel
 										</button>
 										<button type="submit" class="btn btn-rounded btn-primary btn-outline">
 											<i class="ti-save-alt"></i> Save
 										</button>
-									</div>
+									</div> -->
 								</form>
 							</div>
 							<!-- /.box -->
@@ -296,70 +254,73 @@
 
 						<div class="col-lg-6 col-12">
 							<div class="box">
-								<div class="box-header with-border">
+								<!-- <div class="box-header with-border">
 									<h4 class="box-title">Sample form 2</h4>
-								</div>
+								</div> -->
 								<!-- /.box-header -->
-								<form class="form">
-									<div class="box-body">
-										<h4 class="box-title text-info"><i class="ti-user mr-15"></i> About User</h4>
-										<hr class="my-15">
-										<div class="row">
-											<div class="col-md-6">
 
-												<div class="form-group">
-													<label>First Name</label>
-													<input type="text" class="form-control" placeholder="First Name">
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="form-group">
-													<label>Last Name</label>
-													<input type="text" class="form-control" placeholder="Last Name">
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group">
-													<label>E-mail</label>
-													<input type="text" class="form-control" placeholder="E-mail">
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="form-group">
-													<label>Contact Number</label>
-													<input type="text" class="form-control" placeholder="Phone">
-												</div>
-											</div>
-										</div>
-										<h4 class="box-title text-info"><i class="ti-envelope mr-15"></i> Contact Info & Bio</h4>
+								<form class="form">
+
+									<div class="box-body">
+
+										<h4 class="box-title text-info"></i>Business</h4>
+
 										<hr class="my-15">
-										<div class="form-group">
-											<label>Email</label>
-											<input class="form-control" type="email" placeholder="email">
-										</div>
-										<div class="form-group">
-											<label>Website</label>
-											<input class="form-control" type="url" placeholder="http://">
-										</div>
-										<div class="form-group">
-											<label>Contact Number</label>
-											<input class="form-control" type="tel" placeholder="Contact Number">
-										</div>
-										<div class="form-group">
-											<label>Bio</label>
-											<textarea rows="4" class="form-control" placeholder="Bio"></textarea>
-										</div>
+										 
+
+											<div class="vtabs">
+												<ul class="nav nav-tabs tabs-vertical" role="tablist">
+
+													<li class="nav-item"><img class="text-center" src="<?= base_url('assets\logo\codeqr.png')?>" alt="code qr"> </li>
+												</ul>
+												<!-- Tab panes -->
+												<div class="tab-content">
+													<h4>Business 1</h4>
+													<hr>
+													<div class="tab-pane active" id="home4" role="tabpanel">
+													 
+															<!-- <div class="form-group">
+																<label>Email</label>
+																<input class="form-control" type="email" placeholder="email">
+															</div> -->
+															 
+																 
+																<p>description du business description du business description du business description du business</p>
+																<p>description du business</p>
+															 
+																<p>description du business</p>
+															 
+																<p>key key token token </p>
+															 
+																<p>key key token token </p>
+															 
+															<!-- <div class="row">
+																<div class="col-md-6">
+																	<div class="form-group">
+																		<label>E-mail</label>
+																		<input type="text" class="form-control" placeholder="E-mail">
+																	</div>
+																</div>
+																<div class="col-md-6">
+																	<div class="form-group">
+																		<label>Contact Number</label>
+																		<input type="text" class="form-control" placeholder="Phone">
+																	</div>
+																</div>
+															</div> -->
+														 
+														
+													</div>
+													<div class="text-right">
+														<span class="label label-success">Actif</span>
+														</div>
+													</div>
+											</div>
+									 
 									</div>
 									<!-- /.box-body -->
 									<div class="box-footer text-right">
-										<button type="button" class="btn btn-rounded btn-warning btn-outline mr-1">
-											<i class="ti-trash"></i> Cancel
-										</button>
-										<button type="submit" class="btn btn-rounded btn-primary btn-outline">
-											<i class="ti-save-alt"></i> Save
-										</button>
+										<button type="button" class="waves-effect waves-circle btn btn-circle btn-info btn-sm mb-5"><i class="mdi mdi-plus"></i></button>
 									</div>
 								</form>
 							</div>
