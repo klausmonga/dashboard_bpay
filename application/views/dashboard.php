@@ -9,7 +9,7 @@
 	<meta name="author" content="">
 	<link rel="icon" href="<?= base_url('assets/images/favicon.ico') ?>">
 
-	<title>Crypto Tokenizer UI Interface & Cryptocurrency Admin Template</title>
+	<title>Bpay</title>
 
 	<!-- Vendors Style-->
 	<link rel="stylesheet" href="<?= base_url('assets/css/vendors_css.css') ?>">
@@ -181,7 +181,7 @@
 											</h5>
 											<br>
 											<div class="d-flex justify-content-between">
-												<p class="font-size-24">$513,64256</p>
+												<p class="font-size-26">$513,64256</p>
 												<div><i class="ion-arrow-graph-up-right mr-1 text-success"></i> +1.75%</div>
 											</div>
 										</div>

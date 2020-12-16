@@ -212,7 +212,7 @@
 											<div class="col-md-6">
 												<div class="form-group">
 													<label>First Name</label>
-													<input type="text" class="form-control" placeholder="First Name" value="datauser here">
+													<input type="text" class="form-control" readonly placeholder="First Name" value="datauser here">
 												</div>
 											</div>
 											<div class="col-md-6">
