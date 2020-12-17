@@ -197,7 +197,49 @@
 			<div class="container-full">
 				<!-- Main content -->
 				<section class="content">
+
 					<div class="row">
+						<div class="scrolling-wrapper row flex-row flex-nowrap m-1">
+							<div class="col-md-4 col-12 ">
+								<div class="box box-inverse box-danger">
+									<div class="box-header with-border">
+										<h4 class="box-title"><strong>Numero airtel money</strong></h4>										 
+									</div>
+									<div class="box-body" style="width:700px" >
+									<h5> <strong> 0991234568</strong></h5>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-4 col-12 ">
+								<div class="box box-inverse box-danger">
+									<div class="box-header with-border">
+										<h4 class="box-title">  <strong>Numero m-psa</strong> </h4>										 
+									</div>
+									<div class="box-body">
+									<h5> <strong> 0821234568</strong></h5>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4 col-12">
+								<div class="box colo box-inverse">
+									<div class="box-header with-border">
+										<h4 class="box-title"> <strong>Numero orange-money</strong>  </h4>										 
+									</div>
+									<div class="box-body">
+									 <h5> <strong> 0851234568</strong></h5>
+									</div>
+								</div>
+							</div>
+ 
+							<style> .scrolling-wrapper{
+								overflow-x: auto;
+							}.colo{
+								background-color: #ff7f00!important;
+							}
+							 
+							</style>
+						</div>
 						<div class="col-lg-6 col-12">
 							<div class="box">
 								<!-- <div class="box-header with-border">
@@ -266,35 +308,35 @@
 										<h4 class="box-title text-info"></i>Business</h4>
 
 										<hr class="my-15">
-										 
 
-											<div class="vtabs">
-												<ul class="nav nav-tabs tabs-vertical" role="tablist">
 
-													<li class="nav-item"><img class="text-center" src="<?= base_url('assets\logo\codeqr.png')?>" alt="code qr"> </li>
-												</ul>
-												<!-- Tab panes -->
-												<div class="tab-content">
-													<h4>Business 1</h4>
-													<hr>
-													<div class="tab-pane active" id="home4" role="tabpanel">
-													 
-															<!-- <div class="form-group">
+										<div class="vtabs">
+											<ul class="nav nav-tabs tabs-vertical" role="tablist">
+
+												<li class="nav-item"><img class="text-center" src="<?= base_url('assets\logo\codeqr.png') ?>" alt="code qr"> </li>
+											</ul>
+											<!-- Tab panes -->
+											<div class="tab-content">
+												<h4>Business 1</h4>
+												<hr>
+												<div class="tab-pane active" id="home4" role="tabpanel">
+
+													<!-- <div class="form-group">
 																<label>Email</label>
 																<input class="form-control" type="email" placeholder="email">
 															</div> -->
-															 
-																 
-																<p>description du business description du business description du business description du business</p>
-																<p>description du business</p>
-															 
-																<p>description du business</p>
-															 
-																<p>key key token token </p>
-															 
-																<p>key key token token </p>
-															 
-															<!-- <div class="row">
+
+
+													<p>description du business description du business description du business description du business</p>
+													<p>description du business</p>
+
+													<p>description du business</p>
+
+													<p>key key token token </p>
+
+													<p>key key token token </p>
+
+													<!-- <div class="row">
 																<div class="col-md-6">
 																	<div class="form-group">
 																		<label>E-mail</label>
@@ -308,15 +350,15 @@
 																	</div>
 																</div>
 															</div> -->
-														 
-														
-													</div>
-													<div class="text-right">
-														<span class="label label-success">Actif</span>
-														</div>
-													</div>
+
+
+												</div>
+												<div class="text-right">
+													<span class="label label-success">Actif</span>
+												</div>
 											</div>
-									 
+										</div>
+
 									</div>
 									<!-- /.box-body -->
 									<div class="box-footer text-right">
