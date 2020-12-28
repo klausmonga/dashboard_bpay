@@ -9,7 +9,7 @@
 	<meta name="author" content="">
 	<link rel="icon" href="<?= base_url('assets/images/favicon.ico') ?>">
 
-	<title>Crypto Tokenizer UI Interface & Cryptocurrency Admin Template</title>
+	<title>Bpay</title>
 
 	<!-- Vendors Style-->
 	<link rel="stylesheet" href="<?= base_url('assets/css/vendors_css.css') ?>">
@@ -247,8 +247,8 @@
 
   <div class="">
 <pre>
-   <code class="">
-	 <h5>Configuration composer</h5>
+   <code class="php">
+	 <h5> Configuration composer </h5>
 	 <h6># Depuis le terminal ou le CMD, dans le repertoire de votre projet. 
 	 <h6># Tapez les commandes suivantes pour configurer le projet.</h6>
 	 composer init

@@ -201,7 +201,9 @@
 					<div class="row">
 						<div class="scrolling-wrapper row flex-row flex-nowrap m-1">
 							<div class="col-md-4 col-12 ">
-								<div class="box box-inverse box-danger">
+								<div class="box box-inverse box-dangerr">
+								<img src="<?=base_url('assets\logo\airtel.png')?>" alt="" style="position:absolute; width:25%;margin-left:76%;margin-top:16%">
+								
 									<div class="box-header with-border">
 										<h4 class="box-title"><strong>Numero airtel money</strong></h4>										 
 									</div>
@@ -212,7 +214,9 @@
 							</div>
 
 							<div class="col-md-4 col-12 ">
-								<div class="box box-inverse box-danger">
+								<div class="box box-inverse box-dangerr">
+								<img src="<?=base_url('assets\logo\mpsa.png')?>" alt="" style="position:absolute; width:34%;margin-left:66%;margin-top:13%">
+								
 									<div class="box-header with-border">
 										<h4 class="box-title">  <strong>Numero m-psa</strong> </h4>										 
 									</div>
@@ -222,7 +226,9 @@
 								</div>
 							</div>
 							<div class="col-md-4 col-12">
-								<div class="box colo box-inverse">
+								<div class="box colot box-inverse" >
+								<img src="<?=base_url('assets\logo\orange.png')?>" alt="" style="position:absolute; width:40%;margin-left:63%;margin-top:10%">
+									
 									<div class="box-header with-border">
 										<h4 class="box-title"> <strong>Numero orange-money</strong>  </h4>										 
 									</div>
@@ -235,7 +241,8 @@
 							<style> .scrolling-wrapper{
 								overflow-x: auto;
 							}.colo{
-								background-color: #ff7f00!important;
+								 background-color: #ff7f00!important; 
+								background-image: url(<?=base_url('assets\logo\airtel.png')?>)!important;
 							}
 							 
 							</style>
