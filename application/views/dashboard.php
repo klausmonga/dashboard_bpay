@@ -258,82 +258,93 @@
 									<div id="bitcoin-timeline" class="h-300"></div>
 								</div>
 							</div> -->
-							<div class="box">
+
+							<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+								<li class="nav-item">
+									<a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Transactions envoyées</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Transactions recues</a>
+								</li>
+
+							</ul>
+							<div class="tab-content" id="pills-tabContent">
+								<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+								<div class="box">
 								<div class="box-header with-border">
-									<h4 class="box-title">Recent Trading Activities</h4>
+									<h4 class="box-title">Transactions envoyées</h4>
 								</div>
 								<div class="box-body">
 									<div class="table-responsive">
 										<table class="table no-bordered no-margin table-striped">
 											<thead>
 												<tr>
-													<th>ID</th>
-													<th>Trade Time</th>
-													<th>Status</th>
-													<th>Last Trade</th>
+													<th>ITM</th>
+													<th>code</th>
+													<th>amount</th>
+													<th>currency</th>
+													<th>type</th>
 												</tr>
 											</thead>
+											<?php $i=1; foreach ($transactionsended as $value) {
+												# code...
+											 ?>
 											<tbody>
 												<tr>
-													<th>#12457</th>
-													<td>11.00AM</td>
-													<td><span class="label label-success">Complete</span></td>
-													<td><i class="fa fa-arrow-down text-danger"></i> 0.124587 BTC</td>
+													<th><?=$i?></th>
+													<td><?=$value->code?></td>
+													<td><?=$value->amount?></td>
+													<td><?=$value->currency?></td>
+													<td><?=$value->type?></td>
 												</tr>
-												<tr>
-													<th>#12586</th>
-													<td>10.11AM</td>
-													<td><span class="label label-danger">Pending</span></td>
-													<td><i class="fa fa-arrow-down text-danger"></i> 3.84572 LTC</td>
-												</tr>
-												<tr>
-													<th>#13258</th>
-													<td>09.12AM</td>
-													<td><span class="label label-danger">Pending</span></td>
-													<td><i class="fa fa-arrow-up text-success"></i> 0.215485 LTC</td>
-												</tr>
-												<tr>
-													<th>#13586</th>
-													<td>08.22AM</td>
-													<td><span class="label label-warning">Cancelled</span></td>
-													<td><i class="fa fa-arrow-down text-danger"></i> 0.8457952 BTC</td>
-												</tr>
-												<tr>
-													<th>#14578</th>
-													<td>07.48AM</td>
-													<td><span class="label label-success">Complete</span></td>
-													<td><i class="fa fa-arrow-up text-success"></i> 0.954278 DASH</td>
-												</tr>
-												<tr>
-													<th>#15623</th>
-													<td>06.45AM</td>
-													<td><span class="label label-success">Complete</span></td>
-													<td><i class="fa fa-arrow-up text-success"></i> 0.9654582 BTC</td>
-												</tr>
-												<tr>
-													<th>#15685</th>
-													<td>05.11PM</td>
-													<td><span class="label label-warning">Cancelled</span></td>
-													<td><i class="fa fa-arrow-down text-danger"></i> 9.8545269 LTC</td>
-												</tr>
-												<!-- Repeat -->
-												<tr>
-													<th>#16585</th>
-													<td>23.18PM</td>
-													<td><span class="label label-danger">Pending</span></td>
-													<td><i class="fa fa-arrow-up text-success"></i> 1.9564258 DASH</td>
-												</tr>
-												<tr>
-													<th>#16785</th>
-													<td>19.27PM</td>
-													<td><span class="label label-success">Complete</span></td>
-													<td><i class="fa fa-arrow-down text-danger"></i> 12.845725 LTC</td>
-												</tr>
+												
 											</tbody>
+											<?php $i++; } ?>
 										</table>
 									</div>
 								</div>
 							</div>
+								</div>
+								<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+								<div class="box">
+								<div class="box-header with-border">
+									<h4 class="box-title">Transactions recues</h4>
+								</div>
+								<div class="box-body">
+									<div class="table-responsive">
+										<table class="table no-bordered no-margin table-striped">
+											<thead>
+												<tr>
+													<th>ITM</th>
+													<th>code</th>
+													<th>amount</th>
+													<th>currency</th>
+													<th>type</th>
+												</tr>
+											</thead>
+											<?php $i=1; foreach ($transactionreceived as $value) {
+												# code...
+											 ?>
+											<tbody>
+												<tr>
+													<th><?=$i?></th>
+													<td><?=$value->code?></td>
+													<td><?=$value->amount?></td>
+													<td><?=$value->currency?></td>
+													<td><?=$value->type?></td>
+												</tr>
+												
+											</tbody>
+											<?php $i++; } ?>
+										</table>
+									</div>
+								</div>
+							</div>
+								</div>
+
+							</div>
+
+						
 						</div>
 						<div class="col-xl-4 col-12">
 							<!-- <div class="box">

@@ -231,22 +231,22 @@
 								Une fois le projet créé, deux clés sont générées, la première clé permet d'identifier
 								votre projet dans le système et la deuxième clé est celle qui permet d'autoriser
 								toutes les transactions liées à votre projet.</h5><br>
-								
-								<h5>Configuration</h5>
-								<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-  <li class="nav-item">
-    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">PHP</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Android</a>
-  </li>
-   
-</ul>
-<div class="tab-content" id="pills-tabContent">
-  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
 
-  <div class="">
-<pre>
+							<h5>Configuration</h5>
+							<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+								<li class="nav-item">
+									<a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">PHP</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Android</a>
+								</li>
+
+							</ul>
+							<div class="tab-content" id="pills-tabContent">
+								<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+									<div class="">
+										<pre>
    <code class="">
 	 <h5>Configuration composer</h5>
 	 <h6># Depuis le terminal ou le CMD, dans le repertoire de votre projet. 
@@ -258,8 +258,8 @@
 
    </code>
 </pre>
-<h5>Exemple d'integration</h5>
-<pre>
+										<h5>Exemple d'integration</h5>
+										<pre>
    <code class="">
      &lt;?php
 	  require_once __DIR__"vendor/autoload.php";
@@ -295,11 +295,11 @@
 
    </code>
 </pre>
-</div>
-  </div>
-  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">android</div>
-  
-</div>
+									</div>
+								</div>
+								<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">android</div>
+
+							</div>
 
 						</div>
 					</div>
@@ -616,8 +616,10 @@
 	<script src="<?= base_url('assets\js\pages\dashboard9.js') ?>"></script>
 	<script src="<?= base_url('assets\js\demo.js') ?>"></script>
 	<!-- highlightjs -->
-	<script src="<?= base_url('assets\highlight\highlight.pack.js')?>"></script> 
-	<script>hljs.initHighlightingOnLoad();</script>
+	<script src="<?= base_url('assets\highlight\highlight.pack.js') ?>"></script>
+	<script>
+		hljs.initHighlightingOnLoad();
+	</script>
 
 </body>
 
