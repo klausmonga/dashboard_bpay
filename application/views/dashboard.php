@@ -140,7 +140,29 @@
 							</ul>
 						</li>
 
-					 
+					 <!-- User Account-->
+					 <li class="dropdown user user-menu">
+            <a href="#" class="waves-effect waves-light dropdown-toggle" data-toggle="dropdown" title="User">
+				<img src="<?= base_url('assets/images/svg-icon/user.svg')?>" class="rounded svg-icon" alt="" />
+            </a>
+            <ul class="dropdown-menu animated flipInX">
+              <!-- User image -->
+              <li class="user-header bg-img" style="background-image: url(<?= base_url('assets/images/user-info.jpg')?>)" data-overlay="3">
+				  <div class="flexbox align-self-center">					  
+				  	<img src="<?= base_url('assets/images/avatar/7.jpg')?>" class="float-left rounded-circle" alt="User Image">					  
+					<h4 class="user-name align-self-center">
+					  <span><?=$this->session->fullname;?></span><br>
+					  <small><?=$this->session->email;?></small>
+					</h4>
+				  </div>
+              </li>
+              <!-- Menu Body -->
+              <li class="user-body">				     
+					<a class="dropdown-item" href="<?=site_url('bpay\logout')?>"><i class="ion-log-out"></i>Deconnexion</a>
+					<div class="dropdown-divider"></div>
+				</li>
+            </ul>
+          </li>	
 
 						<!-- Control Sidebar Toggle Button -->
 						<li>
