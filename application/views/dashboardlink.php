@@ -1,7 +1,7 @@
 <ul class="sidebar-menu" data-widget="tree">
 
 <li>
-	<a href="<?=site_url('bpay')?>">
+	<a href="<?=site_url('bpay\dashboard')?>">
 		<img src="<?= base_url('assets/images/svg-icon/sidebar-menu/dashboard.svg') ?>" class="svg-icon" alt="">
 		<span>Dashboard</span>
 		<span class="pull-right-container">

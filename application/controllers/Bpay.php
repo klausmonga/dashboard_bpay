@@ -11,6 +11,7 @@ class Bpay extends CI_Controller
 
 	public function dashboard()
 	{
+		$this->isconnected();
 		$style['style'] = $this->load->view('style', "", true);
 		$style['dashboardlink'] = $this->load->view('dashboardlink', "", true);
 
@@ -19,13 +20,25 @@ class Bpay extends CI_Controller
 
 	public function profile()
 	{
+		$this->isconnected();
+		$url = "http://cloudbpay.bvortex.com/index.php/api/getBusiness/" . $this->session->user_id;
+		$ch  = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		$business = curl_exec($ch);
+		$returnedbusiness = json_decode($business);
+		
+		$style['business'] =  $returnedbusiness;
 		$style['style'] = $this->load->view('style', "", true);
 		$style['dashboardlink'] = $this->load->view('dashboardlink', "", true);
 		$this->load->view('profile', $style);
+		print_r($returnedbusiness);
+		
 	}
 
 	function documentation()
 	{
+		$this->isconnected();
 		$style['style'] = $this->load->view('style', "", true);
 		$style['dashboardlink'] = $this->load->view('dashboardlink', "", true);
 		$this->load->view('documentation', $style);
@@ -97,5 +110,16 @@ class Bpay extends CI_Controller
 	{
 		session_destroy();
 		redirect('bpay\loginv');
+	}
+
+	function isconnected()
+	{
+		if ($this->session->connected) {
+			# code...
+			return true;
+		} else {
+			$this->session->set_flashdata('notconnected', 'veuillez vous connecter');
+			redirect('bpay\loginv');
+		}
 	}
 }

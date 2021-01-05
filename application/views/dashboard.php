@@ -140,29 +140,29 @@
 							</ul>
 						</li>
 
-					 <!-- User Account-->
-					 <li class="dropdown user user-menu">
-            <a href="#" class="waves-effect waves-light dropdown-toggle" data-toggle="dropdown" title="User">
-				<img src="<?= base_url('assets/images/svg-icon/user.svg')?>" class="rounded svg-icon" alt="" />
-            </a>
-            <ul class="dropdown-menu animated flipInX">
-              <!-- User image -->
-              <li class="user-header bg-img" style="background-image: url(<?= base_url('assets/images/user-info.jpg')?>)" data-overlay="3">
-				  <div class="flexbox align-self-center">					  
-				  	<img src="<?= base_url('assets/images/avatar/7.jpg')?>" class="float-left rounded-circle" alt="User Image">					  
-					<h4 class="user-name align-self-center">
-					  <span><?=$this->session->fullname;?></span><br>
-					  <small><?=$this->session->email;?></small>
-					</h4>
-				  </div>
-              </li>
-              <!-- Menu Body -->
-              <li class="user-body">				     
-					<a class="dropdown-item" href="<?=site_url('bpay\logout')?>"><i class="ion-log-out"></i>Deconnexion</a>
-					<div class="dropdown-divider"></div>
-				</li>
-            </ul>
-          </li>	
+						<!-- User Account-->
+						<li class="dropdown user user-menu">
+							<a href="#" class="waves-effect waves-light dropdown-toggle" data-toggle="dropdown" title="User">
+								<img src="<?= base_url('assets/images/svg-icon/user.svg') ?>" class="rounded svg-icon" alt="" />
+							</a>
+							<ul class="dropdown-menu animated flipInX">
+								<!-- User image -->
+								<li class="user-header bg-img" style="background-image: url(<?= base_url('assets/images/user-info.jpg') ?>)" data-overlay="3">
+									<div class="flexbox align-self-center">
+										<img src="<?= base_url('assets/images/avatar/7.jpg') ?>" class="float-left rounded-circle" alt="User Image">
+										<h4 class="user-name align-self-center">
+											<span><?= $this->session->fullname; ?></span><br>
+											<small><?= $this->session->email; ?></small>
+										</h4>
+									</div>
+								</li>
+								<!-- Menu Body -->
+								<li class="user-body">
+									<a class="dropdown-item" href="<?= site_url('bpay\logout') ?>"><i class="ion-log-out"></i>Deconnexion</a>
+									<div class="dropdown-divider"></div>
+								</li>
+							</ul>
+						</li>
 
 						<!-- Control Sidebar Toggle Button -->
 						<li>
@@ -181,7 +181,7 @@
 			<!-- sidebar-->
 			<section class="sidebar">
 				<!-- sidebar menu-->
-		<?= $dashboardlink ?>
+				<?= $dashboardlink ?>
 			</section>
 		</aside>
 
@@ -197,7 +197,8 @@
 									<div class="box pull-up">
 										<div class="box-body">
 											<h5 class="mb-0">
-											<img src="<?=base_url('assets\logo\orange.png')?>" alt="">
+												<img src="<?= base_url('assets\logo\orange.png') ?>" alt="">
+												<hr>
 												<!-- <span class="text-uppercase font-size-14"><i class="cc BTC" title="BTC"></i>Orange money</span>
 												<span class="float-right badge badge-light">24h</span> -->
 											</h5>
@@ -216,7 +217,8 @@
 									<div class="box pull-up">
 										<div class="box-body">
 											<h5 class="mb-0">
-												<img src="<?=base_url('assets\logo\airtel.png')?>" alt="">
+												<img src="<?= base_url('assets\logo\airtel.png') ?>" alt="">
+												<hr>
 												<!-- <span class="text-uppercase font-size-14"> </i>Airtel money</span> -->
 												<!-- <span class="float-right badge badge-light">24h</span> -->
 											</h5>
@@ -235,8 +237,9 @@
 									<div class="box pull-up">
 										<div class="box-body">
 											<h5 class="mb-0">
-											<img src="<?=base_url('assets\logo\mpsa.png')?>" alt="">
-												 
+												<img src="<?= base_url('assets\logo\mpsa.png') ?>" alt="">
+												<hr>
+
 											</h5>
 											<br>
 											<div class="d-flex justify-content-between">
@@ -270,81 +273,85 @@
 							</ul>
 							<div class="tab-content" id="pills-tabContent">
 								<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-								<div class="box">
-								<div class="box-header with-border">
-									<h4 class="box-title">Transactions envoyées</h4>
-								</div>
-								<div class="box-body">
-									<div class="table-responsive">
-										<table class="table no-bordered no-margin table-striped">
-											<thead>
-												<tr>
-													<th>ITM</th>
-													<th>code</th>
-													<th>amount</th>
-													<th>currency</th>
-													<th>type</th>
-												</tr>
-											</thead>
-											<?php $i=1; foreach ($transactionsended as $value) {
-												# code...
-											 ?>
-											<tbody>
-												<tr>
-													<th><?=$i?></th>
-													<td><?=$value->code?></td>
-													<td><?=$value->amount?></td>
-													<td><?=$value->currency?></td>
-													<td><?=$value->type?></td>
-												</tr>
-												
-											</tbody>
-											<?php $i++; } ?>
-										</table>
+									<div class="box">
+										<div class="box-header with-border">
+											<h4 class="box-title">Transactions envoyées</h4>
+										</div>
+										<div class="box-body">
+											<div class="table-responsive">
+												<table class="table no-bordered no-margin table-striped">
+													<thead>
+														<tr>
+															<th>ITM</th>
+															<th>code</th>
+															<th>amount</th>
+															<th>currency</th>
+															<th>type</th>
+														</tr>
+													</thead>
+													<?php $i = 1;
+													foreach ($transactionsended as $value) {
+														# code...
+													?>
+														<tbody>
+															<tr>
+																<th><?= $i ?></th>
+																<td><?= $value->code ?></td>
+																<td><?= $value->amount ?></td>
+																<td><?= $value->currency ?></td>
+																<td><?= $value->type ?></td>
+															</tr>
+
+														</tbody>
+													<?php $i++;
+													} ?>
+												</table>
+											</div>
+										</div>
 									</div>
-								</div>
-							</div>
 								</div>
 								<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-								<div class="box">
-								<div class="box-header with-border">
-									<h4 class="box-title">Transactions recues</h4>
-								</div>
-								<div class="box-body">
-									<div class="table-responsive">
-										<table class="table no-bordered no-margin table-striped">
-											<thead>
-												<tr>
-													<th>ITM</th>
-													<th>code</th>
-													<th>amount</th>
-													<th>currency</th>
-													<th>type</th>
-												</tr>
-											</thead>
-											<?php $i=1; foreach ($transactionreceived as $value) {
-												# code...
-											 ?>
-											<tbody>
-												<tr>
-													<th><?=$i?></th>
-													<td><?=$value->code?></td>
-													<td><?=$value->amount?></td>
-													<td><?=$value->currency?></td>
-													<td><?=$value->type?></td>
-												</tr>
-												
-											</tbody>
-											<?php $i++; } ?>
-										</table>
+									<div class="box">
+										<div class="box-header with-border">
+											<h4 class="box-title">Transactions recues</h4>
+										</div>
+										<div class="box-body">
+											<div class="table-responsive">
+												<table class="table no-bordered no-margin table-striped">
+													<thead>
+														<tr>
+															<th>ITM</th>
+															<th>code</th>
+															<th>amount</th>
+															<th>currency</th>
+															<th>type</th>
+														</tr>
+													</thead>
+													<?php $i = 1;
+													foreach ($transactionreceived as $value) {
+														# code...
+													?>
+														<tbody>
+															<tr>
+																<th><?= $i ?></th>
+																<td><?= $value->code ?></td>
+																<td><?= $value->amount ?></td>
+																<td><?= $value->currency ?></td>
+																<td><?= $value->type ?></td>
+															</tr>
+
+														</tbody>
+													<?php $i++;
+													} ?>
+												</table>
+											</div>
+										</div>
 									</div>
 								</div>
-							</div>
-								</div>
 
 							</div>
 
-						
+
 						</div>
 						<div class="col-xl-4 col-12">
 							<!-- <div class="box">
