@@ -314,9 +314,9 @@
 ?>
 										<div class="vtabs">
 											<ul class="nav nav-tabs tabs-vertical" role="tablist">
-
-												<li class="nav-item"><img class="text-center" src="<?= base_url('assets\logo\codeqr.png') ?>" alt="code qr"> </li>
-											</ul>
+<div class="col-sm-12">
+												<li class="nav-item"><img class="text-center" src="<?= base_url('qrcode/'.$value->business_key.'.png') ?>" alt="code qr"> </li>
+												</div></ul>
 											<!-- Tab panes -->
 											<div class="tab-content">
 												<h4>Business <?=$i;?></h4>
@@ -331,22 +331,12 @@
 
 													<p>Business Key :  <?=$value->business_key?> </p>
 
-													 
+													<?php if ($value->type==1){?>
+													<p>dev Key :  <?=$value->dev_key?> </p>
 
-													<!-- <div class="row">
-																<div class="col-md-6">
-																	<div class="form-group">
-																		<label>E-mail</label>
-																		<input type="text" class="form-control" placeholder="E-mail">
-																	</div>
-																</div>
-																<div class="col-md-6">
-																	<div class="form-group">
-																		<label>Contact Number</label>
-																		<input type="text" class="form-control" placeholder="Phone">
-																	</div>
-																</div>
-															</div> -->
+													  <?php }?>
+
+												
 
 
 												</div>

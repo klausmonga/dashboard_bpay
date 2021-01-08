@@ -290,6 +290,8 @@
 														</tr>
 													</thead>
 													<?php $i = 1;
+													
+													$varferrors = isset($transactionsended) ? $transactionsended : null;
 													foreach ($transactionsended as $value) {
 														# code...
 													?>

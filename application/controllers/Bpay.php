@@ -3,6 +3,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Bpay extends CI_Controller
 {
+	function __construct ()
+{	
+  parent::__construct();
+  $this->load->helper('url');
+  
+}
 
 	public function index()
 	{
@@ -20,6 +26,7 @@ class Bpay extends CI_Controller
 
 	public function profile()
 	{
+		$this->load->library('phpqrcode/qrlib');
 		$this->isconnected();
 		$url = "http://cloudbpay.bvortex.com/index.php/api/getBusiness/" . $this->session->user_id;
 		$ch  = curl_init();
@@ -27,13 +34,23 @@ class Bpay extends CI_Controller
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		$business = curl_exec($ch);
 		$returnedbusiness = json_decode($business);
+
+		foreach ($returnedbusiness as $key => $value) {
+			# code...
+						//file path for store images
+						$SERVERFILEPATH = $_SERVER['DOCUMENT_ROOT'].'/bpay/qrcode/';
+						$text = $value->business_key;		 	
+						$folder = $SERVERFILEPATH;
+						$file_name1 = $text.".png";
+						$file_name = $folder.$file_name1;
+						QRcode::png($text,$file_name,'Q',10,3);
+		}
 		
 		$style['business'] =  $returnedbusiness;
 		$style['style'] = $this->load->view('style', "", true);
 		$style['dashboardlink'] = $this->load->view('dashboardlink', "", true);
 		$this->load->view('profile', $style);
-		print_r($returnedbusiness);
-		
+		 
 	}
 
 	function documentation()
