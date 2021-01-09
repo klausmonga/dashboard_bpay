@@ -190,54 +190,191 @@
 			<div class="container-full">
 				<!-- Main content -->
 				<section class="content">
+					<?php if ($this->session->changesuccess) { ?>
+						<!-- /.modal -->
 
+						<div class="modal fade bs-example-modal-sm center-modal" id="changenum" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" style="display: none;">
+							<div class="modal-dialog modal-sm">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h4 class="modal-title" id="mySmallModalLabel">Alert</h4>
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+									</div>
+									<div class="modal-body text-white text-center">
+										<h5> <?= $this->session->changesuccess ?> </h5>
+									</div>
+								</div>
+								<!-- /.modal-content -->
+							</div>
+							<!-- /.modal-dialog -->
+						</div>
+						<!-- /.modal -->
+
+					<?php } elseif ($this->session->notconnected) { ?>
+						<div class="alert alert-danger alert-dismissible fade show" role="alert">
+							<span class=""><?php echo $this->session->notconnected; ?>
+							</span>
+							<button type="button" class="close" data-dismiss="alert" aria-label="close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div> <?php } ?>
 					<div class="row">
 						<div class="scrolling-wrapper row flex-row flex-nowrap m-1">
 							<div class="col-md-4 col-12 ">
-								<div class="box box-inverse box-dangerr">
-								<img src="<?=base_url('assets\logo\airtel.png')?>" alt="" style="position:absolute; width:25%;margin-left:76%;margin-top:16%">
-								
+								<div data-toggle="modal" data-target="#modifnumairtel" class="box box-inverse box-dangerr">
+									<img src="<?= base_url('assets\logo\airtel.png') ?>" alt="" style="position:absolute; width:25%;margin-left:76%;margin-top:16%">
+
 									<div class="box-header with-border">
-										<h4 class="box-title"><strong>Numero airtel money</strong></h4>										 
+										<h4 class="box-title"><strong>Numero airtel money</strong></h4>
 									</div>
-									<div class="box-body" style="width:700px" >
-									<h5> <strong> 0991234568</strong></h5>
+									<div class="box-body" style="width:700px">
+										<h5> <strong><?= $this->session->tel_airtel; ?>
+											</strong></h5>
 									</div>
 								</div>
 							</div>
 
+							<!-- Modal -->
+							<div class="modal fade" id="modifnumairtel" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered" role="document">
+									<div class="modal-content">
+										<div class="modal-header text-center">
+											<h4 class="modal-title text-white " id="exampleModalCenterTitle">Modifier numero Airtel money</h4>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+										<div class="modal-body text-white ">
+											<form action="<?= site_url('bpay\changenumber') ?>" method="post">
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label>Ancien numero</label>
+															<input type="text" class="form-control" name="old_number" placeholder="Ancien numero" value="">
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label>Nouveau numero</label>
+															<input type="text" class="form-control" name="new_number" placeholder="Nouveau numero" value="">
+														</div>
+													</div>
+												</div>
+
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+											<button type="submit" class="btn btn-primary">Modifier</button>
+										</div>
+										</form>
+									</div>
+								</div>
+							</div>
 							<div class="col-md-4 col-12 ">
-								<div class="box box-inverse box-dangerr">
-								<img src="<?=base_url('assets\logo\mpsa.png')?>" alt="" style="position:absolute; width:34%;margin-left:66%;margin-top:13%">
-								
+								<div data-toggle="modal" data-target="#modifnumvdc" class="box box-inverse box-dangerr">
+									<img src="<?= base_url('assets\logo\mpsa.png') ?>" alt="" style="position:absolute; width:34%;margin-left:66%;margin-top:13%">
+
 									<div class="box-header with-border">
-										<h4 class="box-title">  <strong>Numero m-psa</strong> </h4>										 
+										<h4 class="box-title"> <strong>Numero m-psa</strong> </h4>
 									</div>
 									<div class="box-body">
-									<h5> <strong> 0821234568</strong></h5>
+										<h5> <strong> <?= $this->session->tel_vodacom; ?></strong></h5>
+									</div>
+								</div>
+							</div>
+							<!-- Modal -->
+							<div class="modal fade" id="modifnumvdc" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered" role="document">
+									<div class="modal-content">
+										<div class="modal-header text-center">
+											<h4 class="modal-title text-white " id="exampleModalCenterTitle">Modifier numero M-psa</h4>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+										<div class="modal-body text-white ">
+											<form action="<?= site_url('bpay\changenumber') ?>" method="post">
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label>Ancien numero</label>
+															<input type="text" class="form-control" name="old_number" placeholder="Ancien numero" value="">
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label>Nouveau numero</label>
+															<input type="text" class="form-control" name="new_number" placeholder="Nouveau numero" value="">
+														</div>
+													</div>
+												</div>
+
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+											<button type="submit" class="btn btn-primary">Modifier</button>
+										</div>
+										</form>
 									</div>
 								</div>
 							</div>
 							<div class="col-md-4 col-12">
-								<div class="box colot box-inverse" >
-								<img src="<?=base_url('assets\logo\orange.png')?>" alt="" style="position:absolute; width:40%;margin-left:63%;margin-top:10%">
-									
+								<div data-toggle="modal" data-target="#modifnumorage" class="box colot box-inverse">
+									<img src="<?= base_url('assets\logo\orange.png') ?>" alt="" style="position:absolute; width:40%;margin-left:63%;margin-top:10%">
+
 									<div class="box-header with-border">
-										<h4 class="box-title"> <strong>Numero orange-money</strong>  </h4>										 
+										<h4 class="box-title"> <strong>Numero orange-money</strong> </h4>
 									</div>
 									<div class="box-body">
-									 <h5> <strong> 0851234568</strong></h5>
+										<h5> <strong> <?= $this->session->tel_orange; ?></strong></h5>
 									</div>
 								</div>
 							</div>
- 
-							<style> .scrolling-wrapper{
-								overflow-x: auto;
-							}.colo{
-								 background-color: #ff7f00!important; 
-								background-image: url(<?=base_url('assets\logo\airtel.png')?>)!important;
-							}
-							 
+<!-- Modal -->
+<div class="modal fade" id="modifnumorage"" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered" role="document">
+									<div class="modal-content">
+										<div class="modal-header text-center">
+											<h4 class="modal-title text-white " id="exampleModalCenterTitle">Modifier numero Orange money</h4>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+										<div class="modal-body text-white ">
+											<form action="<?= site_url('bpay\changenumber') ?>" method="post">
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label>Ancien numero</label>
+															<input type="text" class="form-control" name="old_number" placeholder="Ancien numero" value="">
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label>Nouveau numero</label>
+															<input type="text" class="form-control" name="new_number" placeholder="Nouveau numero" value="">
+														</div>
+													</div>
+												</div>
+
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+											<button type="submit" class="btn btn-primary">Modifier</button>
+										</div>
+										</form>
+									</div>
+								</div>
+							</div>
+							<style>
+								.scrolling-wrapper {
+									overflow-x: auto;
+								}
+
+								.colo {
+									background-color: #ff7f00 !important;
+									background-image: url(<?= base_url('assets\logo\airtel.png') ?>) !important;
+								}
 							</style>
 						</div>
 						<div class="col-lg-6 col-12">
@@ -254,13 +391,13 @@
 											<div class="col-md-6">
 												<div class="form-group">
 													<label>Nom</label>
-													<input type="text" class="form-control" readonly placeholder="First Name" value="<?=$this->session->fullname;?>">
+													<input type="text" class="form-control" readonly placeholder="First Name" value="<?= $this->session->fullname; ?>">
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
 													<label>Pseudo</label>
-													<input type="text" class="form-control" readonly placeholder="Last Name" value="<?=$this->session->pseudo;?>">
+													<input type="text" class="form-control" readonly placeholder="Last Name" value="<?= $this->session->pseudo; ?>">
 												</div>
 											</div>
 										</div>
@@ -268,7 +405,7 @@
 											<div class="col-md-6">
 												<div class="form-group">
 													<label>E-mail</label>
-													<input type="text" class="form-control" readonly placeholder="E-mail" value="<?=$this->session->email;?>">
+													<input type="text" class="form-control" readonly placeholder="E-mail" value="<?= $this->session->email; ?>">
 												</div>
 											</div>
 											<div class="col-md-6">
@@ -301,65 +438,68 @@
 								</div> -->
 								<!-- /.box-header -->
 
-								 
 
-									<div class="box-body">
 
-										<h4 class="box-title text-info"></i>Business</h4>
+								<div class="box-body">
 
-										<hr class="my-15">
+									<h4 class="box-title text-info"></i>Business</h4>
 
-<?php $i=1; foreach ($business as  $value) {
-	# code...
-?>
+									<hr class="my-15">
+
+									<?php $i = 1;
+									foreach ($business as  $value) {
+										# code...
+									?>
 										<div class="vtabs">
 											<ul class="nav nav-tabs tabs-vertical" role="tablist">
-<div class="col-sm-12">
-												<li class="nav-item"><img class="text-center" src="<?= base_url('qrcode/'.$value->business_key.'.png') ?>" alt="code qr"> </li>
-												</div></ul>
+												<div class="col-sm-12">
+													<li class="nav-item"><img class="text-center" src="<?= base_url('qrcode/' . $value->business_key . '.png') ?>" alt="code qr"> </li>
+												</div>
+											</ul>
 											<!-- Tab panes -->
 											<div class="tab-content">
-												<h4>Business <?=$i;?></h4>
+												<h4>Business <?= $i; ?></h4>
 												<hr>
 												<div class="tab-pane active" id="home4" role="tabpanel">
 
 													<!-- <div class="form-group">
 																<label>Email</label>
 																<input class="form-control" type="email" placeholder="email">
-															</div> --> 
-													<p>Description :  <?=$value->description?></p>
+															</div> -->
+													<p>Description : <?= $value->description ?></p>
 
-													<p>Business Key :  <?=$value->business_key?> </p>
+													<p>Business Key : <?= $value->business_key ?> </p>
 
-													<?php if ($value->type==1){?>
-													<p>dev Key :  <?=$value->dev_key?> </p>
+													<?php if ($value->type == 1) { ?>
+														<p>dev Key : <?= $value->dev_key ?> </p>
 
-													  <?php }?>
-
-												
-
-
-												</div>
-												<?php if ($value->is_expired == 0){
-
-												 ?>
-												<div class="text-right">
-													<span class="label label-success">Actif</span>
-												</div>
-												<?php } else{ ?>
-													<div class="text-right">
-													<span class="label label-danger">exired</span>
-													</div>
 													<?php } ?>
+
+
+
+
+												</div>
+												<?php if ($value->is_expired == 0) {
+
+												?>
+													<div class="text-right">
+														<span class="label label-success">Actif</span>
+													</div>
+												<?php } else { ?>
+													<div class="text-right">
+														<span class="label label-danger">exired</span>
+													</div>
+												<?php } ?>
 											</div>
 										</div>
-<?php $i++; } ?>
-									</div>
-									<!-- /.box-body -->
-									<div class="box-footer text-right">
-										<button type="button" class="waves-effect waves-circle btn btn-circle btn-info btn-sm mb-5"><i class="mdi mdi-plus"></i></button>
-									</div>
-								
+									<?php $i++;
+									} ?>
+								</div>
+								<!-- /.box-body -->
+								<div class="box-footer text-right">
+									<button type="button" class="waves-effect waves-circle btn btn-circle btn-info btn-sm mb-5"><i class="mdi mdi-plus"></i></button>
+								</div>
+
 							</div>
 							<!-- /.box -->
 						</div>
@@ -681,3 +821,14 @@
 </body>
 
 </html>
+<!-- <script type="text/javascript">
+  $(window).load(function(){
+	  $('#changenum').modal('show');
+  });
+  </script> -->
+
+<script type="text/javascript">
+	$(window).on('load', function() {
+		$('#changenum').modal('show');
+	});
+</script>

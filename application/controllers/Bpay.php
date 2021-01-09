@@ -27,6 +27,7 @@ class Bpay extends CI_Controller
 	public function profile()
 	{
 		$this->load->library('phpqrcode/qrlib');
+
 		$this->isconnected();
 		$url = "http://cloudbpay.bvortex.com/index.php/api/getBusiness/" . $this->session->user_id;
 		$ch  = curl_init();
@@ -34,7 +35,7 @@ class Bpay extends CI_Controller
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		$business = curl_exec($ch);
 		$returnedbusiness = json_decode($business);
-
+		
 		foreach ($returnedbusiness as $key => $value) {
 			# code...
 						//file path for store images
@@ -45,7 +46,6 @@ class Bpay extends CI_Controller
 						$file_name = $folder.$file_name1;
 						QRcode::png($text,$file_name,'Q',10,3);
 		}
-		
 		$style['business'] =  $returnedbusiness;
 		$style['style'] = $this->load->view('style', "", true);
 		$style['dashboardlink'] = $this->load->view('dashboardlink', "", true);
@@ -86,6 +86,8 @@ class Bpay extends CI_Controller
 			$data_session = array(
 				'pseudo' => $donnee->user->pseudo,
 				'tel_airtel' => $donnee->user->tel_airtel,
+				'tel_orange'=>$donnee->user->tel_orange,
+				'tel_vodacom'=>$donnee->user->tel_vodacom,
 				'fullname' => $donnee->user->fullname,
 				'email' => $donnee->user->email,
 				'user_id' => $donnee->user->id,
@@ -121,6 +123,27 @@ class Bpay extends CI_Controller
 			$this->load->view('dashboard', $style);
 		}
 		curl_close($ch);
+	}
+
+	function changenumber()
+	{
+		$url = "http://cloudbpay.bvortex.com/index.php/api/update_phone_number";
+		$datas = array('phone_number' => $_POST['old_number'], 'number' => $_POST['new_number']);
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $datas);
+		$result = curl_exec($ch);
+		$decode= json_decode($result);
+		
+			
+			$this->session->set_userdata('tel_airtel',$decode->user->tel_airtel);			
+			$this->session->set_userdata('tel_vodacom',$decode->user->tel_vodacom);
+			$this->session->set_userdata('tel_orange',$decode->user->tel_orange);
+			$this->session->set_flashdata('changesuccess', 'Numero changé avec succès !');
+			redirect('Bpay\profile');
+		// print_r($decode->user->id);
 	}
 
 	function logout()
