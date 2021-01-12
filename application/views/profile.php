@@ -147,7 +147,7 @@
 							</a>
 							<ul class="dropdown-menu animated flipInX">
 								<!-- User image -->
-								<li class="user-header bg-img" style="background-image: url(<?= base_url('assets/images/user-info.jpg') ?>)" data-overlay="3">
+								<li data-toggle="modal" data-target="#profil" class="user-header bg-img" style="background-image: url(<?= base_url('assets/images/user-info.jpg') ?>)" data-overlay="3">
 									<div class="flexbox align-self-center">
 										<img src="<?= base_url('assets/images/avatar/7.jpg') ?>" class="float-left rounded-circle" alt="User Image">
 										<h4 class="user-name align-self-center">
@@ -175,7 +175,218 @@
 				</div>
 			</nav>
 		</header>
+		<!-- Modal -->
+		<div class="modal fade" id="profil" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header text-center">
+						<h5 class="modal-title text-white text-center" id="exampleModalCenterTitle">
+							<ul class="nav nav-pills mb-3 " id="pills-tab" role="tablist">
+								<li class="nav-item">
+									<a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Modifier le pseudo</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Modifier le mail</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link " id="nom" data-toggle="pill" href="#pills-nom" role="tab" aria-controls="pills-home" aria-selected="true">Modifier le Nom</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" id="password" data-toggle="pill" href="#pills-password" role="tab" aria-controls="pills-profile" aria-selected="false">Modifier le mot de pass</a>
+								</li>
 
+							</ul>
+						</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body text-white ">
+
+						<div class="tab-content" id="pills-tabContent">
+							<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+								<div class="box-header with-border">
+									<h4 class="box-title">Modifier le pseudo</h4>
+								</div>
+								<div class="box-body">
+									<form action="<?= site_url('bpay\modifprofie') ?>" method="post" id="modiform">
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>Nouveau pseudo</label>
+													<input type="text" class="form-control" name="pseudo" placeholder="Nouveau pseudo" value="">
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>Nom</label>
+													<input type="text" class="form-control" name="name" placeholder="Nom" value="">
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>Numero</label>
+													<input type="text" class="form-control" name="number" placeholder="numero" value="">
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>email</label>
+													<input type="email" class="form-control" name="email" placeholder="Email" value="">
+												</div>
+											</div>
+										</div>
+										<hr>
+										<div class="text-right">
+											<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+											<button type="submit" class="btn btn-primary">Modifier</button>
+										</div>
+									</form>
+								</div>
+							</div>
+							<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+								<div class="box-header with-border">
+									<h4 class="box-title">Modifier le mail</h4>
+								</div>
+								<div class="box-body">
+									<form action="<?= site_url('bpay\modifprofie') ?>" method="post" id="modiform">
+										<div class="row">
+											<div class="col-md-6">
+
+												<div class="form-group">
+													<label>Nouveau mail</label>
+													<input type="email" class="form-control" name="email" placeholder="nouveau mail" value="">
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>pseudo</label>
+													<input type="text" class="form-control" name="pseudo" placeholder="pseudo" value="">
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>Numero</label>
+													<input type="text" class="form-control" name="number" placeholder="numero" value="">
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>Nom</label>
+													<input type="text" class="form-control" name="name" placeholder="Nom" value="">
+												</div>
+											</div>
+										</div>
+										<hr>
+										<div class="text-right">
+											<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+											<button type="submit" class="btn btn-primary">Modifier</button>
+										</div>
+									</form>
+								</div>
+
+							</div>
+							<div class="tab-pane fade" id="pills-nom" role="tabpanel" aria-labelledby="nom">
+
+								<div class="box-header with-border">
+									<h4 class="box-title">Modifier le nom</h4>
+								</div>
+								<div class="box-body">
+									<form action="<?= site_url('bpay\modifprofie') ?>" method="post" id="modiform">
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>Nouveau nom</label>
+													<input type="text" class="form-control" name="name" placeholder="Nouveau nom" value="">
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>pseudo</label>
+													<input type="text" class="form-control" name="pseudo" placeholder="pseudo" value="">
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>Numero</label>
+													<input type="text" class="form-control" name="number" placeholder="numero" value="">
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>email</label>
+													<input type="email" class="form-control" name="email" placeholder="Email" value="">
+												</div>
+											</div>
+										</div>
+										<hr>
+										<div class="text-right">
+											<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+											<button type="submit" class="btn btn-primary">Modifier</button>
+										</div>
+									</form>
+
+								</div>
+							</div>
+							<div class="tab-pane fade" id="pills-password" role="tabpanel" aria-labelledby="password">
+
+								<div class="box-header with-border">
+									<h4 class="box-title">Mot de passe</h4>
+								</div>
+								<div class="box-body">
+								<form action="<?= site_url('bpay\modifprofie') ?>" method="post" id="modiform">
+										<div class="row">
+											<div class="col-md-6">
+
+												<div class="form-group">
+													<label>Ancien mot de passe</label>
+													<input type="password" class="form-control" name="password" placeholder="Ancien mot de passe" value="">
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>Nouveau mot de passe</label>
+													<input type="password" class="form-control" name="new_password" placeholder="Nouveau mot de passe" value="">
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>Numero</label>
+													<input type="tel" class="form-control" name="number" placeholder="numero" value="">
+												</div>
+											</div>
+											 
+										</div>
+										<hr>
+										<div class="text-right">
+											<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+											<button type="submit" class="btn btn-primary">Modifier</button>
+										</div>
+									</form>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+					<!-- <div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+						<button type="submit" form="modiforme" class="btn btn-primary">Modifier</button>
+					</div> -->
+
+				</div>
+			</div>
+		</div>
 		<!-- Left side column. contains the logo and sidebar -->
 		<aside class="main-sidebar">
 			<!-- sidebar-->
@@ -250,13 +461,13 @@
 													<div class="col-md-6">
 														<div class="form-group">
 															<label>Ancien numero</label>
-															<input type="text" class="form-control" name="old_number" placeholder="Ancien numero" value="">
+															<input type="text" class="form-control" name="old_number" placeholder="Ancien numero" value="" required>
 														</div>
 													</div>
 													<div class="col-md-6">
 														<div class="form-group">
 															<label>Nouveau numero</label>
-															<input type="text" class="form-control" name="new_number" placeholder="Nouveau numero" value="">
+															<input type="text" class="form-control" name="new_number" placeholder="Nouveau numero" value="" required>
 														</div>
 													</div>
 												</div>
@@ -298,13 +509,13 @@
 													<div class="col-md-6">
 														<div class="form-group">
 															<label>Ancien numero</label>
-															<input type="text" class="form-control" name="old_number" placeholder="Ancien numero" value="">
+															<input type="text" class="form-control" name="old_number" placeholder="Ancien numero" value="" required>
 														</div>
 													</div>
 													<div class="col-md-6">
 														<div class="form-group">
 															<label>Nouveau numero</label>
-															<input type="text" class="form-control" name="new_number" placeholder="Nouveau numero" value="">
+															<input type="text" class="form-control" name="new_number" placeholder="Nouveau numero" value="" required>
 														</div>
 													</div>
 												</div>
@@ -330,8 +541,8 @@
 									</div>
 								</div>
 							</div>
-<!-- Modal -->
-<div class="modal fade" id="modifnumorage"" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+							<!-- Modal -->
+							<div class="modal fade" id="modifnumorage"" tabindex=" -1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 								<div class="modal-dialog modal-dialog-centered" role="document">
 									<div class="modal-content">
 										<div class="modal-header text-center">
@@ -346,13 +557,13 @@
 													<div class="col-md-6">
 														<div class="form-group">
 															<label>Ancien numero</label>
-															<input type="text" class="form-control" name="old_number" placeholder="Ancien numero" value="">
+															<input type="text" class="form-control" name="old_number" placeholder="Ancien numero" value="" required>
 														</div>
 													</div>
 													<div class="col-md-6">
 														<div class="form-group">
 															<label>Nouveau numero</label>
-															<input type="text" class="form-control" name="new_number" placeholder="Nouveau numero" value="">
+															<input type="text" class="form-control" name="new_number" placeholder="Nouveau numero" value="" required>
 														</div>
 													</div>
 												</div>
