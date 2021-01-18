@@ -18,6 +18,30 @@ class Bpay extends CI_Controller
 	public function dashboard()
 	{
 		$this->isconnected();
+		 #transactions envoyees
+		 $url = "http://cloudbpay.bvortex.com/index.php/api/get_sended_tx/" . $this->session->user_id;
+		 $ch = curl_init();
+		 curl_setopt($ch, CURLOPT_URL, $url);
+		 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		 curl_setopt($ch, CURLOPT_POST, 1);
+
+		 $resultsended = curl_exec($ch);
+		 $transactionsended = json_decode($resultsended);
+		 //  print_r($resultsended); 
+
+		 #transaction recues 
+		 $urlreceived = "http://cloudbpay.bvortex.com/index.php/api/get_received_tx/" . $this->session->user_id;
+		 $chreceived = curl_init();
+		 curl_setopt($chreceived, CURLOPT_URL, $urlreceived);
+		 curl_setopt($chreceived, CURLOPT_RETURNTRANSFER, 1);
+		 curl_setopt($chreceived, CURLOPT_POST, 1);
+		 $resultreceived = curl_exec($chreceived);
+		 $transactionreceived = json_decode($resultreceived);
+		 
+		 // print_r($resultreceived);exit;
+		 $style['style'] = $this->load->view('style', "", true); 
+		 $style['transactionsended'] = $transactionsended;
+		 $style['transactionreceived'] = $transactionreceived;
 		$style['style'] = $this->load->view('style', "", true);
 		$style['dashboardlink'] = $this->load->view('dashboardlink', "", true);
 
@@ -122,7 +146,7 @@ class Bpay extends CI_Controller
 			curl_setopt($chreceived, CURLOPT_POST, 1);
 			$resultreceived = curl_exec($chreceived);
 			$transactionreceived = json_decode($resultreceived);
-
+		 
 			// print_r($resultreceived);exit;
 			$style['style'] = $this->load->view('style', "", true);
 			$style['dashboardlink'] = $this->load->view('dashboardlink', "", true);
