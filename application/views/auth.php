@@ -11,7 +11,7 @@
 
 <body>
 
-	<div class="container">
+	<div class="container" >
 
 		<div class="wrapper fadeInDown row m-4">
 			<div class="col-sm-5 offset-4">
@@ -19,35 +19,19 @@
 					<img class="mb-4" src="<?= base_url('assets\images\logo\bpay.png') ?>" alt="Logo Bpay" width="200">
 				</div>
 				<?php if ($this->session->checkFailed) { ?>
-					<div class="modal fade bs-example-modal-sm center-modal" id="changenum" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" style="display: none;">
-						<div class="modal-dialog modal-sm">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h4 class="modal-title" id="mySmallModalLabel">Alert</h4>
-									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-								</div>
-								<div class="modal-body text-white text-center">
-									<h5> <?= $this->session->checkFailed ?> </h5>
-								</div>
-							</div>
-							<!-- /.modal-content -->
-						</div>
-						<!-- /.modal-dialog -->
-					</div><?php } elseif ($this->session->notconnected) { ?>
-					<div class="modal fade bs-example-modal-sm center-modal" id="changenum" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" style="display: none;">
-						<div class="modal-dialog modal-sm">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h4 class="modal-title" id="mySmallModalLabel">Alert</h4>
-									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-								</div>
-								<div class="modal-body text-white text-center">
-									<h5> <?= $this->session->notconnected ?> </h5>
-								</div>
-							</div>
-							<!-- /.modal-content -->
-						</div>
-						<!-- /.modal-dialog -->
+					<div class="alert alert-danger alert-dismissible fade show" role="alert">
+						<span class=""><?php echo $this->session->checkFailed; ?>
+						</span>
+						<button type="button" class="close" data-dismiss="alert" aria-label="close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div><?php }elseif($this->session->notconnected){?>
+						<div class="alert alert-danger alert-dismissible fade show" role="alert">
+						<span class=""><?php echo $this->session->notconnected; ?>
+						</span>
+						<button type="button" class="close" data-dismiss="alert" aria-label="close">
+							<span aria-hidden="true">&times;</span>
+						</button>
 					</div> <?php } ?>
 				<div class="wrapper fadeInDown row m-6">
 					<div class="container p-3 my-3 border" style="border-radius: 5px 5px 5px 5px;">
@@ -80,14 +64,8 @@
 
 	<script type="text/javascript" src="<?= base_url('assets\js\jquery.min.js') ?>"></script>
 	<script src="<?= base_url('assets\js\bootstrap.bundle.min.js') ?>"></script>
-
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </body>
 
 </html>
-
-<script type="text/javascript">
-	$(window).on('load', function() {
-		$('#changenum').modal('show');
-	});
-</script>

@@ -39,7 +39,8 @@ class Bpay extends CI_Controller
 		foreach ($returnedbusiness as $key => $value) {
 			# code...
 						//file path for store images
-						$SERVERFILEPATH = $_SERVER['DOCUMENT_ROOT'].'/bpay/qrcode/';
+						 
+						$SERVERFILEPATH = 'qrcode/';
 						$text = $value->business_key;		 	
 						$folder = $SERVERFILEPATH;
 						$file_name1 = $text.".png";
@@ -68,7 +69,7 @@ class Bpay extends CI_Controller
 
 	function connexion()
 	{
-
+		
 		$url = "http://cloudbpay.bvortex.com/index.php/api/login";
 		$datas = array('phone_number' => $_POST['phone_number'], 'password' => $_POST['password']);
 		$ch = curl_init();
@@ -78,12 +79,18 @@ class Bpay extends CI_Controller
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $datas);
 		$result = curl_exec($ch);
 		$donnee = json_decode($result);
-		// print_r($donnee); exit;
-		$varferrors = isset($donnee->error) ? $donnee->error : null;
-		if ($varferrors) {
+		 
+		
+		// $varferrors = isset($donnee->form_errors)? $donnee->error : null;
+		
+		if ( isset($donnee->form_errors) || (isset($donnee->error)) ) {
 			$this->session->set_flashdata('checkFailed', 'Mot de passe ou username incorrect');
+			// exit;
+			redirect('bpay\loginv');			
+		} elseif (empty($donnee)) {
+			$this->session->set_flashdata('checkFailed', 'Check your internet connexion'); 
 			redirect('bpay\loginv');
-		} else {
+		}else{
 			$data_session = array(
 				'pseudo' => $donnee->user->pseudo,
 				'tel_airtel' => $donnee->user->tel_airtel,
@@ -124,6 +131,7 @@ class Bpay extends CI_Controller
 			$this->load->view('dashboard', $style);
 		}
 		curl_close($ch);
+		 
 	}
 
 	function changenumber()
