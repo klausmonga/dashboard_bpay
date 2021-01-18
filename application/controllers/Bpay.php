@@ -50,7 +50,7 @@ class Bpay extends CI_Controller
 
 	public function profile()
 	{ 
-		$this->load->library('phpqrcode/qrlib');
+		$this->load->library('phpqrcode/Qrlib');
 
 		$this->isconnected();
 		$url = "http://cloudbpay.bvortex.com/index.php/api/getBusiness/" . $this->session->user_id;
