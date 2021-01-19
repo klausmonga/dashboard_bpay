@@ -356,6 +356,11 @@
 
 						</div>
 						<div class="col-xl-4 col-12">
+						<style> 
+						.table-responsive {
+    max-height:400px;
+}
+						</style>
 							<!-- <div class="box">
 								<div class="box-header">
 									<h4 class="box-title">User Flow</h4>
