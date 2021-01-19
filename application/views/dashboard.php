@@ -299,9 +299,9 @@
 															<tr>
 																<th><?= $i ?></th>
 																<td><?= $value->code ?></td>
-																<td><?= $value->amount ?></td>
+																<td><i class="fa fa-arrow-up text-danger"></i><?= $value->amount ?></td>
 																<td><?= $value->currency ?></td>
-																<td><?= $value->type ?></td>
+																<td><span class="label label-success"><?= $value->type ?></span></td>
 															</tr>
 
 														</tbody>
@@ -337,9 +337,9 @@
 															<tr>
 																<th><?= $i ?></th>
 																<td><?= $value->code ?></td>
-																<td><?= $value->amount ?></td>
+																<td><i class="fa fa-arrow-down text-success"></i><?= $value->amount ?></td>
 																<td><?= $value->currency ?></td>
-																<td><?= $value->type ?></td>
+																<td><span class="label label-success"><?= $value->type ?></span></td>
 															</tr>
 
 														</tbody>
