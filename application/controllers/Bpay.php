@@ -12,7 +12,8 @@ class Bpay extends CI_Controller
 
 	public function index()
 	{
-		$this->load->view('home');
+		$style['style'] = $this->load->view('style', "", true);
+		$this->load->view('auth',$style);
 	}
 
 	public function dashboard()
@@ -39,7 +40,7 @@ class Bpay extends CI_Controller
 		 $transactionreceived = json_decode($resultreceived);
 		 
 		 // print_r($resultreceived);exit;
-		 $style['style'] = $this->load->view('style', "", true); 
+		
 		 $style['transactionsended'] = $transactionsended;
 		 $style['transactionreceived'] = $transactionreceived;
 		$style['style'] = $this->load->view('style', "", true);
@@ -88,7 +89,8 @@ class Bpay extends CI_Controller
 
 	public function loginv()
 	{
-		$this->load->view('auth');
+		$style['style'] = $this->load->view('style', "", true);
+		$this->load->view('auth',$style);
 	}
 
 	function connexion()
