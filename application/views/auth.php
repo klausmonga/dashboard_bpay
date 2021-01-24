@@ -30,7 +30,7 @@
 						<h4 class="modal-title" id="mySmallModalLabel">Alert</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 					</div>
-					<div class="modal-body text-danger text-center">
+					<div class="modal-body text-dan ger text-center">
 						<h5> <?= $this->session->checkFailed ?> </h5>
 					</div>
 				</div>
@@ -46,7 +46,7 @@
 						<h4 class="modal-title" id="mySmallModalLabel">Alert</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 					</div>
-					<div class="modal-body text-danger text-center">
+					<div class="modal-body text-dan ger text-center">
 						<h5> <?= $this->session->notconnected ?> </h5>
 					</div>
 				</div>
@@ -58,6 +58,17 @@
 	<style>
 		.bg-gradient-primary {
 			background: #000b52 !important;
+		}
+		.btn-success{
+			background-color: #49c0f8!important;
+			 
+		}
+		.btn-success:hover{
+			background-color: #49c0f8!important;
+			 
+		}
+		.modal-content{
+		background-color: #000b52!important;
 		}
 	</style>
 	<div class="auth-2-outer row align-items-center h-p100 m-0">

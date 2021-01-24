@@ -18,7 +18,9 @@
 
 
 	<link rel="stylesheet" href="<?= base_url('assets/css/skin_color.css') ?>">
-
+	<link href="<?= base_url('assets/icon/css/fontawesome.css') ?>" rel="stylesheet">
+	<link href="<?= base_url('assets/icon/css/brands.css') ?>" rel="stylesheet">
+	<link href="<?= base_url('assets/icon/css/solid.css') ?>" rel="stylesheet">
 	<!-- style vendor -->
 	<?= $style; ?>
 
@@ -342,7 +344,7 @@
 									<h4 class="box-title">Mot de passe</h4>
 								</div>
 								<div class="box-body">
-								<form action="<?= site_url('bpay\modifprofie') ?>" method="post" id="modiform">
+									<form action="<?= site_url('bpay\modifprofie') ?>" method="post" id="modiform">
 										<div class="row">
 											<div class="col-md-6">
 
@@ -365,7 +367,7 @@
 													<input type="tel" class="form-control" name="number" placeholder="numero" value="">
 												</div>
 											</div>
-											 
+
 										</div>
 										<hr>
 										<div class="text-right">
@@ -650,66 +652,57 @@
 								<!-- /.box-header -->
 
 
-
-								<div class="box-body">
-
-									<h4 class="box-title text-info"></i>Business</h4>
-
-									<hr class="my-15">
-
-									<?php $i = 1;
-									foreach ($business as  $value) {
-										# code...
-									?>
-										<div class="vtabs">
-											<ul class="nav nav-tabs tabs-vertical" role="tablist">
-												<div class="col-sm-12">
-													<li class="nav-item"><img class="text-center" src="<?= base_url('qrcode/' . $value->business_key . '.png') ?>" alt="code qr"> </li>
-												</div>
-											</ul>
-											<!-- Tab panes -->
-											<div class="tab-content">
-												<h4>Business <?= $i; ?></h4>
-												<hr>
-												<div class="tab-pane active" id="home4" role="tabpanel">
-
-													<!-- <div class="form-group">
-																<label>Email</label>
-																<input class="form-control" type="email" placeholder="email">
-															</div> -->
-													<p>Description : <?= $value->description ?></p>
-
-													<p>Business Key : <?= $value->business_key ?> </p>
-
-													<?php if ($value->type == 1) { ?>
-														<p>dev Key : <?= $value->dev_key ?> </p>
-
-													<?php } ?>
-
-
-
-
-												</div>
-												<?php if ($value->is_expired == 0) {
-
-												?>
-													<div class="text-right">
-														<span class="label label-success">Actif</span>
+								<div class="box">
+									<div class="box-header">
+										<h4 class="box-title">
+											Business
+										</h4>
+									</div>
+									<div class="box-body p-0">
+										<div id="slimtest1">
+											<div class="d-flex bb-1 py-10 px-15">
+												<div class="mr-2"><img src="<?= base_url('assets/icon/shop_50px.png') ?>" alt="" srcset=""></div>
+												<div>
+													<h4 class="mb-0">Shop</h4>
+													<p class="text-fade"><small>0.001 BTC ~ $ 875.86</small></p>
+													<div>
+														<button type="button" class="waves-effect waves-light btn btn-outline btn-primary mb-5"><i class="fa fa-paper-plane"></i> Abonnement</button>
+														<button type="button" class="waves-effect waves-light btn btn-outline btn-info mb-5"><i class="fa fa-money"></i> Recevoir</button>
 													</div>
-												<?php } else { ?>
-													<div class="text-right">
-														<span class="label label-danger">exired</span>
-													</div>
-												<?php } ?>
+												</div>
 											</div>
+											<div class="d-flex bb-1 py-10 px-15">
+												<div class="mr-2"><img src="<?= base_url('assets/icon/taxi_50px.png') ?>" alt="" srcset=""></div>
+												<div>
+													<h4 class="mb-0">Taxi</h4>
+													<p class="text-fade"><small>0.000000000DASH ~ $0.00</small></p>
+													<div>
+														<button type="button" class="waves-effect waves-light btn btn-outline btn-primary mb-5" data-toggle="modal" data-target="#abonnement"><i class="fa fa-paper-plane"></i> Abonnement</button>
+														<button type="button" class="waves-effect waves-light btn btn-outline btn-info mb-5" data-toggle="modal" data-target="#recevoir"><i class="fa fa-money"></i> Recevoir</button>
+													</div>
+												</div>
+											</div>
+											<div class="d-flex bb-1 py-10 px-15">
+												<div class="mr-2"><img src="<?= base_url('assets/icon/e-commerce_50px.png') ?>" alt="" srcset=""></div>
+												<div>
+													<h4 class="mb-0">E-commerce</h4>
+													<p class="text-fade"><small>0.00ETH ~ $0.00</small></p>
+													<div>
+														<button type="button" class="waves-effect waves-light btn btn-outline btn-primary mb-5"><i class="fa fa-paper-plane"></i> Abonnement</button>
+														<button type="button" class="waves-effect waves-light btn btn-outline btn-info mb-5"><i class="fa fa-money"></i> Recevoir</button>
+													</div>
+												</div>
+											</div> 
 										</div>
-									<?php $i++;
-									} ?>
+									</div>
+									<div class="box-footer p-0 bg-light">
+										<a href="#" class="d-block p-15 text-center" data-toggle="modal" data-target="#new_business"><i class="fa fa-plus"></i> Ajouter un business</a>
+										<!-- <button type="button" class="waves-effect waves-light btn btn-outline btn-info mb-5"><i class="fa fa-plus"></i> Receive</button> -->
+									</div>
 								</div>
 								<!-- /.box-body -->
-								<div class="box-footer text-right">
-									<button type="button" class="waves-effect waves-circle btn btn-circle btn-info btn-sm mb-5"><i class="mdi mdi-plus"></i></button>
-								</div>
+
+
 
 							</div>
 							<!-- /.box -->
@@ -1013,7 +1006,7 @@
 
 	<!-- Vendor JS -->
 	<script type="text/javascript" src="<?= base_url('assets/js/vendors.min.js') ?>"></script>
-
+	<script type="text/javascript" src="<?= base_url('assets\assets\vendor_components\bootstrap-select\dist\js\bootstrap-select.js') ?>"></script>
 	<script src="<?= base_url('assets/assets/vendor_components/apexcharts-bundle/data.js') ?>"></script>
 	<script src="<?= base_url('assets/assets/vendor_components/apexcharts-bundle/dist/apexcharts.js') ?>"></script>
 	<!-- <script src="https://www.amcharts.com/lib/4/core.js"></script>
@@ -1022,13 +1015,112 @@
 	<script src="https://www.amcharts.com/lib/4/themes/dark.js"></script>
 	<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script> -->
 	<script src="<?= base_url('assets/assets/vendor_components/Web-Ticker-master/jquery.webticker.min.js') ?>"></script>
-
+	<script src="<?= base_url('assets/assets/vendor_components/bootstrap-select/dist/js/bootstrap-select.js') ?>"></script>
 	<!-- Crypto Tokenizer Admin App -->
 	<script src="<?= base_url('assets/js/template.js') ?>"></script>
 	<script src="<?= base_url('assets\js\pages\dashboard9.js') ?>"></script>
 	<script src="<?= base_url('assets\js\demo.js') ?>"></script>
 
+	<!-- Modal -->
+	<div class="modal   fade" id="recevoir">
+		<div class="modal-dialog">
+			<div class="modal-content  ">
+				<div class="modal-header">
+					<h4 class="modal-title">recevoir</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span></button>
+				</div>
+				<div class="modal-body">
+					<p>One fine body&hellip;</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-rounded btn-danger" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-rounded btn-primary float-right">Save changes</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+	<!-- Modal -->
+	<div class="modal  fade" id="abonnement">
+		<div class="modal-dialog">
+			<div class="modal-content  ">
+				<div class="modal-header">
+					<h4 class="modal-title">abonnement</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span></button>
+				</div>
+				<div class="modal-body">
+					<p>One fine body&hellip;</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-rounded btn-danger" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-rounded btn-primary float-right">Save changes</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
 
+	<div class="modal fade" id="new_business">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">abonnement</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span></button>
+				</div>
+				<div class="modal-body">
+					<div class="box-body">
+						<form action="<?= site_url() ?>" method="post">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Nom du business</label>
+										<input type="text" class="form-control" name="business_name" placeholder="Nom du business" value="" required>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Description</label>
+										<input type="text" class="form-control" name="business_description" placeholder="Description du business" value="" required>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label>Categories</label>
+								<select class="selectpicker col-md-12 col-sm-12 form-control">
+									<option>E-commerce</option>
+									<option>Shop</option>
+									<option>Taxi</option>
+								</select>
+
+							</div>
+
+
+
+							<hr>
+							<div class="text-right">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+								<button type="submit" class="btn btn-primary">Ajouter</button>
+							</div>
+						</form>
+
+					</div>
+					<!-- Modal -->
+				</div>
+
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
 </body>
 
 </html>
