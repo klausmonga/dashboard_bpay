@@ -250,11 +250,15 @@ class Bpay extends CI_Controller
 		session_destroy();
 		redirect('bpay\loginv');
 	}
-	function test()
+	function paiement()
 	{ 
 
 		$this->load->library('phpqrcode/Qrlib');
-			
+
+		$montant= $this->input->post('montant');
+		$devise= $this->input->post('devise');
+		$business_key= $this->input->post('business_key');	
+
 		$param = "test"; // remember to sanitize that - it is user input!
 		
 		// we need to be sure ours script does not output anything!!!
@@ -263,14 +267,15 @@ class Bpay extends CI_Controller
 		ob_start("callback");
 		
 		// here DB request or some processing
-		$codeText = 'DEMO - '.$param;
+		$text = $montant.'/'.$devise.'/'.$business_key;
+		$textencoded= base64_encode($text);
 		
 		// end of processing here
 		$debugLog = ob_get_contents();
 		ob_end_clean();
 		
 		// outputs image directly into browser, as PNG stream
-		QRcode::png($codeText); 
+		QRcode::png($textencoded); 
 	}
 
 	function isconnected()

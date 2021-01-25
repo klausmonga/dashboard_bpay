@@ -705,7 +705,7 @@ $i=1;
 
 															<div>
 																<button type="button" class="waves-effect waves-light btn btn-outline btn-primary mb-5" data-toggle="modal" data-target="#abonnement"><i class="fa fa-paper-plane"></i> Abonnement</button>
-																<button type="button" data-registered="<?=$value->business_key?>" data-key="<?=$value->business_key?>" data-toggle="modal" data-target="#recevoir" class="waves-effect waves-light btn btn-outline btn-info mb-5"><i class="fa fa-money"></i> Recevoir</button>
+																<button type="button" data-key="<?=$value->business_key?>" data-toggle="modal" data-target="#recevoir" class="waves-effect waves-light btn btn-outline btn-info mb-5 attribut"><i class="fa fa-money"></i> Recevoir</button>
 															
 															</div>
 														</div>
@@ -1059,21 +1059,16 @@ $i=1;
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span></button>
 				</div>
-				<div class="modal-body">
+				<div   id="orderDetails" class="modal-body">
 					<form action="<?= site_url('bpay\paiement') ?>" method="post" target="_blank">
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>Montant</label>
-									<input type="text" class="form-control" name="montant" placeholder="Montant" value="" required>
+									<input type="text" class="form-control" name="montant" placeholder="Montant"  required>
 								</div>
 							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-									<label>Montant</label>
-									<input type="text" class="form-control" name="montant" id="registered" placeholder="Montant" value="" required>
-								</div>
-							</div>
+							
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>Devise</label>
@@ -1083,6 +1078,7 @@ $i=1;
 									</select>
 								</div>
 							</div>
+									<input type="hidden"  class="form-control" name="business_key" id="key">
 						</div>
 						<hr>
 						<div class="text-right">
@@ -1128,14 +1124,14 @@ $i=1;
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span></button>
 				</div>
-				<div id="orderDetails" class="modal-body">
+				<div class="modal-body">
 					<div class="box-body">
 						<form action="<?= site_url() ?>" method="post">
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
 										<label>Nom du business</label>
-										<input type="text" id="orderDetails" class="form-control" name="business_name" placeholder="Nom du business" value="" required>
+										<input type="text" class="form-control" name="business_name" placeholder="Nom du business" value="" required>
 									</div>
 								</div>
 								<div class="col-md-6">
@@ -1173,11 +1169,6 @@ $i=1;
 </body>
 
 </html>
-<!-- <script type="text/javascript">
-  $(window).load(function(){
-	  $('#changenum').modal('show');
-  });
-  </script> -->
 
 <script type="text/javascript">
 	$(window).on('load', function() {
@@ -1185,14 +1176,10 @@ $i=1;
 	});
 </script>
 
-<!-- <script>
-$(document).ready(function () {
-	$("#recevoirbuton").click(function(event) {
-  	let el = event.target;
-    let registered = el.getAttribute('data-registered');
-    $("#registered").val(registered);
-    $("#recevoir").modal("show");
-  })
-})
-</script> -->
-
+<script>
+    $('.attribut').click(function() {
+    var key = $(this).data('key');      
+    $('#key').val(key);  
+   
+    } );
+ </script>
