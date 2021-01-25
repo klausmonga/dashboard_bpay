@@ -658,43 +658,72 @@
 											Business
 										</h4>
 									</div>
-									<div class="box-body p-0">
-										<div id="slimtest1">
-											<div class="d-flex bb-1 py-10 px-15">
-												<div class="mr-2"><img src="<?= base_url('assets/icon/shop_50px.png') ?>" alt="" srcset=""></div>
-												<div>
-													<h4 class="mb-0">Shop</h4>
-													<p class="text-fade"><small>0.001 BTC ~ $ 875.86</small></p>
-													<div>
-														<button type="button" class="waves-effect waves-light btn btn-outline btn-primary mb-5"><i class="fa fa-paper-plane"></i> Abonnement</button>
-														<button type="button" class="waves-effect waves-light btn btn-outline btn-info mb-5"><i class="fa fa-money"></i> Recevoir</button>
+									<?php
+									if ($business != null) {
+$i=1;
+										foreach ($business as $key => $value) { ?>
+											<div class="box-body p-0">
+												<div id="slimtest1">
+													<div class="d-flex bb-1 py-10 px-15">
+														<?php
+														if ($value->type == 2) { ?>
+															<div class="mr-2"><img src="<?= base_url('assets/icon/shop_50px.png') ?>" alt="" srcset=""></div>
+														<?php } elseif ($value->type == 3) { ?>
+															<div class="mr-2"><img src="<?= base_url('assets/icon/taxi_50px.png') ?>" alt="" srcset=""></div>
+
+														<?php } elseif ($value->type == 1) { ?>
+															<div class="mr-2"><img src="<?= base_url('assets/icon/e-commerce_50px.png') ?>" alt="" srcset=""></div>
+
+														<?php } elseif ($value->type == 0) { ?>
+															<div class="mr-2"><img src="<?= base_url('assets/icon/help_50px.png') ?>" alt="" srcset=""></div>
+
+														<?php } ?>
+														<div>
+															<h4 class="mb-0"><?php
+																				if ($value->type == 1) {
+																					echo "E-commerce";
+																				} elseif ($value->type == 2) {
+																					# code...
+																					echo "Shop";
+																				} elseif ($value->type == 3) {
+																					# code...
+																					echo "Taxi";
+																				}
+																				?></h4>
+															<p>Description : <?= $value->description ?></p>
+															<p class="text-fade">Business key : <?= $value->business_key ?> </p>
+															<?php if ($value->is_expired == 0) { ?>
+																<div>
+																	<p class="text-right"><span class="label label-danger"> Inactif </span></p>
+																</div>
+															<?php }
+															if ($value->is_expired != 0) { ?>
+																<div>
+																	<p class="text-right"><span class="label label-success"><?= $value->is_expired ?> jours restants </span></p>
+																</div>
+															<?php } ?>
+
+															<div>
+																<button type="button" class="waves-effect waves-light btn btn-outline btn-primary mb-5" data-toggle="modal" data-target="#abonnement"><i class="fa fa-paper-plane"></i> Abonnement</button>
+																<button type="button" data-registered="<?=$value->business_key?>" data-key="<?=$value->business_key?>" data-toggle="modal" data-target="#recevoir" class="waves-effect waves-light btn btn-outline btn-info mb-5"><i class="fa fa-money"></i> Recevoir</button>
+															
+															</div>
+														</div>
 													</div>
+
 												</div>
 											</div>
-											<div class="d-flex bb-1 py-10 px-15">
-												<div class="mr-2"><img src="<?= base_url('assets/icon/taxi_50px.png') ?>" alt="" srcset=""></div>
-												<div>
-													<h4 class="mb-0">Taxi</h4>
-													<p class="text-fade"><small>0.000000000DASH ~ $0.00</small></p>
-													<div>
-														<button type="button" class="waves-effect waves-light btn btn-outline btn-primary mb-5" data-toggle="modal" data-target="#abonnement"><i class="fa fa-paper-plane"></i> Abonnement</button>
-														<button type="button" class="waves-effect waves-light btn btn-outline btn-info mb-5" data-toggle="modal" data-target="#recevoir"><i class="fa fa-money"></i> Recevoir</button>
-													</div>
-												</div>
+										
+										<?php 
+										$i++; } ?>
+									<?php } else { ?>
+										<div class="d-flex bb-1 py-10 px-15 ">
+											<div>
+												<h4 class="text-center">Aucun business à afficher</h4>
 											</div>
-											<div class="d-flex bb-1 py-10 px-15">
-												<div class="mr-2"><img src="<?= base_url('assets/icon/e-commerce_50px.png') ?>" alt="" srcset=""></div>
-												<div>
-													<h4 class="mb-0">E-commerce</h4>
-													<p class="text-fade"><small>0.00ETH ~ $0.00</small></p>
-													<div>
-														<button type="button" class="waves-effect waves-light btn btn-outline btn-primary mb-5"><i class="fa fa-paper-plane"></i> Abonnement</button>
-														<button type="button" class="waves-effect waves-light btn btn-outline btn-info mb-5"><i class="fa fa-money"></i> Recevoir</button>
-													</div>
-												</div>
-											</div> 
 										</div>
-									</div>
+									<?php	} ?>
+
 									<div class="box-footer p-0 bg-light">
 										<a href="#" class="d-block p-15 text-center" data-toggle="modal" data-target="#new_business"><i class="fa fa-plus"></i> Ajouter un business</a>
 										<!-- <button type="button" class="waves-effect waves-light btn btn-outline btn-info mb-5"><i class="fa fa-plus"></i> Receive</button> -->
@@ -1026,16 +1055,41 @@
 		<div class="modal-dialog">
 			<div class="modal-content  ">
 				<div class="modal-header">
-					<h4 class="modal-title">recevoir</h4>
+					<h4 class="modal-title">Recevoir un paiement</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span></button>
 				</div>
 				<div class="modal-body">
-					<p>One fine body&hellip;</p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-rounded btn-danger" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-rounded btn-primary float-right">Save changes</button>
+					<form action="<?= site_url('bpay\paiement') ?>" method="post" target="_blank">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>Montant</label>
+									<input type="text" class="form-control" name="montant" placeholder="Montant" value="" required>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>Montant</label>
+									<input type="text" class="form-control" name="montant" id="registered" placeholder="Montant" value="" required>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>Devise</label>
+									<select name="devise" class="selectpicker col-md-12 col-sm-12 form-control" required>
+										<option value="USD">USD</option>
+										<option value="CDF">CDF</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<hr>
+						<div class="text-right">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+							<button type="submit" class="btn btn-primary">Payer</button>
+						</div>
+					</form>
 				</div>
 			</div>
 			<!-- /.modal-content -->
@@ -1070,18 +1124,18 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title">abonnement</h4>
+					<h4 class="modal-title">Nouveau business</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span></button>
 				</div>
-				<div class="modal-body">
+				<div id="orderDetails" class="modal-body">
 					<div class="box-body">
 						<form action="<?= site_url() ?>" method="post">
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
 										<label>Nom du business</label>
-										<input type="text" class="form-control" name="business_name" placeholder="Nom du business" value="" required>
+										<input type="text" id="orderDetails" class="form-control" name="business_name" placeholder="Nom du business" value="" required>
 									</div>
 								</div>
 								<div class="col-md-6">
@@ -1091,7 +1145,6 @@
 									</div>
 								</div>
 							</div>
-
 							<div class="form-group">
 								<label>Categories</label>
 								<select class="selectpicker col-md-12 col-sm-12 form-control">
@@ -1099,11 +1152,7 @@
 									<option>Shop</option>
 									<option>Taxi</option>
 								</select>
-
-							</div>
-
-
-
+							</div> 
 							<hr>
 							<div class="text-right">
 								<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
@@ -1135,3 +1184,15 @@
 		$('#changenum').modal('show');
 	});
 </script>
+
+<!-- <script>
+$(document).ready(function () {
+	$("#recevoirbuton").click(function(event) {
+  	let el = event.target;
+    let registered = el.getAttribute('data-registered');
+    $("#registered").val(registered);
+    $("#recevoir").modal("show");
+  })
+})
+</script> -->
+

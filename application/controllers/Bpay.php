@@ -61,17 +61,18 @@ class Bpay extends CI_Controller
 		$business = curl_exec($ch);
 		$returnedbusiness = json_decode($business);
 		
-		foreach ($returnedbusiness as $key => $value) {
-			# code...
-						//file path for store images
+		// foreach ($returnedbusiness as $key => $value) {
+		// 	# code...
+		// 				//file path for store images
 						 
-						$SERVERFILEPATH = 'qrcode/';
-						$text = $value->business_key;		 	
-						$folder = $SERVERFILEPATH;
-						$file_name1 = $text.".png";
-						$file_name = $folder.$file_name1;
-						QRcode::png($text,$file_name,'Q',10,3);
-		}
+		// 				$SERVERFILEPATH = 'qrcode/';
+		// 				$text = $value->business_key;		 	
+		// 				$folder = $SERVERFILEPATH;
+		// 				$file_name1 = $text.".png";
+		// 				$file_name = $folder.$file_name1;
+		// 				QRcode::png($text,$file_name,'Q',10,3);
+		// }
+		// print_r($returnedbusiness); exit;
 		$style['business'] =  $returnedbusiness;
 		$style['style'] = $this->load->view('style', "", true);
 		$style['dashboardlink'] = $this->load->view('dashboardlink', "", true);
@@ -248,6 +249,28 @@ class Bpay extends CI_Controller
 	{
 		session_destroy();
 		redirect('bpay\loginv');
+	}
+	function test()
+	{ 
+
+		$this->load->library('phpqrcode/Qrlib');
+			
+		$param = "test"; // remember to sanitize that - it is user input!
+		
+		// we need to be sure ours script does not output anything!!!
+		// otherwise it will break up PNG binary!
+		
+		ob_start("callback");
+		
+		// here DB request or some processing
+		$codeText = 'DEMO - '.$param;
+		
+		// end of processing here
+		$debugLog = ob_get_contents();
+		ob_end_clean();
+		
+		// outputs image directly into browser, as PNG stream
+		QRcode::png($codeText); 
 	}
 
 	function isconnected()
