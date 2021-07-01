@@ -1,70 +1,26 @@
-###################
-What is CodeIgniter
-###################
+# Bpay
 
-CodeIgniter is an Application Development Framework - a toolkit - for people
-who build web sites using PHP. Its goal is to enable you to develop projects
-much faster than you could if you were writing code from scratch, by providing
-a rich set of libraries for commonly needed tasks, as well as a simple
-interface and logical structure to access these libraries. CodeIgniter lets
-you creatively focus on your project by minimizing the amount of code needed
-for a given task.
+Encore plus d’accessibilité. Recevez et gérez simplement vos paiements électroniques
+Vous cherchez Bpay pour vos Business? Que vous vendiez à l’échelle locale ou nationale, nous sommes là pour vous aide
 
-*******************
-Release Information
-*******************
+## Paiement en ligne
+Acheter sur un site E-commerce
+Le tout en un. Que vous soyez mpesa, Orange money ou Airtel money, vos achats en ligne n’auront jamais été aussi simple et facile. Et c’est gratuit !
 
-This repo contains in-development code for future releases. To download the
-latest stable release please visit the `CodeIgniter Downloads
-<https://codeigniter.com/download>`_ page.
+Recevoir un paiement
+Aujourd’hui plus que jamais vous pouvez facilement faire vos ventes en ligne en RDC, grace aux solutions de Bpay pour business, quel que soit votre terminal mobile money. Recevez vos paiements en toute sécurité, que vous vendiez physiquement ou en ligne. 
 
-**************************
-Changelog and New Features
-**************************
+## Paiement sans contact
+Le paiement électronique n’a jamais été autant utile que sain pour votre santé. Nous avons allié efficacité, sécurité et transparence pour vous et rien que pour vous !
 
-You can find a list of all changes for each release in the `user
-guide change log <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst>`_.
+## Regler vos facture de shopping
+Téléchargez et installez l’application bpay sur votre portable via PlayStore ; puis renseignez et confirmez vos coordonnées Mobile Money et enfin, faites vos paiements en toute simplicité et sécurité Pour toutes vos courses en physique et en ligne.
 
-*******************
-Server Requirements
-*******************
+## Connexion au dashboard
 
-PHP version 5.6 or newer is recommended.
+Numero de telephone: 0852093279 <br/>
+password: t (8fois)<br/>
 
-It should work on 5.3.7 as well, but we strongly advise you NOT to run
-such old versions of PHP, because of potential security and performance
-issues, as well as missing features.
 
-************
-Installation
-************
 
-Please see the `installation section <https://codeigniter.com/user_guide/installation/index.html>`_
-of the CodeIgniter User Guide.
-
-*******
-License
-*******
-
-Please see the `license
-agreement <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst>`_.
-
-*********
-Resources
-*********
-
--  `User Guide <https://codeigniter.com/docs>`_
--  `Language File Translations <https://github.com/bcit-ci/codeigniter3-translations>`_
--  `Community Forums <http://forum.codeigniter.com/>`_
--  `Community Wiki <https://github.com/bcit-ci/CodeIgniter/wiki>`_
--  `Community Slack Channel <https://codeigniterchat.slack.com>`_
-
-Report security issues to our `Security Panel <mailto:security@codeigniter.com>`_
-or via our `page on HackerOne <https://hackerone.com/codeigniter>`_, thank you.
-
-***************
-Acknowledgement
-***************
-
-The CodeIgniter team would like to thank EllisLab, all the
-contributors to the CodeIgniter project and you, the CodeIgniter user.
+Copyright © Bpay  2020-2021!<br/>
