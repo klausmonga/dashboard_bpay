@@ -1,23 +1,19 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Bpay extends CI_Controller
-{
-	function __construct ()
-{	
-  parent::__construct();
-  $this->load->helper('url');
-  
-}
+class Bpay extends CI_Controller{
 
-	public function index()
-	{
-		$style['style'] = $this->load->view('style', "", true);
-		$this->load->view('auth',$style);
+	public function __construct (){
+		parent::__construct();
+		$this->load->helper('url');
 	}
 
-	public function dashboard()
-	{
+	public function index(){
+		$style['style'] = $this->load->view('style', "", true);
+		$this->load->view('authe',$style);
+	}
+
+	public function dashboard(){
 		$this->isconnected();
 		 #transactions envoyees
 		 $url = "http://cloudbpay.bvortex.com/index.php/api/get_sended_tx/" . $this->session->user_id;
@@ -43,8 +39,8 @@ class Bpay extends CI_Controller
 		
 		 $style['transactionsended'] = $transactionsended;
 		 $style['transactionreceived'] = $transactionreceived;
-		$style['style'] = $this->load->view('style', "", true);
-		$style['dashboardlink'] = $this->load->view('dashboardlink', "", true);
+		 $style['style'] = $this->load->view('style', "", true);
+		 $style['dashboardlink'] = $this->load->view('dashboardlink', "", true);
 
 		$this->load->view('dashboard', $style);
 	}
@@ -80,7 +76,7 @@ class Bpay extends CI_Controller
 		 
 	}
 
-	function documentation()
+	public function documentation()
 	{
 		$this->isconnected();
 		$style['style'] = $this->load->view('style', "", true);
@@ -91,11 +87,10 @@ class Bpay extends CI_Controller
 	public function loginv()
 	{
 		$style['style'] = $this->load->view('style', "", true);
-		$this->load->view('auth',$style);
+		$this->load->view('authe',$style);
 	}
 
-	function connexion()
-	{
+	public function connexion(){
 		
 		$url = "http://cloudbpay.bvortex.com/index.php/api/login";
 		$datas = array('phone_number' => $_POST['phone_number'], 'password' => $_POST['password']);
@@ -111,9 +106,9 @@ class Bpay extends CI_Controller
 		// $varferrors = isset($donnee->form_errors)? $donnee->error : null;
 		
 		if ( isset($donnee->form_errors) || (isset($donnee->error)) ) {
-			$this->session->set_flashdata('checkFailed', 'Mot de passe ou username incorrect');
-			// exit;
-			redirect('bpay\loginv');			
+			$this->session->set_flashdata('checkFailed', 'Mot de passe ou numero de telephone incorrect');
+			redirect('bpay\loginv');
+
 		} elseif (empty($donnee)) {
 			$this->session->set_flashdata('checkFailed', 'Check your internet connexion'); 
 			redirect('bpay\loginv');
@@ -161,8 +156,7 @@ class Bpay extends CI_Controller
 		 
 	}
 
-	function changenumber()
-	{
+	public function changenumber(){
 		$this->isconnected();
 		$url = "http://cloudbpay.bvortex.com/index.php/api/update_phone_number";
 		$datas = array('phone_number' => $_POST['old_number'], 'number' => $_POST['new_number']);
@@ -186,7 +180,7 @@ class Bpay extends CI_Controller
 		}
 		// print_r($decode->user->id);
 	}
-	function modifprofie()
+	public function modifprofie()
 	{
 		$this->isconnected();
 	 
@@ -245,13 +239,11 @@ class Bpay extends CI_Controller
 		
 	}
 
-	function logout()
-	{
+	public function logout(){
 		session_destroy();
 		redirect('bpay\loginv');
 	}
-	function paiement()
-	{ 
+	public function paiement(){
 
 		$this->load->library('phpqrcode/Qrlib');
 
@@ -278,8 +270,7 @@ class Bpay extends CI_Controller
 		QRcode::png($textencoded); 
 	}
 
-	function isconnected()
-	{
+	public function isconnected(){
 		if ($this->session->connected) {
 			# code...
 			return true;

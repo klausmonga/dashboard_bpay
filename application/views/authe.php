@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<title>Authentification</title>
+	<title>connexion</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="<?= base_url('assets/assets/vendor_components/bootstrap/dist/css/bootstrap.css') ?>">
-
 </head>
 
 <body>
-
 	<div class="container" >
-
 		<div class="wrapper fadeInDown row m-4">
 			<div class="col-sm-5 offset-4">
 				<div class="fadeIn first text-center">
@@ -37,15 +33,15 @@
 					<div class="container p-3 my-3 border" style="border-radius: 5px 5px 5px 5px;">
 						<form action="<?= site_url('bpay\connexion') ?>" method="POST" class="was-validated">
 							<div class="text-center">
-								<h2>Authentification</h2>
+								<h2>Connectez-vous</h2>
 							</div></br>
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Entrer le numero de telephone" name="phone_number" value="" required>
-								<div class="invalid-feedback">numero requis</div>
+								<input type="tel" class="form-control" placeholder="Entrer le numero de telephone" name="phone_number"  size="12" minlength="9" maxlength="10" required autofocus/>
+								<span class="ion ion-email form-control-feedback text-white"></span>
 							</div>
 							<div class="form-group">
-								<input type="password" class="form-control" id="mdp" placeholder="Entrer le mot de passe" name="password" required>
-								<div class="invalid-feedback">Mot de passe requis requis.</div>
+								<input type="password" class="form-control" type="password" class="form-control text-white plc-white" id="password" placeholder="Entrer le mot de passe" name="password" inputmode="numeric" minlength="4"  maxlength="8" size="8" required autofocus/>
+								<span class="ion ion-locked form-control-feedback text-white"></span>
 							</div>
 							<div class="text-center">
 								<button class="btn btn-lg btn-primary btn-block" type="submit">Se connecter</button>
@@ -61,11 +57,31 @@
 			</div>
 		</div>
 	</div>
-
 	<script type="text/javascript" src="<?= base_url('assets\js\jquery.min.js') ?>"></script>
 	<script src="<?= base_url('assets\js\bootstrap.bundle.min.js') ?>"></script>
-	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<?php if ($this->session->flashdata('error')): ?>
+	<script>
+		swal({
+		title: "Error",
+		text: "Your request can not be completed",
+		icon: "<?php echo site_url('Your Icon Destination'); ?>",
+		button: false,
+		timer: 5000,
+		});
+		</script>
+	<?php endif; ?>
 
+	<?php if ($this->session->flashdata('success')): ?>
+		<script>
+			swal({
+				title: "Congratulation",
+				text: "Your request has been completed Successfully!",
+				icon: "<?php echo site_url('assets/slim/lib/sweetalert/icon/cancel.svg'); ?>",
+				button: true,
+				timer: 5000,
+			});
+		</script>
+	<?php endif; ?>
 </body>
-
 </html>
