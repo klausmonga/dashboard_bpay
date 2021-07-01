@@ -303,9 +303,7 @@
         
         
     </body>
-        
-<!-- Mirrored from bpay.odoo.com/web/login by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 28 Dec 2020 14:49:15 GMT -->
-</html>
-    
+
+		</html>
     
     

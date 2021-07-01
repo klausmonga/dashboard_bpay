@@ -45,8 +45,7 @@ class Bpay extends CI_Controller{
 		$this->load->view('dashboard', $style);
 	}
 
-	public function profile()
-	{ 
+	public function profile(){
 		$this->load->library('phpqrcode/Qrlib');
 
 		$this->isconnected();
@@ -238,11 +237,12 @@ class Bpay extends CI_Controller{
 		}
 		
 	}
-
 	public function logout(){
 		session_destroy();
 		redirect('bpay\loginv');
 	}
+
+
 	public function paiement(){
 
 		$this->load->library('phpqrcode/Qrlib');

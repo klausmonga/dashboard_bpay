@@ -15,8 +15,6 @@
 	<link rel="stylesheet" href="<?= base_url('assets/css/vendors_css.css') ?>">
 	<!-- Style-->
 	<link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
-
-
 	<link rel="stylesheet" href="<?= base_url('assets/css/skin_color.css') ?>">
 
 	<!-- style vendor -->
@@ -203,14 +201,14 @@
 												<span class="float-right badge badge-light">24h</span> -->
 											</h5>
 											<br>
-											<div class="d-flex justify-content-between">
+											<!--<div class="d-flex justify-content-between">
 												<p class="font-size-26">$513,64256</p>
 												<div><i class="ion-arrow-graph-up-right mr-1 text-success"></i> +1.75%</div>
-											</div>
+											</div>-->
 										</div>
-										<div class="box-body p-0">
+										<!--<div class="box-body p-0">
 											<div id="spark1"></div>
-										</div>
+										</div>-->
 									</div>
 								</div>
 								<div class="col-lg-4 col-12">
@@ -223,14 +221,14 @@
 												<!-- <span class="float-right badge badge-light">24h</span> -->
 											</h5>
 											<br>
-											<div class="d-flex justify-content-between">
+											<!--div class="d-flex justify-content-between">
 												<p class="font-size-26">$12,178.99</p>
 												<div><i class="ion-arrow-graph-up-right mr-1 text-success"></i> +1.89%</div>
-											</div>
+											</--div>-->
 										</div>
-										<div class="box-body p-0">
+										<!--<div class="box-body p-0">
 											<div id="spark3"></div>
-										</div>
+										</div>-->
 									</div>
 								</div>
 								<div class="col-lg-4 col-12">
@@ -242,14 +240,14 @@
 
 											</h5>
 											<br>
-											<div class="d-flex justify-content-between">
+											<!--<div class="d-flex justify-content-between">
 												<p class="font-size-26">$5,724.33</p>
 												<div><i class="ion-arrow-graph-up-right mr-1 text-success"></i> +1.85%</div>
-											</div>
+											</div>-->
 										</div>
-										<div class="box-body p-0">
+										<!--<div class="box-body p-0">
 											<div id="spark4"></div>
-										</div>
+										</div>-->
 									</div>
 								</div>
 							</div>
@@ -369,7 +367,7 @@
 									<div id="userflow" class="h-250">data here</div>
 								</div>
 							</div> -->
-							<div class="box">
+							<!--<div class="box">
 								<div class="box-header">
 									<h4 class="box-title">Resumer stat</h4>
 								</div>
@@ -385,15 +383,15 @@
 										<div id="timeline-chart"></div>
 									</div>
 								</div>
-							</div>
+							</div>-->
 							<div class="box">
 								<div class="box-header">
 									<ul class="nav nav-pills">
-										<!-- <li class=" nav-item"> <a href="#navpills2-1" class="nav-link active" data-toggle="tab" aria-expanded="false">Av TX</a> </li> -->
-										<li class="nav-item"> <a href="#navpills2-2" class="nav-link" data-toggle="tab" aria-expanded="false">AV TX</a> </li>
+										<!--<li class=" nav-item"> <a href="#navpills2-1" class="nav-link active" data-toggle="tab" aria-expanded="false">Av TX</a> </li> -->
+										<!--<li class="nav-item"> <a href="#navpills2-2" class="nav-link" data-toggle="tab" aria-expanded="false">AV TX</a> </li>-->
 									</ul>
 								</div>
-								<div class="box-body">
+								<!--<div class="box-body">
 									<div class="tab-content">
 										<div id="navpills2-1" class="tab-pane active">
 											<div class="input-group mb-15">
@@ -464,7 +462,7 @@
 											<button type="button" class="waves-effect waves-light btn btn-danger mt-10 d-block w-p100">Sell ETH</button>
 										</div>
 									</div>
-								</div>
+								</div>-->
 							</div>
 						</div>
 					</div>
@@ -484,12 +482,11 @@
 					</li>
 				</ul>
 			</div>
-			&copy; 2020 <a href="https://www.multipurposethemes.com/">Multipurpose Themes</a>. All Rights Reserved.
+			&copy; 2020-2021 <a href="https://www.multipurposethemes.com/">Bpay </a>. All Rights Reserved.
 		</footer>
 
 		<!-- Control Sidebar -->
 		<aside class="control-sidebar">
-
 			<div class="rpanel-title">
 				<span class="pull-right btn btn-circle p-10">
 					<img src="<?= base_url('assets/images/svg-icon/close.svg') ?>" data-toggle="control-sidebar" class="img-fluid svg-icon" alt="">
@@ -754,19 +751,17 @@
 			</div>
 		</aside>
 		<!-- /.control-sidebar -->
-
 		<!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
 		<div class="control-sidebar-bg"></div>
 
 	</div>
 	<!-- ./wrapper -->
-
 	<!-- Vendor JS -->
 	<script type="text/javascript" src="<?= base_url('assets/js/vendors.min.js') ?>"></script>
 
 	<script src="<?= base_url('assets/assets/vendor_components/apexcharts-bundle/data.js') ?>"></script>
 	<script src="<?= base_url('assets/assets/vendor_components/apexcharts-bundle/dist/apexcharts.js') ?>"></script>
-	<!-- <script src="https://www.amcharts.com/lib/4/core.js"></script>
+	<!--<script src="https://www.amcharts.com/lib/4/core.js"></script>
 	<script src="https://www.amcharts.com/lib/4/charts.js"></script>
 	<script src="https://www.amcharts.com/lib/4/themes/kelly.js"></script>
 	<script src="https://www.amcharts.com/lib/4/themes/dark.js"></script>
@@ -777,8 +772,5 @@
 	<script src="<?= base_url('assets/js/template.js') ?>"></script>
 	<script src="<?= base_url('assets\js\pages\dashboard9.js') ?>"></script>
 	<script src="<?= base_url('assets\js\demo.js') ?>"></script>
-
-
 </body>
-
 </html>

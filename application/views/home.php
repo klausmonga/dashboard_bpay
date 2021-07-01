@@ -2,8 +2,8 @@
   <!DOCTYPE html>   
 		<html lang="fr-FR" data-website-id="1" data-oe-company-name="bpay">
 
-	<!-- Mirrored from bpay.odoo.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 28 Dec 2020 14:43:22 GMT -->
-	<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 	<head>
 					<meta charset="utf-8"/>
 					<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
@@ -154,10 +154,7 @@
 			</nav>
 		</header>
 					<main>
-						
-				
-			
-		
+
 		<div id="wrap" class="oe_structure oe_empty">
 		  <section class="s_carousel_wrapper" data-vxml="001" data-snippet="s_carousel" data-name="Carousel" >
 			<div id="myCarousel1604575019368" class="s_carousel s_carousel_default carousel slide oe_img_bg" data-interval="10000" style="background-image: url(_/_.html);">
@@ -348,8 +345,6 @@
 				</a>
 			- 
 					Créer un <a target="_blank" href="http://www.odoo.com/page/website-builder?utm_source=db&amp;utm_medium=website">Site Web gratuit</a>
-				
-		
 		</div>
 		
 									</div>
@@ -357,16 +352,7 @@
 							</div>
 						</div>
 					</footer>
-			
-		
 				</div>
-			
-		
-			
-			
 		</body>
-			
-	<!-- Mirrored from bpay.odoo.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 28 Dec 2020 14:43:40 GMT -->
 	</html>
 		
-	

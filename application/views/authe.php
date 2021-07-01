@@ -60,28 +60,5 @@
 	<script type="text/javascript" src="<?= base_url('assets\js\jquery.min.js') ?>"></script>
 	<script src="<?= base_url('assets\js\bootstrap.bundle.min.js') ?>"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<?php if ($this->session->flashdata('error')): ?>
-	<script>
-		swal({
-		title: "Error",
-		text: "Your request can not be completed",
-		icon: "<?php echo site_url('Your Icon Destination'); ?>",
-		button: false,
-		timer: 5000,
-		});
-		</script>
-	<?php endif; ?>
-
-	<?php if ($this->session->flashdata('success')): ?>
-		<script>
-			swal({
-				title: "Congratulation",
-				text: "Your request has been completed Successfully!",
-				icon: "<?php echo site_url('assets/slim/lib/sweetalert/icon/cancel.svg'); ?>",
-				button: true,
-				timer: 5000,
-			});
-		</script>
-	<?php endif; ?>
 </body>
 </html>
