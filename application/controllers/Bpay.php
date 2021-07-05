@@ -13,8 +13,7 @@ class Bpay extends CI_Controller{
 		$this->load->view('authe',$style);
 	}
 	
-	
-	//bhgjhgjhgjhgjhgjhgjhjh
+	//bhgjhgjhgjhgj
 	public function dashboard(){
 		$this->isconnected();
 		 #transactions envoyees
