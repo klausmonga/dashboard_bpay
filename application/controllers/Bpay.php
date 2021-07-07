@@ -12,7 +12,8 @@ class Bpay extends CI_Controller{
 		$style['style'] = $this->load->view('style', "", true);
 		$this->load->view('authe',$style);
 	}
-
+	
+	//bhgjhgjhgjhgj
 	public function dashboard(){
 		$this->isconnected();
 		 #transactions envoyees
@@ -44,7 +45,6 @@ class Bpay extends CI_Controller{
 
 		$this->load->view('dashboard', $style);
 	}
-
 	public function profile(){
 		$this->load->library('phpqrcode/Qrlib');
 
