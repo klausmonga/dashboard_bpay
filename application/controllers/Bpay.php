@@ -61,7 +61,8 @@ class Bpay extends CI_Controller{
 		// 				//file path for store images
 						 
 		// 				$SERVERFILEPATH = 'qrcode/';
-		// 				$text = $value->business_key;		 	
+		$text = "http://cloudbpay.bvortex.com/index.php/api/getBusiness/" . $this->session->businesskey;
+		echo $text;		 	
 		// 				$folder = $SERVERFILEPATH;
 		// 				$file_name1 = $text.".png";
 		// 				$file_name = $folder.$file_name1;
@@ -245,29 +246,29 @@ class Bpay extends CI_Controller{
 
 	public function paiement(){
 
-		$this->load->library('phpqrcode/Qrlib');
-
 		$montant= $this->input->post('montant');
 		$devise= $this->input->post('devise');
 		$business_key= $this->input->post('business_key');	
 
-		$param = "test"; // remember to sanitize that - it is user input!
 		
-		// we need to be sure ours script does not output anything!!!
-		// otherwise it will break up PNG binary!
+
+		// $param = "test"; // remember to sanitize that - it is user input!
 		
-		ob_start("callback");
+		// // we need to be sure ours script does not output anything!!!
+		// // otherwise it will break up PNG binary!
 		
-		// here DB request or some processing
-		$text = $montant.'/'.$devise.'/'.$business_key;
-		$textencoded= base64_encode($text);
+		// ob_start("callback");
 		
-		// end of processing here
-		$debugLog = ob_get_contents();
-		ob_end_clean();
+		// // here DB request or some processing
+		// $text = $montant.'/'.$devise.'/'.$business_key;
+		// $textencoded= base64_encode($text);
 		
-		// outputs image directly into browser, as PNG stream
-		QRcode::png($textencoded); 
+		// // end of processing here
+		// $debugLog = ob_get_contents();
+		// ob_end_clean();
+		
+		// // outputs image directly into browser, as PNG stream
+		// QRcode::png($textencoded); 
 	}
 
 	public function isconnected(){
@@ -279,4 +280,7 @@ class Bpay extends CI_Controller{
 			redirect('bpay\loginv');
 		}
 	}
+
 }
+
+

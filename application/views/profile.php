@@ -4,7 +4,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<link rel="icon" href="<?= base_url('assets/images/favicon.ico') ?>">
@@ -15,14 +16,26 @@
 	<link rel="stylesheet" href="<?= base_url('assets/css/vendors_css.css') ?>">
 	<!-- Style-->
 	<link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
+	
+	
+	
 
+	
 
+	<!-- <link rel="stylesheet" href="../assets/css/modal.css" /> -->
 	<link rel="stylesheet" href="<?= base_url('assets/css/skin_color.css') ?>">
 	<link href="<?= base_url('assets/icon/css/fontawesome.css') ?>" rel="stylesheet">
 	<link href="<?= base_url('assets/icon/css/brands.css') ?>" rel="stylesheet">
 	<link href="<?= base_url('assets/icon/css/solid.css') ?>" rel="stylesheet">
+	
 	<!-- style vendor -->
+	
 	<?= $style; ?>
+	
+	
+	
+
+	<script src="../assets/js/modal.js"></script>
 
 </head>
 
@@ -177,6 +190,7 @@
 				</div>
 			</nav>
 		</header>
+	
 		<!-- Modal -->
 		<div class="modal fade" id="profil" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -692,6 +706,7 @@ $i=1;
 																				?></h4>
 															<p>Description : <?= $value->description ?></p>
 															<p class="text-fade">Business key : <?= $value->business_key ?> </p>
+															<?php $tab[$i]=$value->business_key?>
 															<?php if ($value->is_expired == 0) { ?>
 																<div>
 																	<p class="text-right"><span class="label label-danger"> Inactif </span></p>
@@ -1060,33 +1075,62 @@ $i=1;
 						<span aria-hidden="true">&times;</span></button>
 				</div>
 				<div   id="orderDetails" class="modal-body">
-					<form action="<?= site_url('bpay\paiement') ?>" method="post" target="_blank">
+					<form >
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>Montant</label>
-									<input type="text" class="form-control" name="montant" placeholder="Montant"  required>
+									<input id = "montantrecevoir" type="text" class="form-control"  placeholder="Montant"  required>
 								</div>
 							</div>
 							
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>Devise</label>
-									<select name="devise" class="selectpicker col-md-12 col-sm-12 form-control" required>
-										<option value="USD">USD</option>
-										<option value="CDF">CDF</option>
+									<select id="currencydevise" name="devise" class="selectpicker col-md-12 col-sm-12 form-control" required>
+										<option value="usd">USD</option>
+										<option value="cdf">CDF</option>
 									</select>
 								</div>
 							</div>
-									<input type="hidden"  class="form-control" name="business_key" id="key">
+
+							<input id="busikey" type="hidden" value=<?= $value->business_key ?> class="form-control" name="business_key" id="key">
+									
 						</div>
 						<hr>
 						<div class="text-right">
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-							<button type="submit" class="btn btn-primary">Payer</button>
+							
+							
+								<button id = "btnqrcode" type="button" data-key="<?=$value->business_key?>" data-toggle="modal" data-target="#payer" class="btn btn-primary">
+									payer
+								</button>
+							
+							
+							
+
+							<div id="modal1" class="modalqr"  style="display: none">
+						      <div class="modal-wrapper">
+								    <img src = "../assets/images/default.jpeg" alt = "qr-code">
+						      </div>
+						    </div>
 						</div>
 					</form>
 				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	
+	<input  type="hidden"  class="form-control" name="business_key" id="keybus" style="display: none">
+
+	<div class="modal   fade" id="payer">
+		<div class="modal-dialog">
+			<div class="modal-content  ">		
+						
+						<img id = "qrcodevalide" src = "" alt = "">	
+						
 			</div>
 			<!-- /.modal-content -->
 		</div>
@@ -1114,6 +1158,7 @@ $i=1;
 		</div>
 		<!-- /.modal-dialog -->
 	</div>
+	
 	<!-- /.modal -->
 
 	<div class="modal fade" id="new_business">
@@ -1165,15 +1210,80 @@ $i=1;
 		</div>
 		<!-- /.modal-dialog -->
 	</div>
+	
 	<!-- /.modal -->
+
+
+	<script>
+
+	$(document).ready(function(){
+		$("#btnqrcode").click(function(){
+			var amountmodal = $("#recevoir #montantrecevoir" ).val().trim();
+			var currencymodal = $("#recevoir #currencydevise").val().trim();
+			var businesskeymodal = $("#recevoir #busikey").val().trim();
+			
+			let qrcode = document.getElementById("qrcodevalide");
+		    let qrbtn = document.getElementById("btnqrcode");
+		    
+		    let amount = amountmodal;
+		    let currency = currencymodal;
+		    let business_key = businesskeymodal ;
+
+			
+		
+			
+			
+			//"3d5a3de17a1be6b13e9dd2bb0a45df94"
+		
+		    // let amount = amount_int.toString();
+		    
+		    let text = amount+"/"+currency+"/"+business_key;
+		
+		    var text_encode = btoa(text);
+		    
+		    
+		    qrbtn.addEventListener("click", generateQR);
+		    
+		    function generateQR () {
+		    
+		        let size = "1000x1000";
+		        let data = text_encode;
+				
+		        let baseURL = "http://api.qrserver.com/v1/create-qr-code/";
+		    
+		        let url = `${baseURL}?data=${data}&size=${size}`;
+		    
+		        qrcode.src = url;
+		    }
+		    
+		    
+		    function select (el) {
+		    
+		        return document.querySelector(el);
+		    
+		    }
+		});
+	});
+
+    
+	
+	
+
+
+</script>
 </body>
 
+
+
 </html>
+
+
 
 <script type="text/javascript">
 	$(window).on('load', function() {
 		$('#changenum').modal('show');
-	});
+	}
+	);
 </script>
 
 <script>
@@ -1182,4 +1292,4 @@ $i=1;
     $('#key').val(key);  
    
     } );
- </script>
+</script>
