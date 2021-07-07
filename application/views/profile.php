@@ -1111,7 +1111,7 @@ $i=1;
 
 							<div id="modal1" class="modalqr"  style="display: none">
 						      <div class="modal-wrapper">
-								    <img src = "../assets/images/default.jpeg" alt = "qr-code">
+								    <img src = "" alt = "qr-code">
 						      </div>
 						    </div>
 						</div>
