@@ -1,4 +1,5 @@
 <?php
+
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class Bpay extends CI_Controller{
@@ -61,8 +62,7 @@ class Bpay extends CI_Controller{
 		// 				//file path for store images
 						 
 		// 				$SERVERFILEPATH = 'qrcode/';
-		$text = "http://cloudbpay.bvortex.com/index.php/api/getBusiness/" . $this->session->businesskey;
-		echo $text;		 	
+		$text = "http://cloudbpay.bvortex.com/index.php/api/getBusiness/" . $this->session->businesskey;	 	
 		// 				$folder = $SERVERFILEPATH;
 		// 				$file_name1 = $text.".png";
 		// 				$file_name = $folder.$file_name1;
@@ -110,7 +110,7 @@ class Bpay extends CI_Controller{
 			redirect('bpay\loginv');
 
 		} elseif (empty($donnee)) {
-			$this->session->set_flashdata('checkFailed', 'Check your internet connexion'); 
+			$this->session->set_flashdata('checkFailed', 'V2rifier votre connexion internet'); 
 			redirect('bpay\loginv');
 		}else{
 			$data_session = array(
@@ -145,7 +145,7 @@ class Bpay extends CI_Controller{
 			$resultreceived = curl_exec($chreceived);
 			$transactionreceived = json_decode($resultreceived);
 		 
-			// print_r($resultreceived);exit;
+			// print_r($resultreceived);;
 			$style['style'] = $this->load->view('style', "", true);
 			$style['dashboardlink'] = $this->load->view('dashboardlink', "", true);
 			$style['transactionsended'] = $transactionsended;
@@ -281,6 +281,7 @@ class Bpay extends CI_Controller{
 		}
 	}
 
-}
+	
 
+}
 

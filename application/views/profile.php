@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
-	<meta charset="utf-8">
+	<meta charset="UTF-8">
+	
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -674,7 +675,7 @@
 									</div>
 									<?php
 									if ($business != null) {
-$i=1;
+										$i=1;
 										foreach ($business as $key => $value) { ?>
 											<div class="box-body p-0">
 												<div id="slimtest1">
@@ -704,9 +705,9 @@ $i=1;
 																					echo "Taxi";
 																				}
 																				?></h4>
-															<p>Description : <?= $value->description ?></p>
-															<p class="text-fade">Business key : <?= $value->business_key ?> </p>
-															<?php $tab[$i]=$value->business_key?>
+															<p>Déscription : <?= urldecode($value->description) ?></p>
+															<p class="text-fade">Business key : <?= $value->business_key?> </p>
+															<?php $tab[$i]=$value->description ?>
 															<?php if ($value->is_expired == 0) { ?>
 																<div>
 																	<p class="text-right"><span class="label label-danger"> Inactif </span></p>
@@ -1111,7 +1112,7 @@ $i=1;
 
 							<div id="modal1" class="modalqr"  style="display: none">
 						      <div class="modal-wrapper">
-								    <img src = "" alt = "qr-code">
+								    <img src = "" alt = "qr-code" style="position:absolute; width:25%;margin-left:76%;margin-top:16%">
 						      </div>
 						    </div>
 						</div>
@@ -1125,11 +1126,18 @@ $i=1;
 	
 	<input  type="hidden"  class="form-control" name="business_key" id="keybus" style="display: none">
 
-	<div class="modal   fade" id="payer">
-		<div class="modal-dialog">
-			<div class="modal-content  ">		
+	<div class="modal   fade" id="payer" >
+		<div class="modal-dialog" >
+			<div class="modal-content  " >		
 						
-						<img id = "qrcodevalide" src = "" alt = "">	
+						<img id = "qrcodevalide" src = "" alt = "" style="height: 300px;
+																	      width: 300px;
+																	      padding: 1rem;
+																	      border: 2px solid #bada55;
+																	      border-radius: 0.5rem;
+																	      grid-column: 1 / -1;">
+						
+						<p></p>	
 						
 			</div>
 			<!-- /.modal-content -->
