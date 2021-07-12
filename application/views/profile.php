@@ -707,6 +707,10 @@
 																				?></h4>
 															<p>Déscription : <?= urldecode($value->description) ?></p>
 															<p class="text-fade">Business key : <?= $value->business_key?> </p>
+															<?php 
+																if ($value->type == 1) { ?>
+																		<p class="text-fade">Dev key : <?= $value->dev_key?> </p>
+																	<?php } ?>
 															<?php $tab[$i]=$value->description ?>
 															<?php if ($value->is_expired == 0) { ?>
 																<div>
@@ -1237,13 +1241,6 @@
 		    let currency = currencymodal;
 		    let business_key = businesskeymodal ;
 
-			
-		
-			
-			
-			//"3d5a3de17a1be6b13e9dd2bb0a45df94"
-		
-		    // let amount = amount_int.toString();
 		    
 		    let text = amount+"/"+currency+"/"+business_key;
 		
@@ -1251,6 +1248,7 @@
 		    
 		    
 		    qrbtn.addEventListener("click", generateQR);
+			
 		    
 		    function generateQR () {
 		    
