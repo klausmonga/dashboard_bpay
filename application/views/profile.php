@@ -1228,55 +1228,53 @@
 
 	<script>
 
-	$(document).ready(function(){
-		$("#btnqrcode").click(function(){
-			var amountmodal = $("#recevoir #montantrecevoir" ).val().trim();
-			var currencymodal = $("#recevoir #currencydevise").val().trim();
-			var businesskeymodal = $("#recevoir #busikey").val().trim();
-			
-			let qrcode = document.getElementById("qrcodevalide");
-		    let qrbtn = document.getElementById("btnqrcode");
-		    
-		    let amount = amountmodal;
-		    let currency = currencymodal;
-		    let business_key = businesskeymodal ;
-
-		    
-		    let text = amount+"/"+currency+"/"+business_key;
-		
-		    var text_encode = btoa(text);
-		    
-		    
-		    qrbtn.addEventListener("click", generateQR);
-			
-		    
-		    function generateQR () {
-		    
-		        let size = "1000x1000";
-		        let data = text_encode;
+		$(document).ready(function(){
+			$("#btnqrcode").click(function(){
+				var amountmodal = $("#recevoir #montantrecevoir" ).val().trim();
+				var currencymodal = $("#recevoir #currencydevise").val().trim();
+				var businesskeymodal = $("#recevoir #busikey").val().trim();
+	
 				
-		        let baseURL = "http://api.qrserver.com/v1/create-qr-code/";
-		    
-		        let url = `${baseURL}?data=${data}&size=${size}`;
-		    
-		        qrcode.src = url;
-		    }
-		    
-		    
-		    function select (el) {
-		    
-		        return document.querySelector(el);
-		    
-		    }
+				let qrcode = document.getElementById("qrcodevalide");
+			    let qrbtn = document.getElementById("btnqrcode");
+			    
+			    let amount = amountmodal;
+			    let currency = currencymodal;
+			    let business_key = businesskeymodal ;
+	
+			    
+			    let text = amount+"/"+currency+"/"+business_key;
+			
+			    var text_encode = btoa(text);
+			    
+			    
+			 
+			    
+			        let size = "1000x1000";
+			        let data = text_encode;
+					
+			        let baseURL = "http://api.qrserver.com/v1/create-qr-code/";
+			    
+			        let url = `${baseURL}?data=${data}&size=${size}`;
+			    
+			        qrcode.src = url;
+			    
+			    
+			    
+			    function select (el) {
+			    
+			        return document.querySelector(el);
+			    
+			    }
+			});
 		});
-	});
 
-    
+  </script>
 	
 	
 
 
-</script>
+
 </body>
 
 
