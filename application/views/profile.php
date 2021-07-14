@@ -705,11 +705,11 @@
 																					echo "Taxi";
 																				}
 																				?></h4>
-															<p style=" -webkit-line-clamp : 3;
+															<p style=" -webkit-line-clamp : 4;
 																		display : -webkit-box;
 																		-webkit-box-orient : vertical;
 																		word-wrap : break-word;
-																		max-width : 40ch;
+																		max-width : 30ch;
 																		 " >Déscription : <?= urldecode($value->description) ?></p>
 															<p class="text-fade" >Business key : <?= $value->business_key?> </p>
 															<?php 
