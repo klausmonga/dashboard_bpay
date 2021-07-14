@@ -35,8 +35,8 @@
 				<a href="index.html" class="logo">
 					<!-- logo-->
 					<div class="logo-lg">
-						<span class="light-logo"><img src="<?= base_url('assets/images/bpay.png') ?>" alt="logo"></span>
-						<span class="dark-logo"><img src="<?= base_url('assets/images/bpay-light-text.png') ?>" alt="logo"></span>
+						<span class="light-logo"><img src="<?= base_url('assets/images/logo/bpay.png') ?>" alt="logo"></span>
+						<span class="dark-logo"><img src="<?= base_url('assets/images/logo/bpay.png') ?>" alt="logo"></span>
 					</div>
 				</a>
 			</div>
