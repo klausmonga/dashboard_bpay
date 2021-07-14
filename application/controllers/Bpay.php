@@ -45,6 +45,10 @@ class Bpay extends CI_Controller{
 		 $style['dashboardlink'] = $this->load->view('dashboardlink', "", true);
 
 		$this->load->view('dashboard', $style);
+
+
+		// profile 
+		
 	}
 	public function profile(){
 		
@@ -279,6 +283,11 @@ class Bpay extends CI_Controller{
 			$this->session->set_flashdata('notconnected', 'veuillez vous connecter');
 			redirect('bpay\loginv');
 		}
+	}
+
+	public function addBusiness ($nom, $description, $categorie ){
+
+
 	}
 
 	
