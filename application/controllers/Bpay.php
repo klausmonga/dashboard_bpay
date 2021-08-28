@@ -9,6 +9,7 @@ class Bpay extends CI_Controller{
 		$this->load->helper('url');
 	}
 
+	
 	public function index(){
 		$style['style'] = $this->load->view('style', "", true);
 		$this->load->view('authe',$style);
@@ -26,6 +27,13 @@ class Bpay extends CI_Controller{
 
 		 $resultsended = curl_exec($ch);
 		 $transactionsended = json_decode($resultsended);
+		 #All Business
+		 $url = "http://cloudbpay.bvortex.com/index.php/api/getBusiness/" . $this->session->user_id;
+		 $ch  = curl_init();
+		 curl_setopt($ch, CURLOPT_URL, $url);
+		 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		 $business = curl_exec($ch);
+		 $returnedbusiness = json_decode($business);
 		 //  print_r($resultsended); 
 
 		 #transaction recues 
@@ -38,7 +46,7 @@ class Bpay extends CI_Controller{
 		 $transactionreceived = json_decode($resultreceived);
 		 
 		 // print_r($resultreceived);exit;
-		
+		 $style['business'] =  $this->sort_array($returnedbusiness);
 		 $style['transactionsended'] = $transactionsended;
 		 $style['transactionreceived'] = $transactionreceived;
 		 $style['style'] = $this->load->view('style', "", true);
@@ -73,7 +81,7 @@ class Bpay extends CI_Controller{
 		// 				QRcode::png($text,$file_name,'Q',10,3);
 		// }
 		// print_r($returnedbusiness); exit;
-		$style['business'] =  $returnedbusiness;
+		$style['business'] =  $this->sort_array($returnedbusiness);
 		$style['style'] = $this->load->view('style', "", true);
 		$style['dashboardlink'] = $this->load->view('dashboardlink', "", true);
 		$this->load->view('profile', $style);
@@ -150,6 +158,13 @@ class Bpay extends CI_Controller{
 			$transactionreceived = json_decode($resultreceived);
 		 
 			// print_r($resultreceived);;
+			$url = "http://cloudbpay.bvortex.com/index.php/api/getBusiness/" . $this->session->user_id;
+			$ch  = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $url);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+			$business = curl_exec($ch);
+			$returnedbusiness = json_decode($business);
+			$style['business'] =  $this->sort_array($returnedbusiness);
 			$style['style'] = $this->load->view('style', "", true);
 			$style['dashboardlink'] = $this->load->view('dashboardlink', "", true);
 			$style['transactionsended'] = $transactionsended;
@@ -187,17 +202,20 @@ class Bpay extends CI_Controller{
 	public function modifprofie()
 	{
 		$this->isconnected();
+		var_dump($_POST['pseudo']);
 	 
 		if (isset($_POST['name']) && isset($_POST['pseudo']) && isset($_POST['number']) && isset($_POST['email'])) {
 			if (!empty($_POST['name']) && !empty($_POST['pseudo']) && !empty($_POST['number']) && !empty($_POST['email'])) {
 				$url = "http://cloudbpay.bvortex.com/index.php/api/update_user_info";
 				$datas = array('name' => $_POST['name'], 'pseudo' => $_POST['pseudo'],'number'=>$_POST['number'],'email'=>$_POST['email']);
+				
 				$ch = curl_init();
 				curl_setopt($ch, CURLOPT_URL, $url);
 				curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 				curl_setopt($ch, CURLOPT_POST, 1);
 				curl_setopt($ch, CURLOPT_POSTFIELDS, $datas);
 				$result = curl_exec($ch);
+				var_dump($result);
 				$decode= json_decode($result);
 				// print_r($decode); 
 				// print_r($decode->user->pseudo);print_r($decode->user->email);exit;
@@ -285,12 +303,106 @@ class Bpay extends CI_Controller{
 		}
 	}
 
-	public function addBusiness ($nom, $description, $categorie ){
+	public function addBusiness (){
 
+		$business_name = $this->input->post('business_name');
+		$business_description = $this->input->post('business_description');
+		$categorie = $this->input->post('categorie');
+		
+		$data = array(
+			"name" => $business_name,
+			"desc" => $business_description,
+			"type_id" => $categorie,
+			"user_id" => $this->session->user_id
+		);
+		//$str_data = json_encode($data);
+		$url = "http://cloudbpay.bvortex.com/index.php/Api/create_business";
+		$requete = $url .'/'. $business_name .'/'. $business_description .'/'. $categorie .'/'.$this->session->user_id;
+		$ch = curl_init($requete);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_POST, 1);
+		$result = curl_exec($ch);
+		curl_close($ch);
 
+		$url = "http://cloudbpay.bvortex.com/index.php/api/getBusiness/" . $this->session->user_id;
+		$ch  = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		$business = curl_exec($ch);
+		$returnedbusiness = json_decode($business);
+		$style['business'] =  $this->sort_array($returnedbusiness);
+		$style['style'] = $this->load->view('style', "", true);
+		$style['dashboardlink'] = $this->load->view('dashboardlink', "", true);
+		$this->load->view('profile', $style);
 	}
+	public function sort_array($business){
+		
+				foreach($business as $key => $row){
+					$business_id[$key] = $row->business_id;
+				}
+		
+				for($i = 0; $i < count($business_id); $i++){
+					for($j = 0; $j < count($business_id); $j++){
+						if($business_id[$i] > $business_id[$j]){
+							$temp = $business_id[$i];
+							$business_id[$i] = $business_id[$j];
+							$business_id[$j] = $temp;
+						}
+					}
+				}
+		
+				$newtabbusiness = array();
+				for($t = 0; $t < count($business_id); $t++){
+					foreach($business as $key => $row){
+						if($row->business_id == $business_id[$t] )
+						{
+							$newtabbusiness[]  = array(
+								'business_id' => $row->business_id,
+								'user_id' => $row->user_id,
+								'type' => $row->type,
+								'creation_datetime' => $row->creation_datetime,
+								'business_key' => $row->business_key,
+								'description' => $row->description,
+								'is_expired' => $row->is_expired,
+								'dev_key' => $row->dev_key
+							);
+						}
+					}
+				}
+				
+				return $newtabbusiness;
+			}
+	public function addUser(){
+		$name = $this->input->post('name');
+		$business_description = $this->input->post('business_description');
+		$categorie = $this->input->post('categorie');
+		
+		$data = array(
+			"business_name" => $business_name,
+			"business_description" => $business_description,
+			"type_id" => $categorie
+		);
+		$url = "http://cloudbpay.bvortex.com/index.php/Api/create_business/";
+		$ch = curl_init($url);
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");  
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		//curl_setopt($ch, CURLOPT_POSTFIELDS,$post);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1); 
+		$result = curl_exec($ch);
+		curl_close($ch);
+		var_dump($result);
+	}
+	public function UpdateUser(){
+		$business_name = $this->input->post('namebusiness');
+		$pseudo = $this->input->post('pseudo');
+		$emailuser = $this->input->post('emailuser');
+		$phone = $this->input->post('phone');
 
-	
-
+		$data = array(
+			"business_name" => $business_name,
+			"business_description" => $business_description,
+			"type_id" => $categorie
+		);
+		
+	}
 }
-

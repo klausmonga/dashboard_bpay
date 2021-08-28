@@ -181,6 +181,7 @@
 				<!-- sidebar menu-->
 				<?= $dashboardlink ?>
 			</section>
+			5
 		</aside>
 
 		<!-- Content Wrapper. Contains page content -->
@@ -273,7 +274,10 @@
 								<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
 									<div class="box">
 										<div class="box-header with-border">
-											<h4 class="box-title">Transactions envoyées</h4>
+									  		<h6 class="box-title">Transactions effectuées</h6>
+									  		<ul class="box-controls pull-right">
+												<li><a class="box-btn-slide" href="#"></a></li>
+									  		</ul>
 										</div>
 										<div class="box-body">
 											<div class="table-responsive">
@@ -311,12 +315,15 @@
 									</div>
 								</div>
 								<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-									<div class="box">
-										<div class="box-header with-border">
-											<h4 class="box-title">Transactions recues</h4>
-										</div>
-										<div class="box-body">
-											<div class="table-responsive">
+								<div class="box">
+								<div class="box-header with-border">
+								  <h6 class="box-title">Transactions effectuées</h6>
+								  <ul class="box-controls pull-right">
+									<li><a class="box-btn-slide" href="#"></a></li>
+								  </ul>
+								</div>
+								<div class="box-body">
+								<div class="callout mb-0" role="alert">
 												<table class="table no-bordered no-margin table-striped">
 													<thead>
 														<tr>
@@ -351,7 +358,7 @@
 
 							</div>
 
-
+												
 						</div>
 						<div class="col-xl-4 col-12">
 						<style> 
@@ -359,110 +366,107 @@
     max-height:400px;
 }
 						</style>
-							<!-- <div class="box">
-								<div class="box-header">
-									<h4 class="box-title">User Flow</h4>
-								</div>
-								<div class="box-body">
-									<div id="userflow" class="h-250">data here</div>
-								</div>
-							</div> -->
-							<!--<div class="box">
-								<div class="box-header">
-									<h4 class="box-title">Resumer stat</h4>
-								</div>
-								<div class="box-body">
-									<div>
-										<div class="toolbar">
-											<button id="one_month" class="btn btn-rounded btn-sm btn-primary">1M</button>
-											<button id="six_months" class="btn btn-rounded btn-sm btn-info">6M</button>
-											<button id="one_year" class="btn btn-rounded btn-sm active btn-success">1Y</button>
-											<button id="ytd" class="btn btn-rounded btn-sm btn-danger">YTD</button>
-											<button id="all" class="btn btn-rounded btn-sm btn-warning">ALL</button>
-										</div>
-										<div id="timeline-chart"></div>
-									</div>
-								</div>
-							</div>-->
 							<div class="box">
-								<div class="box-header">
-									<ul class="nav nav-pills">
-										<!--<li class=" nav-item"> <a href="#navpills2-1" class="nav-link active" data-toggle="tab" aria-expanded="false">Av TX</a> </li> -->
-										<!--<li class="nav-item"> <a href="#navpills2-2" class="nav-link" data-toggle="tab" aria-expanded="false">AV TX</a> </li>-->
-									</ul>
-								</div>
-								<!--<div class="box-body">
-									<div class="tab-content">
-										<div id="navpills2-1" class="tab-pane active">
-											<div class="input-group mb-15">
-												<span class="input-group-addon br-0">Order Type</span>
-												<select class="form-control bl-0">
-													<option>Limit</option>
-													<option>Market</option>
-													<option>Stop Limit</option>
-													<option>Trail</option>
-												</select>
-											</div>
-											<div class="input-group my-15">
-												<span class="input-group-addon br-0">Price (USDT)</span>
-												<input type="text" class="form-control bl-0" placeholder="≈$8,630.00">
-											</div>
-											<div class="input-group my-15">
-												<span class="input-group-addon br-0">Amount (BTC)</span>
-												<input type="text" class="form-control bl-0" placeholder="Minimum amount is 0.001BTC">
-											</div>
-											<div class="input-group my-15">
-												<span class="input-group-addon br-0">Total (USDT)</span>
-												<input type="text" class="form-control bl-0" placeholder="">
-											</div>
-											<div class="d-flex justify-content-between">
+							<div class="box-header">
+								<h4 class="box-title">
+									Business
+								</h4>
+							</div>
+							<?php
+							if ($business != null) {
+								$i=1;
+								foreach ($business as $key => $value) { ?>
+									<div class="box-body p-0">
+										<div id="slimtest1">
+											<div class="d-flex bb-1 py-10 px-15">
+												<?php
+												if ($value['type'] == 2) { ?>
+													<div class="mr-2"><img src="<?= base_url('assets/icon/shop_50px.png') ?>" alt="" srcset=""></div>
+												<?php } elseif ($value['type'] == 3) { ?>
+													<div class="mr-2"><img src="<?= base_url('assets/icon/taxi_50px.png') ?>" alt="" srcset=""></div>
+
+												<?php } elseif ($value['type'] == 1) { ?>
+													<div class="mr-2"><img src="<?= base_url('assets/icon/e-commerce_50px.png') ?>" alt="" srcset=""></div>
+
+												<?php } elseif ($value['type'] == 0) { ?>
+													<div class="mr-2"><img src="<?= base_url('assets/icon/help_50px.png') ?>" alt="" srcset=""></div>
+
+												<?php } ?>
 												<div>
-													<span>Max Buy BTC: </span>
-													<span>0.00000000</span>
+													<h4 class="mb-0"><?php
+																		if ($value['type'] == 1) {
+																			echo "E-commerce";
+																		} elseif ($value['type'] == 2) {
+																			# code...
+																			echo "Shop";
+																		} elseif ($value['type'] == 3) {
+																			# code...
+																			echo "Taxi";
+																		}
+																		?></h4>
+													<p style=" -webkit-line-clamp : 4;
+																display : -webkit-box;
+																-webkit-box-orient : vertical;
+																word-wrap : break-word;
+																max-width : 30ch;
+																 " >Déscription : <?= urldecode($value['description']) ?></p>
+													<p class="text-fade" >Business key : <?= $value['business_key']?> </p>
+													<?php 
+														if ($value['type'] == 1) { ?>
+																<p class="text-fade">Dev key : <?= $value['dev_key']?> </p>
+															<?php } ?>
+													<?php $tab[$i]=$value['description'] ?>
+													<?php if ($value['is_expired'] == 0) { ?>
+														<div>
+															<p class="text-right"><span class="label label-danger"> Inactif </span></p>
+														</div>
+													<?php }
+													if ($value['is_expired'] != 0) { 
+														if ($value['is_expired'] == 1 ){ ?>
+														<div>
+															<p class="text-right"><span class="label label-success"><?= $value['is_expired'] ?> transaction restante</span></p>
+														</div>
+														<?php }
+														else { ?>
+															<div>
+																<p class="text-right"><span class="label label-success"><?= $value['is_expired'] ?> transactions restantes</span></p>
+															</div>
+														<?php } 
+														} ?>
+													
+
+													<div>
+														<button type="button" class="waves-effect waves-light btn btn-outline btn-primary mb-5" data-toggle="modal" data-target="#abonnement"><i class="fa fa-paper-plane"></i> Abonnement</button>
+														
+														<?php 
+														if ($value['type'] > 1) { ?>
+																<button type="button" data-key="<?=$value['business_key']?>" data-toggle="modal" data-target="#recevoir" class="waves-effect waves-light btn btn-outline btn-info mb-5 attribut"><i class="fa fa-money"></i> Recevoir</button>
+															<?php } ?>
+														
+														
+													
+													</div>
 												</div>
-												<div>
-													<span>USDT Balance: </span>
-													<span>0.00</span>
-												</div>
 											</div>
-											<button type="button" class="waves-effect waves-light btn btn-success mt-10 d-block w-p100">Buy ETH</button>
-										</div>
-										<div id="navpills2-2" class="tab-pane">
-											<div class="input-group mb-15">
-												<span class="input-group-addon br-0">Order Type</span>
-												<select class="form-control bl-0">
-													<option>Limit</option>
-													<option>Market</option>
-													<option>Stop Limit</option>
-													<option>Trail</option>
-												</select>
-											</div>
-											<div class="input-group my-15">
-												<span class="input-group-addon br-0">Price (USDT)</span>
-												<input type="text" class="form-control bl-0" placeholder="≈$8,630.00">
-											</div>
-											<div class="input-group my-15">
-												<span class="input-group-addon br-0">Amount (BTC)</span>
-												<input type="text" class="form-control bl-0" placeholder="Minimum amount is 0.001BTC">
-											</div>
-											<div class="input-group my-15">
-												<span class="input-group-addon br-0">Total (USDT)</span>
-												<input type="text" class="form-control bl-0" placeholder="">
-											</div>
-											<div class="d-flex justify-content-between">
-												<div>
-													<span>Max Sell: </span>
-													<span>0.00000000</span>
-												</div>
-												<div>
-													<span>BTC Balance: </span>
-													<span>0.00</span>
-												</div>
-											</div>
-											<button type="button" class="waves-effect waves-light btn btn-danger mt-10 d-block w-p100">Sell ETH</button>
+
 										</div>
 									</div>
-								</div>-->
+								
+								<?php 
+								$i++; } ?>
+							<?php } else { ?>
+								<div class="d-flex bb-1 py-10 px-15 ">
+									<div>
+										<h4 class="text-center">Aucun business à afficher</h4>
+									</div>
+								</div>
+							<?php	} ?>
+
+							<div class="box-footer p-0 bg-light">
+								<a href="#" class="d-block p-15 text-center" data-toggle="modal" data-target="#new_business"><i class="fa fa-plus"></i> Ajouter un business</a>
+							</div>
+						</div>
+						<!-- /.box-body -->
 							</div>
 						</div>
 					</div>

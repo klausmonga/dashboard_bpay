@@ -224,14 +224,14 @@
 							<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
 
 								<div class="box-header with-border">
-									<h4 class="box-title">Modifier le pseudo</h4>
+									<h4 class="box-title">Modifier le pseudos</h4>
 								</div>
 								<div class="box-body">
 									<form action="<?= site_url('bpay\modifprofie') ?>" method="post" id="modiform">
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
-													<label>Nouveau pseudo</label>
+													<label>Nouveau pseudos</label>
 													<input type="text" class="form-control" name="pseudo" placeholder="Nouveau pseudo" value="">
 												</div>
 											</div>
@@ -450,10 +450,10 @@
 						<div class="scrolling-wrapper row flex-row flex-nowrap m-1">
 							<div class="col-md-4 col-12 ">
 								<div data-toggle="modal" data-target="#modifnumairtel" class="box box-inverse box-dangerr">
-									<img src="<?= base_url('assets\logo\airtel.png') ?>" alt="" style="position:absolute; width:25%;margin-left:76%;margin-top:16%">
+									<img src="<?= base_url('assets\logo\airtel.png') ?>" alt="" style="position:absolute; width:20%;margin-left:76%;margin-top:1%">
 
 									<div class="box-header with-border">
-										<h4 class="box-title"><strong>Numero airtel money</strong></h4>
+										<h6 class="box-title"><strong>Numero airtel money</strong></h6>
 									</div>
 									<div class="box-body" style="width:700px">
 										<h5> <strong><?= $this->session->tel_airtel; ?>
@@ -500,10 +500,10 @@
 							</div>
 							<div class="col-md-4 col-12 ">
 								<div data-toggle="modal" data-target="#modifnumvdc" class="box box-inverse box-dangerr">
-									<img src="<?= base_url('assets\logo\mpsa.png') ?>" alt="" style="position:absolute; width:34%;margin-left:66%;margin-top:13%">
+									<img src="<?= base_url('assets\logo\mpsa.png') ?>" alt="" style="position:absolute; width:25%;margin-left:66%;margin-top:1%">
 
 									<div class="box-header with-border">
-										<h4 class="box-title"> <strong>Numero m-psa</strong> </h4>
+										<h6 class="box-title"> <strong>Numero m-psa</strong> </h6>
 									</div>
 									<div class="box-body">
 										<h5> <strong> <?= $this->session->tel_vodacom; ?></strong></h5>
@@ -548,10 +548,10 @@
 							</div>
 							<div class="col-md-4 col-12">
 								<div data-toggle="modal" data-target="#modifnumorage" class="box colot box-inverse">
-									<img src="<?= base_url('assets\logo\orange.png') ?>" alt="" style="position:absolute; width:40%;margin-left:63%;margin-top:10%">
+									<img src="<?= base_url('assets\logo\orange.png') ?>" alt="" style="position:absolute; width:30%;margin-left:63%;margin-top:1%">
 
 									<div class="box-header with-border">
-										<h4 class="box-title"> <strong>Numero orange-money</strong> </h4>
+										<h6 class="box-title"> <strong>Numero orange-money</strong> </h6>
 									</div>
 									<div class="box-body">
 										<h5> <strong> <?= $this->session->tel_orange; ?></strong></h5>
@@ -611,7 +611,7 @@
 									<h4 class="box-title">Infos personnelles</h4>
 								</div> -->
 								<!-- /.box-header -->
-								<form class="form">
+								<form class="form" method="post" action="modifprofie">
 									<div class="box-body">
 										<h4 class="box-title text-info"><i class="ti-user mr-15"></i>Infos personnelles</h4>
 										<hr class="my-15">
@@ -619,13 +619,13 @@
 											<div class="col-md-6">
 												<div class="form-group">
 													<label>Nom</label>
-													<input type="text" class="form-control" readonly placeholder="First Name" value="<?= $this->session->fullname; ?>">
+													<input type="text" class="form-control" name="name" placeholder="First Name" >
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
 													<label>Pseudo</label>
-													<input type="text" class="form-control" readonly placeholder="Last Name" value="<?= $this->session->pseudo; ?>">
+													<input type="text" class="form-control" name="pseudo" placeholder="Last Name">
 												</div>
 											</div>
 										</div>
@@ -633,15 +633,18 @@
 											<div class="col-md-6">
 												<div class="form-group">
 													<label>E-mail</label>
-													<input type="text" class="form-control" readonly placeholder="E-mail" value="<?= $this->session->email; ?>">
+													<input type="text" class="form-control" name="number" placeholder="Phone">
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
 													<label>Mot de passe</label>
-													<input type="text" class="form-control" readonly placeholder="Phone" value="mot de passe">
+													<input type="email" class="form-control" name="email" placeholder="E-mail">
 												</div>
 											</div>
+											<button type="submit" class="btn btn-rounded btn-primary btn-outline">
+												<i class="ti-save-alt"></i> Save
+											</button>
 										</div>
 
 									</div>
@@ -681,26 +684,26 @@
 												<div id="slimtest1">
 													<div class="d-flex bb-1 py-10 px-15">
 														<?php
-														if ($value->type == 2) { ?>
+														if ($value['type'] == 2) { ?>
 															<div class="mr-2"><img src="<?= base_url('assets/icon/shop_50px.png') ?>" alt="" srcset=""></div>
-														<?php } elseif ($value->type == 3) { ?>
+														<?php } elseif ($value['type'] == 3) { ?>
 															<div class="mr-2"><img src="<?= base_url('assets/icon/taxi_50px.png') ?>" alt="" srcset=""></div>
 
-														<?php } elseif ($value->type == 1) { ?>
+														<?php } elseif ($value['type'] == 1) { ?>
 															<div class="mr-2"><img src="<?= base_url('assets/icon/e-commerce_50px.png') ?>" alt="" srcset=""></div>
 
-														<?php } elseif ($value->type == 0) { ?>
+														<?php } elseif ($value['type'] == 0) { ?>
 															<div class="mr-2"><img src="<?= base_url('assets/icon/help_50px.png') ?>" alt="" srcset=""></div>
 
 														<?php } ?>
 														<div>
 															<h4 class="mb-0"><?php
-																				if ($value->type == 1) {
+																				if ($value['type'] == 1) {
 																					echo "E-commerce";
-																				} elseif ($value->type == 2) {
+																				} elseif ($value['type'] == 2) {
 																					# code...
 																					echo "Shop";
-																				} elseif ($value->type == 3) {
+																				} elseif ($value['type'] == 3) {
 																					# code...
 																					echo "Taxi";
 																				}
@@ -710,27 +713,27 @@
 																		-webkit-box-orient : vertical;
 																		word-wrap : break-word;
 																		max-width : 30ch;
-																		 " >Déscription : <?= urldecode($value->description) ?></p>
-															<p class="text-fade" >Business key : <?= $value->business_key?> </p>
+																		 " >Déscription : <?= urldecode($value['description']) ?></p>
+															<p class="text-fade" >Business key : <?= $value['business_key']?> </p>
 															<?php 
-																if ($value->type == 1) { ?>
-																		<p class="text-fade">Dev key : <?= $value->dev_key?> </p>
+																if ($value['type'] == 1) { ?>
+																		<p class="text-fade">Dev key : <?= $value['dev_key']?> </p>
 																	<?php } ?>
-															<?php $tab[$i]=$value->description ?>
-															<?php if ($value->is_expired == 0) { ?>
+															<?php $tab[$i]=$value['description'] ?>
+															<?php if ($value['is_expired'] == 0) { ?>
 																<div>
 																	<p class="text-right"><span class="label label-danger"> Inactif </span></p>
 																</div>
 															<?php }
-															if ($value->is_expired != 0) { 
-																if ($value->is_expired == 1 ){ ?>
+															if ($value['is_expired'] != 0) { 
+																if ($value['is_expired'] == 1 ){ ?>
 																<div>
-																	<p class="text-right"><span class="label label-success"><?= $value->is_expired ?> transaction restante</span></p>
+																	<p class="text-right"><span class="label label-success"><?= $value['is_expired'] ?> transaction restante</span></p>
 																</div>
 																<?php }
 																else { ?>
 																	<div>
-																		<p class="text-right"><span class="label label-success"><?= $value->is_expired ?> transactions restantes</span></p>
+																		<p class="text-right"><span class="label label-success"><?= $value['is_expired'] ?> transactions restantes</span></p>
 																	</div>
 																<?php } 
 																} ?>
@@ -740,8 +743,8 @@
 																<button type="button" class="waves-effect waves-light btn btn-outline btn-primary mb-5" data-toggle="modal" data-target="#abonnement"><i class="fa fa-paper-plane"></i> Abonnement</button>
 																
 																<?php 
-																if ($value->type > 1) { ?>
-																		<button type="button" data-key="<?=$value->business_key?>" data-toggle="modal" data-target="#recevoir" class="waves-effect waves-light btn btn-outline btn-info mb-5 attribut"><i class="fa fa-money"></i> Recevoir</button>
+																if ($value['type'] > 1) { ?>
+																		<button type="button" data-key="<?=$value['business_key']?>" data-toggle="modal" data-target="#recevoir" class="waves-effect waves-light btn btn-outline btn-info mb-5 attribut"><i class="fa fa-money"></i> Recevoir</button>
 																	<?php } ?>
 																
 																
@@ -765,7 +768,6 @@
 
 									<div class="box-footer p-0 bg-light">
 										<a href="#" class="d-block p-15 text-center" data-toggle="modal" data-target="#new_business"><i class="fa fa-plus"></i> Ajouter un business</a>
-										<!-- <button type="button" class="waves-effect waves-light btn btn-outline btn-info mb-5"><i class="fa fa-plus"></i> Receive</button> -->
 									</div>
 								</div>
 								<!-- /.box-body -->
@@ -1124,15 +1126,9 @@
 						<hr>
 						<div class="text-right">
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-							
-							
 								<button id = "btnqrcode" type="button" data-key="<?=$value->business_key?>" data-toggle="modal" data-target="#payer" class="btn btn-primary">
 									payer
 								</button>
-							
-							
-							
-
 							<div id="modal1" class="modalqr"  style="display: none">
 						      <div class="modal-wrapper">
 								    <img src = "" alt = "qr-code" style="position:absolute; width:25%;margin-left:76%;margin-top:16%">
@@ -1219,7 +1215,7 @@
 				</div>
 				<div class="modal-body">
 					<div class="box-body">
-						<form action="<?= site_url() ?>" method="post">
+						<form action="<?= site_url('Bpay/addBusiness') ?>" method="post">
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
@@ -1236,10 +1232,10 @@
 							</div>
 							<div class="form-group">
 								<label>Categories</label>
-								<select class="selectpicker col-md-12 col-sm-12 form-control">
-									<option>E-commerce</option>
-									<option>Shop</option>
-									<option>Taxi</option>
+								<select class="selectpicker col-md-12 col-sm-12 form-control" name="categorie">
+									<option value="1">E-commerce</option>
+									<option value="2">Shop</option>
+									<option value="3">Taxi</option>
 								</select>
 							</div> 
 							<hr>
