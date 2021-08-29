@@ -323,7 +323,8 @@ class Bpay extends CI_Controller{
 		curl_setopt($ch, CURLOPT_POST, 1);
 		$result = curl_exec($ch);
 		curl_close($ch);
-
+		var_dump($result);
+/*
 		$url = "http://cloudbpay.bvortex.com/index.php/api/getBusiness/" . $this->session->user_id;
 		$ch  = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
@@ -333,7 +334,7 @@ class Bpay extends CI_Controller{
 		$style['business'] =  $this->sort_array($returnedbusiness);
 		$style['style'] = $this->load->view('style', "", true);
 		$style['dashboardlink'] = $this->load->view('dashboardlink', "", true);
-		$this->load->view('profile', $style);
+		$this->load->view('profile', $style);*/
 	}
 	public function sort_array($business){
 		
