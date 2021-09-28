@@ -556,13 +556,13 @@
 											<div class="col-md-6">
 												<div class="form-group">
 													<label>Nom</label>
-													<input type="text" class="form-control" name="name" placeholder="First Name" >
+													<input type="text" class="form-control" name="name" placeholder="Nom" >
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
 													<label>Pseudo</label>
-													<input type="text" class="form-control" name="pseudo" placeholder="Last Name">
+													<input type="text" class="form-control" name="pseudo" placeholder="Pseudo">
 												</div>
 											</div>
 										</div>
@@ -570,17 +570,17 @@
 											<div class="col-md-6">
 												<div class="form-group">
 													<label>E-mail</label>
-													<input type="text" class="form-control" name="number" placeholder="Phone">
+													<input type="text" class="form-control" name="number" placeholder="E-mail">
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
 													<label>Mot de passe</label>
-													<input type="email" class="form-control" name="email" placeholder="E-mail">
+													<input type="email" class="form-control" name="email" placeholder="Mot de pass">
 												</div>
 											</div>
 											<button type="submit" class="btn btn-rounded btn-primary btn-outline">
-												<i class="ti-save-alt"></i> Save
+												<i class="ti-save-alt"></i> Sauvegarder
 											</button>
 										</div>
 
@@ -613,11 +613,11 @@
 					<a class="nav-link" href="javascript:void(0)">FAQ</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Purchase Now</a>
+					<a class="nav-link" href="https://biz-payment.com/">www.bpay.com</a>
 				</li>
 			</ul>
 		</div>
-		&copy; 2020 <a href="https://www.multipurposethemes.com/">Bpay</a>. All Rights Reserved.
+		&copy; 2020-2021 <a href="#">Bpay</a>. Tous les droits reservés.
 	</footer>
 
 	<!-- Control Sidebar -->
