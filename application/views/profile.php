@@ -9,7 +9,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<link rel="icon" href="<?= base_url('assets/images/favicon.ico') ?>">
+	<link rel="icon" href="<?= base_url('assets/images/logo/b-vortex4.png') ?>">
 
 	<title>Bpay</title>
 
@@ -548,13 +548,13 @@
 							</div>
 							<div class="col-md-4 col-12">
 								<div data-toggle="modal" data-target="#modifnumorage" class="box colot box-inverse">
-									<img src="<?= base_url('assets\logo\orange.png') ?>" alt="" style="position:absolute; width:30%;margin-left:63%;margin-top:1%">
+									<img src="<?= base_url('assets\logo\orange.png') ?>" alt="" style="position:absolute; width:20%;margin-left:63%;margin-top:1%">
 
 									<div class="box-header with-border">
 										<h6 class="box-title"> <strong>Numero orange-money</strong> </h6>
 									</div>
-									<div class="box-body">
-										<h5> <strong> <?= $this->session->tel_orange; ?></strong></h5>
+									<div class="box-body" style="padding-bottom:10; padding-top: 11;">
+										<h7> <strong> <?= $this->session->tel_orange; ?></strong></h7>
 									</div>
 								</div>
 							</div>
@@ -605,7 +605,7 @@
 								}
 							</style>
 						</div>
-						<div class="col-lg-6 col-12">
+						<div class="col-lg-8 offset-2 col-12">
 							<div class="box">
 								<!-- <div class="box-header with-border">
 									<h4 class="box-title">Infos personnelles</h4>
@@ -661,123 +661,6 @@
 							</div>
 							<!-- /.box -->
 						</div>
-
-						<div class="col-lg-6 col-12">
-							<div class="box">
-								<!-- <div class="box-header with-border">
-									<h4 class="box-title">Sample form 2</h4>
-								</div> -->
-								<!-- /.box-header -->
-
-
-								<div class="box">
-									<div class="box-header">
-										<h4 class="box-title">
-											Business
-										</h4>
-									</div>
-									<?php
-									if ($business != null) {
-										$i=1;
-										foreach ($business as $key => $value) { ?>
-											<div class="box-body p-0">
-												<div id="slimtest1">
-													<div class="d-flex bb-1 py-10 px-15">
-														<?php
-														if ($value['type'] == 2) { ?>
-															<div class="mr-2"><img src="<?= base_url('assets/icon/shop_50px.png') ?>" alt="" srcset=""></div>
-														<?php } elseif ($value['type'] == 3) { ?>
-															<div class="mr-2"><img src="<?= base_url('assets/icon/taxi_50px.png') ?>" alt="" srcset=""></div>
-
-														<?php } elseif ($value['type'] == 1) { ?>
-															<div class="mr-2"><img src="<?= base_url('assets/icon/e-commerce_50px.png') ?>" alt="" srcset=""></div>
-
-														<?php } elseif ($value['type'] == 0) { ?>
-															<div class="mr-2"><img src="<?= base_url('assets/icon/help_50px.png') ?>" alt="" srcset=""></div>
-
-														<?php } ?>
-														<div>
-															<h4 class="mb-0"><?php
-																				if ($value['type'] == 1) {
-																					echo "E-commerce";
-																				} elseif ($value['type'] == 2) {
-																					# code...
-																					echo "Shop";
-																				} elseif ($value['type'] == 3) {
-																					# code...
-																					echo "Taxi";
-																				}
-																				?></h4>
-															<p style=" -webkit-line-clamp : 4;
-																		display : -webkit-box;
-																		-webkit-box-orient : vertical;
-																		word-wrap : break-word;
-																		max-width : 30ch;
-																		 " >Déscription : <?= urldecode($value['description']) ?></p>
-															<p class="text-fade" >Business key : <?= $value['business_key']?> </p>
-															<?php 
-																if ($value['type'] == 1) { ?>
-																		<p class="text-fade">Dev key : <?= $value['dev_key']?> </p>
-																	<?php } ?>
-															<?php $tab[$i]=$value['description'] ?>
-															<?php if ($value['is_expired'] == 0) { ?>
-																<div>
-																	<p class="text-right"><span class="label label-danger"> Inactif </span></p>
-																</div>
-															<?php }
-															if ($value['is_expired'] != 0) { 
-																if ($value['is_expired'] == 1 ){ ?>
-																<div>
-																	<p class="text-right"><span class="label label-success"><?= $value['is_expired'] ?> transaction restante</span></p>
-																</div>
-																<?php }
-																else { ?>
-																	<div>
-																		<p class="text-right"><span class="label label-success"><?= $value['is_expired'] ?> transactions restantes</span></p>
-																	</div>
-																<?php } 
-																} ?>
-															
-
-															<div>
-																<button type="button" class="waves-effect waves-light btn btn-outline btn-primary mb-5" data-toggle="modal" data-target="#abonnement"><i class="fa fa-paper-plane"></i> Abonnement</button>
-																
-																<?php 
-																if ($value['type'] > 1) { ?>
-																		<button type="button" data-key="<?=$value['business_key']?>" data-toggle="modal" data-target="#recevoir" class="waves-effect waves-light btn btn-outline btn-info mb-5 attribut"><i class="fa fa-money"></i> Recevoir</button>
-																	<?php } ?>
-																
-																
-															
-															</div>
-														</div>
-													</div>
-
-												</div>
-											</div>
-										
-										<?php 
-										$i++; } ?>
-									<?php } else { ?>
-										<div class="d-flex bb-1 py-10 px-15 ">
-											<div>
-												<h4 class="text-center">Aucun business à afficher</h4>
-											</div>
-										</div>
-									<?php	} ?>
-
-									<div class="box-footer p-0 bg-light">
-										<a href="#" class="d-block p-15 text-center" data-toggle="modal" data-target="#new_business"><i class="fa fa-plus"></i> Ajouter un business</a>
-									</div>
-								</div>
-								<!-- /.box-body -->
-
-
-
-							</div>
-							<!-- /.box -->
-						</div>
-					</div>
 			</div>
 			<!-- /.row -->
 
@@ -1120,13 +1003,13 @@
 								</div>
 							</div>
 
-							<input id="busikey" type="hidden" value=<?= $value->business_key ?> class="form-control" name="business_key" id="key">
+							<input id="busikey" type="hidden" value=<?= $value['business_key'] ?> class="form-control" name="business_key" id="key">
 									
 						</div>
 						<hr>
 						<div class="text-right">
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-								<button id = "btnqrcode" type="button" data-key="<?=$value->business_key?>" data-toggle="modal" data-target="#payer" class="btn btn-primary">
+								<button id = "btnqrcode" type="button" data-key="<?=$value['business_key']?>" data-toggle="modal" data-target="#payer" class="btn btn-primary">
 									payer
 								</button>
 							<div id="modal1" class="modalqr"  style="display: none">

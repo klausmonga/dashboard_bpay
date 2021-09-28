@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<link rel="icon" href="<?= base_url('assets/images/favicon.ico') ?>">
+	<link rel="icon" href="<?= base_url('assets/images/logo/b-vortex4.png') ?>">
 
 	<title>Bpay</title>
 
@@ -73,71 +73,7 @@
 				<div class="navbar-custom-menu r-side">
 					<ul class="nav navbar-nav">
 						<!-- Notifications -->
-						<li class="dropdown notifications-menu">
-							<a href="#" class="waves-effect waves-light dropdown-toggle" data-toggle="dropdown" title="Notifications">
-								<img src="<?= base_url('assets/images/svg-icon/notifications.svg') ?>" class="img-fluid svg-icon" alt="">
-							</a>
-							<ul class="dropdown-menu animated bounceIn">
-
-								<li class="header">
-									<div class="p-20">
-										<div class="flexbox">
-											<div>
-												<h4 class="mb-0 mt-0">Notifications</h4>
-											</div>
-											<div>
-												<a href="#" class="text-danger">Clear All</a>
-											</div>
-										</div>
-									</div>
-								</li>
-
-								<li>
-									<!-- inner menu: contains the actual data -->
-									<ul class="menu sm-scrol">
-										<li>
-											<a href="#">
-												<i class="fa fa-users text-info"></i> Curabitur id eros quis nunc suscipit blandit.
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<i class="fa fa-warning text-warning"></i> Duis malesuada justo eu sapien elementum, in semper diam posuere.
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<i class="fa fa-users text-danger"></i> Donec at nisi sit amet tortor commodo porttitor pretium a erat.
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<i class="fa fa-shopping-cart text-success"></i> In gravida mauris et nisi
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<i class="fa fa-user text-danger"></i> Praesent eu lacus in libero dictum fermentum.
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<i class="fa fa-user text-primary"></i> Nunc fringilla lorem
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<i class="fa fa-user text-success"></i> Nullam euismod dolor ut quam interdum, at scelerisque ipsum imperdiet.
-											</a>
-										</li>
-									</ul>
-								</li>
-								<li class="footer">
-									<a href="#">View all</a>
-								</li>
-							</ul>
-						</li>
-
+						
 						<!-- User Account-->
 						<li class="dropdown user user-menu">
 							<a href="#" class="waves-effect waves-light dropdown-toggle" data-toggle="dropdown" title="User">
@@ -181,7 +117,6 @@
 				<!-- sidebar menu-->
 				<?= $dashboardlink ?>
 			</section>
-			5
 		</aside>
 
 		<!-- Content Wrapper. Contains page content -->
@@ -198,18 +133,9 @@
 											<h5 class="mb-0">
 												<img src="<?= base_url('assets\logo\orange.png') ?>" alt="">
 												<hr>
-												<!-- <span class="text-uppercase font-size-14"><i class="cc BTC" title="BTC"></i>Orange money</span>
-												<span class="float-right badge badge-light">24h</span> -->
 											</h5>
 											<br>
-											<!--<div class="d-flex justify-content-between">
-												<p class="font-size-26">$513,64256</p>
-												<div><i class="ion-arrow-graph-up-right mr-1 text-success"></i> +1.75%</div>
-											</div>-->
 										</div>
-										<!--<div class="box-body p-0">
-											<div id="spark1"></div>
-										</div>-->
 									</div>
 								</div>
 								<div class="col-lg-4 col-12">
@@ -218,18 +144,9 @@
 											<h5 class="mb-0">
 												<img src="<?= base_url('assets\logo\airtel.png') ?>" alt="">
 												<hr>
-												<!-- <span class="text-uppercase font-size-14"> </i>Airtel money</span> -->
-												<!-- <span class="float-right badge badge-light">24h</span> -->
 											</h5>
 											<br>
-											<!--div class="d-flex justify-content-between">
-												<p class="font-size-26">$12,178.99</p>
-												<div><i class="ion-arrow-graph-up-right mr-1 text-success"></i> +1.89%</div>
-											</--div>-->
 										</div>
-										<!--<div class="box-body p-0">
-											<div id="spark3"></div>
-										</div>-->
 									</div>
 								</div>
 								<div class="col-lg-4 col-12">
@@ -238,29 +155,13 @@
 											<h5 class="mb-0">
 												<img src="<?= base_url('assets\logo\mpsa.png') ?>" alt="">
 												<hr>
-
 											</h5>
 											<br>
-											<!--<div class="d-flex justify-content-between">
-												<p class="font-size-26">$5,724.33</p>
-												<div><i class="ion-arrow-graph-up-right mr-1 text-success"></i> +1.85%</div>
-											</div>-->
 										</div>
-										<!--<div class="box-body p-0">
-											<div id="spark4"></div>
-										</div>-->
 									</div>
 								</div>
 							</div>
-							<!-- <div class="box">
-								<div class="box-header">
-									<h4 class="box-title">Timelite</h4>
-								</div>
-								<div class="box-body">
-									<div id="bitcoin-timeline" class="h-300"></div>
-								</div>
-							</div> -->
-
+							
 							<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 								<li class="nav-item">
 									<a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Transactions envoyées</a>
@@ -268,103 +169,105 @@
 								<li class="nav-item">
 									<a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Transactions recues</a>
 								</li>
-
 							</ul>
 							<div class="tab-content" id="pills-tabContent">
 								<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-									<div class="box">
-										<div class="box-header with-border">
-									  		<h6 class="box-title">Transactions effectuées</h6>
-									  		<ul class="box-controls pull-right">
-												<li><a class="box-btn-slide" href="#"></a></li>
-									  		</ul>
-										</div>
-										<div class="box-body">
-											<div class="table-responsive">
-												<table class="table no-bordered no-margin table-striped">
-													<thead>
-														<tr>
-															<th>ITM</th>
-															<th>code</th>
-															<th>amount</th>
-															<th>currency</th>
-															<th>type</th>
-														</tr>
-													</thead>
-													<?php $i = 1;
-													
-													$varferrors = isset($transactionsended) ? $transactionsended : null;
-													foreach ($transactionsended as $value) {
-														# code...
-													?>
-														<tbody>
-															<tr>
-																<th><?= $i ?></th>
-																<td><?= $value->code ?></td>
-																<td><i class="fa fa-arrow-up text-danger"></i><?= $value->amount ?></td>
-																<td><?= $value->currency ?></td>
-																<td><span class="label label-success"><?= $value->type ?></span></td>
-															</tr>
-
-														</tbody>
-													<?php $i++;
-													} ?>
-												</table>
-											</div>
-										</div>
+									<div class="row" >
+										<table class="table no-bordered no-margin table-striped">
+											<thead>
+												<tr>
+													<th>ITM</th>
+													<th>code</th>
+													<th>amount</th>
+													<th>currency</th>
+													<th>type</th>
+												</tr>
+											</thead>
+										</table>
+										<?php $i = 1;
+										$varferrors = isset($transactionsended) ? $transactionsended : null;
+										foreach ($transactionsended as $value) {
+											# code...
+										?>
+											<tbody>
+											<div class="box box-slided-up">
+													<div class="box-header with-border">
+														<h6 class="box-title"><?= $value->code ?></h6>
+														<ul class="box-controls pull-right">
+															<li><a class="box-btn-slide" href="#"></a></li>
+														</ul>
+													</div>
+													<div class="box-body">
+														<div class="table-responsive">
+															<table class="table no-bordered no-margin table-striped">
+																<tbody>
+																	<tr>
+																		<td><?php echo $i; ?></td>
+																		<td><?= $value->code ?></td>
+																		<td><i class="fa fa-arrow-up text-danger"></i><?= $value->amount ?></td>
+																		<td><?= $value->currency ?></td>
+																		<td><span class="label label-success"><?= $value->type ?></span></td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+										<?php $i++;}?>
+											</tbody>
 									</div>
 								</div>
 								<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-								<div class="box">
-								<div class="box-header with-border">
-								  <h6 class="box-title">Transactions effectuées</h6>
-								  <ul class="box-controls pull-right">
-									<li><a class="box-btn-slide" href="#"></a></li>
-								  </ul>
-								</div>
-								<div class="box-body">
-								<div class="callout mb-0" role="alert">
-												<table class="table no-bordered no-margin table-striped">
-													<thead>
-														<tr>
-															<th>ITM</th>
-															<th>code</th>
-															<th>amount</th>
-															<th>currency</th>
-															<th>type</th>
-														</tr>
-													</thead>
-													<?php $i = 1;
-													foreach ($transactionreceived as $value) {
-														# code...
-													?>
-														<tbody>
-															<tr>
-																<th><?= $i ?></th>
-																<td><?= $value->code ?></td>
-																<td><i class="fa fa-arrow-down text-success"></i><?= $value->amount ?></td>
-																<td><?= $value->currency ?></td>
-																<td><span class="label label-success"><?= $value->type ?></span></td>
-															</tr>
-
-														</tbody>
-													<?php $i++;
-													} ?>
-												</table>
-											</div>
-										</div>
+									<div class="row">
+										<table class="table no-bordered no-margin table-striped">
+											<thead>
+												<tr>
+													<th>ITM</th>
+													<th>code</th>
+													<th>amount</th>
+													<th>currency</th>
+													<th>type</th>
+												</tr>
+											</thead>
+										</table>
+										<?php $i = 1;
+										foreach ($transactionreceived as $value){
+											# code...
+										?><tbody>
+											<div class="box box-slided-up">
+													<div class="box-header with-border">
+														<h6 class="box-title"><?= $value->code ?></h6>
+														<ul class="box-controls pull-right">
+															<li><a class="box-btn-slide" href="#"></a></li>
+														</ul>
+													</div>
+													<div class="box-body">
+														<div class="table-responsive">
+															<table class="table no-bordered no-margin table-striped">
+																<tbody>
+																	<tr>
+																		<td><?php echo $i; ?></td>
+																		<td><?= $value->code ?></td>
+																		<td><i class="fa fa-arrow-up text-danger"></i><?= $value->amount ?></td>
+																		<td><?= $value->currency ?></td>
+																		<td><span class="label label-success"><?= $value->type ?></span></td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+										<?php $i++;} ?>
+										</tbody>
 									</div>
 								</div>
-
 							</div>
-
-												
 						</div>
 						<div class="col-xl-4 col-12">
 						<style> 
 						.table-responsive {
-    max-height:400px;
-}
+    						max-height:400px;
+							}
 						</style>
 							<div class="box">
 							<div class="box-header">
@@ -436,7 +339,7 @@
 													
 
 													<div>
-														<button type="button" class="waves-effect waves-light btn btn-outline btn-primary mb-5" data-toggle="modal" data-target="#abonnement"><i class="fa fa-paper-plane"></i> Abonnement</button>
+														<!--button type="button" class="waves-effect waves-light btn btn-outline btn-primary mb-5" data-toggle="modal" data-target="#abonnement"><i class="fa fa-paper-plane"></i> Abonnement</button-->
 														
 														<?php 
 														if ($value['type'] > 1) { ?>
@@ -464,7 +367,7 @@
 
 							<div class="box-footer p-0 bg-light">
 								<a href="#" class="d-block p-15 text-center" data-toggle="modal" data-target="#new_business"><i class="fa fa-plus"></i> Ajouter un business</a>
-							</div>
+							</div>					
 						</div>
 						<!-- /.box-body -->
 							</div>
@@ -482,11 +385,16 @@
 						<a class="nav-link" href="javascript:void(0)">FAQ</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Purchase Now</a>
+						<a class="nav-link" href="https://biz-payment.com">www.bpay.com</a>
 					</li>
 				</ul>
-			</div>
-			&copy; 2020-2021 <a href="https://www.multipurposethemes.com/">Bpay </a>. All Rights Reserved.
+			</div>&copy;
+			<?php	
+				$Object = new DateTime();  
+				$year = $Object->format("Y");
+				echo $year - 1 .'-'.$year;
+			?>
+			<a href="#">Bpay </a>.Tous les droits reservés
 		</footer>
 
 		<!-- Control Sidebar -->
@@ -497,272 +405,256 @@
 				</span>
 			</div> <!-- Create the tabs -->
 			<ul class="nav nav-tabs control-sidebar-tabs">
-				<li class="nav-item"><a href="#control-sidebar-home-tab" data-toggle="tab"><img src="<?= base_url('assets/images/svg-icon/apps.svg') ?>" class="img-fluid svg-icon" alt=""></a></li>
-				<li class="nav-item"><a href="#control-sidebar-settings-tab" data-toggle="tab"><img src="<?= base_url('assets/images/svg-icon/advanced.svg') ?>" class="img-fluid svg-icon" alt=""></a></li>
+				<li class="nav-item"><a href="#control-sidebar-home-tab" data-toggle="tab"><img src="<?= base_url('assets/images/svg-icon/apps.s') ?>" class="img-fluid svg-icon" alt=""></a></li>
+				
+				<li class="nav-item"><a href="#control-sidebar-settings-tab" data-toggle="tab"><img src="<?= base_url('assets/images/svg-icon/advanced.s') ?>" class="img-fluid svg-icon" alt=""></a></li>
 			</ul>
 			<!-- Tab panes -->
 			<div class="tab-content">
 				<!-- Home tab content -->
 				<div class="tab-pane" id="control-sidebar-home-tab">
-					<div class="flexbox">
-						<a href="javascript:void(0)" class="text-grey">
-							<i class="ti-more"></i>
-						</a>
-						<p>Users</p>
-						<a href="javascript:void(0)" class="text-right text-grey"><i class="ti-plus"></i></a>
-					</div>
-					<div class="lookup lookup-sm lookup-right d-none d-lg-block">
-						<input type="text" name="s" placeholder="Search" class="w-p100">
-					</div>
-					<div class="media-list media-list-hover mt-20">
-						<div class="media py-10 px-0">
-							<a class="avatar avatar-lg status-success" href="#">
-								<img src="<?= base_url('assets/images/avatar/1.jpg') ?>" alt="...">
-							</a>
-							<div class="media-body">
-								<p class="font-size-16">
-									<a class="hover-primary" href="#"><strong>Tyler</strong></a>
-								</p>
-								<p>Praesent tristique diam...</p>
-								<span>Just now</span>
-							</div>
-						</div>
+					
+					
 
-						<div class="media py-10 px-0">
-							<a class="avatar avatar-lg status-danger" href="#">
-								<img src="<?= base_url('assets/images/avatar/2.jpg') ?>" alt="...">
-							</a>
-							<div class="media-body">
-								<p class="font-size-16">
-									<a class="hover-primary" href="#"><strong>Luke</strong></a>
-								</p>
-								<p>Cras tempor diam ...</p>
-								<span>33 min ago</span>
-							</div>
-						</div>
-
-						<div class="media py-10 px-0">
-							<a class="avatar avatar-lg status-warning" href="#">
-								<img src="<?= base_url('assets/images/avatar/3.jpg') ?>" alt="...">
-							</a>
-							<div class="media-body">
-								<p class="font-size-16">
-									<a class="hover-primary" href="#"><strong>Evan</strong></a>
-								</p>
-								<p>In posuere tortor vel...</p>
-								<span>42 min ago</span>
-							</div>
-						</div>
-
-						<div class="media py-10 px-0">
-							<a class="avatar avatar-lg status-primary" href="#">
-								<img src="<?= base_url('assets/images/avatar/4.jpg') ?>" alt="...">
-							</a>
-							<div class="media-body">
-								<p class="font-size-16">
-									<a class="hover-primary" href="#"><strong>Evan</strong></a>
-								</p>
-								<p>In posuere tortor vel...</p>
-								<span>42 min ago</span>
-							</div>
-						</div>
-
-						<div class="media py-10 px-0">
-							<a class="avatar avatar-lg status-success" href="#">
-								<img src="<?= base_url('assets/images/avatar/1.jpg') ?>" alt="...">
-							</a>
-							<div class="media-body">
-								<p class="font-size-16">
-									<a class="hover-primary" href="#"><strong>Tyler</strong></a>
-								</p>
-								<p>Praesent tristique diam...</p>
-								<span>Just now</span>
-							</div>
-						</div>
-
-						<div class="media py-10 px-0">
-							<a class="avatar avatar-lg status-danger" href="#">
-								<img src="<?= base_url('assets/images/avatar/2.jpg') ?>" alt="...">
-							</a>
-							<div class="media-body">
-								<p class="font-size-16">
-									<a class="hover-primary" href="#"><strong>Luke</strong></a>
-								</p>
-								<p>Cras tempor diam ...</p>
-								<span>33 min ago</span>
-							</div>
-						</div>
-
-						<div class="media py-10 px-0">
-							<a class="avatar avatar-lg status-warning" href="#">
-								<img src="<?= base_url('assets/images/avatar/3.jpg') ?>" alt="...">
-							</a>
-							<div class="media-body">
-								<p class="font-size-16">
-									<a class="hover-primary" href="#"><strong>Evan</strong></a>
-								</p>
-								<p>In posuere tortor vel...</p>
-								<span>42 min ago</span>
-							</div>
-						</div>
-
-						<div class="media py-10 px-0">
-							<a class="avatar avatar-lg status-primary" href="#">
-								<img src="<?= base_url('assets/images/avatar/4.jpg') ?>" alt="...">
-							</a>
-							<div class="media-body">
-								<p class="font-size-16">
-									<a class="hover-primary" href="#"><strong>Evan</strong></a>
-								</p>
-								<p>In posuere tortor vel...</p>
-								<span>42 min ago</span>
-							</div>
-						</div>
+						
 
 					</div>
 
 				</div>
 				<!-- /.tab-pane -->
 				<!-- Settings tab content -->
-				<div class="tab-pane" id="control-sidebar-settings-tab">
-					<div class="flexbox">
-						<a href="javascript:void(0)" class="text-grey">
-							<i class="ti-more"></i>
-						</a>
-						<p>Todo List</p>
-						<a href="javascript:void(0)" class="text-right text-grey"><i class="ti-plus"></i></a>
-					</div>
-					<ul class="todo-list mt-20">
-						<li class="py-15 px-5 by-1">
-							<!-- checkbox -->
-							<input type="checkbox" id="basic_checkbox_1" class="filled-in">
-							<label for="basic_checkbox_1" class="mb-0 h-15"></label>
-							<!-- todo text -->
-							<span class="text-line">Nulla vitae purus</span>
-							<!-- Emphasis label -->
-							<small class="badge bg-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
-							<!-- General tools such as edit or delete-->
-							<div class="tools">
-								<i class="fa fa-edit"></i>
-								<i class="fa fa-trash-o"></i>
-							</div>
-						</li>
-						<li class="py-15 px-5">
-							<!-- checkbox -->
-							<input type="checkbox" id="basic_checkbox_2" class="filled-in">
-							<label for="basic_checkbox_2" class="mb-0 h-15"></label>
-							<span class="text-line">Phasellus interdum</span>
-							<small class="badge bg-info"><i class="fa fa-clock-o"></i> 4 hours</small>
-							<div class="tools">
-								<i class="fa fa-edit"></i>
-								<i class="fa fa-trash-o"></i>
-							</div>
-						</li>
-						<li class="py-15 px-5 by-1">
-							<!-- checkbox -->
-							<input type="checkbox" id="basic_checkbox_3" class="filled-in">
-							<label for="basic_checkbox_3" class="mb-0 h-15"></label>
-							<span class="text-line">Quisque sodales</span>
-							<small class="badge bg-warning"><i class="fa fa-clock-o"></i> 1 day</small>
-							<div class="tools">
-								<i class="fa fa-edit"></i>
-								<i class="fa fa-trash-o"></i>
-							</div>
-						</li>
-						<li class="py-15 px-5">
-							<!-- checkbox -->
-							<input type="checkbox" id="basic_checkbox_4" class="filled-in">
-							<label for="basic_checkbox_4" class="mb-0 h-15"></label>
-							<span class="text-line">Proin nec mi porta</span>
-							<small class="badge bg-success"><i class="fa fa-clock-o"></i> 3 days</small>
-							<div class="tools">
-								<i class="fa fa-edit"></i>
-								<i class="fa fa-trash-o"></i>
-							</div>
-						</li>
-						<li class="py-15 px-5 by-1">
-							<!-- checkbox -->
-							<input type="checkbox" id="basic_checkbox_5" class="filled-in">
-							<label for="basic_checkbox_5" class="mb-0 h-15"></label>
-							<span class="text-line">Maecenas scelerisque</span>
-							<small class="badge bg-primary"><i class="fa fa-clock-o"></i> 1 week</small>
-							<div class="tools">
-								<i class="fa fa-edit"></i>
-								<i class="fa fa-trash-o"></i>
-							</div>
-						</li>
-						<li class="py-15 px-5">
-							<!-- checkbox -->
-							<input type="checkbox" id="basic_checkbox_6" class="filled-in">
-							<label for="basic_checkbox_6" class="mb-0 h-15"></label>
-							<span class="text-line">Vivamus nec orci</span>
-							<small class="badge bg-info"><i class="fa fa-clock-o"></i> 1 month</small>
-							<div class="tools">
-								<i class="fa fa-edit"></i>
-								<i class="fa fa-trash-o"></i>
-							</div>
-						</li>
-						<li class="py-15 px-5 by-1">
-							<!-- checkbox -->
-							<input type="checkbox" id="basic_checkbox_7" class="filled-in">
-							<label for="basic_checkbox_7" class="mb-0 h-15"></label>
-							<!-- todo text -->
-							<span class="text-line">Nulla vitae purus</span>
-							<!-- Emphasis label -->
-							<small class="badge bg-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
-							<!-- General tools such as edit or delete-->
-							<div class="tools">
-								<i class="fa fa-edit"></i>
-								<i class="fa fa-trash-o"></i>
-							</div>
-						</li>
-						<li class="py-15 px-5">
-							<!-- checkbox -->
-							<input type="checkbox" id="basic_checkbox_8" class="filled-in">
-							<label for="basic_checkbox_8" class="mb-0 h-15"></label>
-							<span class="text-line">Phasellus interdum</span>
-							<small class="badge bg-info"><i class="fa fa-clock-o"></i> 4 hours</small>
-							<div class="tools">
-								<i class="fa fa-edit"></i>
-								<i class="fa fa-trash-o"></i>
-							</div>
-						</li>
-						<li class="py-15 px-5 by-1">
-							<!-- checkbox -->
-							<input type="checkbox" id="basic_checkbox_9" class="filled-in">
-							<label for="basic_checkbox_9" class="mb-0 h-15"></label>
-							<span class="text-line">Quisque sodales</span>
-							<small class="badge bg-warning"><i class="fa fa-clock-o"></i> 1 day</small>
-							<div class="tools">
-								<i class="fa fa-edit"></i>
-								<i class="fa fa-trash-o"></i>
-							</div>
-						</li>
-						<li class="py-15 px-5">
-							<!-- checkbox -->
-							<input type="checkbox" id="basic_checkbox_10" class="filled-in">
-							<label for="basic_checkbox_10" class="mb-0 h-15"></label>
-							<span class="text-line">Proin nec mi porta</span>
-							<small class="badge bg-success"><i class="fa fa-clock-o"></i> 3 days</small>
-							<div class="tools">
-								<i class="fa fa-edit"></i>
-								<i class="fa fa-trash-o"></i>
-							</div>
-						</li>
-					</ul>
-				</div>
+				
 				<!-- /.tab-pane -->
 			</div>
 		</aside>
-		<!-- /.control-sidebar -->
-		<!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
-		<div class="control-sidebar-bg"></div>
 
 	</div>
 	<!-- ./wrapper -->
 	<!-- Vendor JS -->
 	<script type="text/javascript" src="<?= base_url('assets/js/vendors.min.js') ?>"></script>
+	<!-- /.modal -->
 
+	<!-- Modal -->
+	<div class="modal   fade" id="recevoir">
+		<div class="modal-dialog">
+			<div class="modal-content  ">
+				<div class="modal-header">
+					<h4 class="modal-title">Recevoir un paiement</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span></button>
+				</div>
+				<div   id="orderDetails" class="modal-body">
+					<form >
+						<div class="row">
+							<div class="col-md-5 offset-1">
+								<div class="form-group">
+									<label>Montant</label>
+									<input id = "montantrecevoir" type="text" class="form-control"  placeholder="Montant"  required>
+								</div>
+							</div>
+							<div class="col-md-5">
+								<div class="form-group">
+									<label>Devise</label>
+									<select id="currencydevise" name="devise" class="col-md-12 col-sm-12 form-control" required>
+										<option value="usd">USD</option>
+										<option value="cdf">CDF</option>
+									</select>
+								</div>
+							</div>
+							<input id="busikey" type="hidden" value=<?= $value['business_key'] ?> class="form-control" name="business_key" id="key">
+						</div>
+						<hr>
+						<div class="text-right">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+								<button id = "btnqrcode" type="button" data-key="<?=$value['business_key']?>" data-toggle="modal" data-target="#payer" class="btn btn-primary">
+									payer
+								</button>
+							<div id="modal1" class="modalqr"  style="display: none">
+						      <div class="modal-wrapper">
+								    <img src = "" alt = "qr-code" style="position:absolute; width:25%;margin-left:76%;margin-top:16%">
+						      </div>
+						    </div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	
+	<input  type="hidden"  class="form-control" name="business_key" id="keybus" style="display: none">
+
+	<div class="modal   fade" id="payer" >
+		<div class="modal-dialog" >
+
+		<div  class="modal-content  " style="height: 300px; width : 600px">
+					
+						<div class="row">
+							<div class="col-md-6" style="height: 300px;">
+								<div ><img id = "qrcodevalide" src = "" alt = "" style="height: 300px;
+																		      width: 300px;
+																		      padding: 1rem;
+																		      border: 2px solid #bada55;
+																		      border-radius: 0.5rem;
+																		      grid-column: 1 / -1;">
+								</div>
+							</div>
+							
+							<div class="col-md-6" style="height: 200px;">
+								<div >
+									<img style="vertical-align: middle;
+												width: 230px;
+												height: 230px;
+												display: block;
+												margin-left: auto;
+												margin-right: 45px;
+												margin-top: 30px;" src="<?= base_url('assets/images/logo/b-vortex4w.png') ?>" alt="" srcset="">
+								</div>
+							</div>
+						</div>
+					
+		</div>				
+			
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+	<!-- Modal -->
+	<div class="modal  fade" id="abonnement">
+		<div class="modal-dialog">
+			<div class="modal-content  ">
+				<div class="modal-header">
+					<h4 class="modal-title">abonnement</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span></button>
+				</div>
+				<form action="<?= site_url('Bpay/subscription') ?>" method="post">
+					<div class="modal-body">
+						<div class="row">
+							<div class="form-group">
+								<label>Nombre des transactions</label>
+								<input name="days" type="text" class="form-control"  placeholder="Montant"  required>
+							</div>
+							<div class="form-group">
+								<label>Devise</label>
+								<select name="currency" class="col-md-12 col-sm-12 form-control" required>
+									<option value="usd">USD</option>
+									<option value="cdf">CDF</option>
+								</select>
+							</div>
+						</div>
+						<input id="busikey" type="hidden" value=<?= $value['business_id'] ?> class="form-control" name="business_id" id="key">
+					</div>
+					<hr>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-rounded btn-danger" data-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-rounded btn-primary float-right" data-key="<?=$value['business_key']?>">Save changes</button>
+					</div>
+				</form>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	
+	<!-- /.modal -->
+
+	<div class="modal fade" id="new_business">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Nouveau business</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span></button>
+				</div>
+				<div class="modal-body">
+					<div class="box-body">
+						<form action="<?= site_url('Bpay/addBusiness') ?>" method="post">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Nom du business</label>
+										<input type="text" class="form-control" name="business_name" placeholder="Nom du business" value="" required>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Description</label>
+										<input type="text" class="form-control" name="business_description" placeholder="Description du business" value="" required>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label>Categories</label>
+								<select class="col-md-12 col-sm-12 form-control" name="categorie">
+									<option value="1">E-commerce</option>
+									<option value="2">Shop</option>
+									<option value="3">Taxi</option>
+								</select>
+							</div> 
+							<hr>
+							<div class="text-right">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+								<button type="submit" class="btn btn-primary">Ajouter</button>
+							</div>
+						</form>
+
+					</div>
+					<!-- Modal -->
+				</div>
+
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	
+	<!-- /.modal -->
+
+	<script>
+
+		$(document).ready(function(){
+			$("#btnqrcode").click(function(){
+				var amountmodal = $("#recevoir #montantrecevoir" ).val().trim();
+				var currencymodal = $("#recevoir #currencydevise").val().trim();
+				var businesskeymodal = $("#recevoir #busikey").val().trim();
+	
+				
+				let qrcode = document.getElementById("qrcodevalide");
+			    let qrbtn = document.getElementById("btnqrcode");
+			    
+			    let amount = amountmodal;
+			    let currency = currencymodal;
+			    let business_key = businesskeymodal ;
+	
+			    
+			    let text = amount+"/"+currency+"/"+business_key;
+			
+			    var text_encode = btoa(text);
+			    
+			    
+			 
+			    
+			    let size = "1000x1000";
+			    let data = text_encode;
+					
+			    let baseURL = "http://api.qrserver.com/v1/create-qr-code/";
+			    
+			    let url = `${baseURL}?data=${data}&size=${size}`;
+			    
+			    qrcode.src = url;
+			    
+			    
+			    
+			    function select (el) {
+			    
+			        return document.querySelector(el);
+			    }
+			});
+		});
+  	</script>
 	<script src="<?= base_url('assets/assets/vendor_components/apexcharts-bundle/data.js') ?>"></script>
 	<script src="<?= base_url('assets/assets/vendor_components/apexcharts-bundle/dist/apexcharts.js') ?>"></script>
 	<!--<script src="https://www.amcharts.com/lib/4/core.js"></script>

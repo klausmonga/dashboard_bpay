@@ -122,7 +122,7 @@ class Bpay extends CI_Controller{
 			redirect('bpay\loginv');
 
 		} elseif (empty($donnee)) {
-			$this->session->set_flashdata('checkFailed', 'V2rifier votre connexion internet'); 
+			$this->session->set_flashdata('checkFailed', 'Vérifier votre connexion internet'); 
 			redirect('bpay\loginv');
 		}else{
 			$data_session = array(
@@ -392,17 +392,42 @@ class Bpay extends CI_Controller{
 		curl_close($ch);
 		var_dump($result);
 	}
-	public function UpdateUser(){
-		$business_name = $this->input->post('namebusiness');
-		$pseudo = $this->input->post('pseudo');
-		$emailuser = $this->input->post('emailuser');
-		$phone = $this->input->post('phone');
+	public function subscription(){
 
-		$data = array(
-			"business_name" => $business_name,
-			"business_description" => $business_description,
-			"type_id" => $categorie
-		);
+		$business_id = $this->input->post('business_id');
+		$days = $this->input->post('days');
+		$currency = $this->input->post('currency');
 		
+		$customer_id = $this->input->post('customer_id');
+
+		$datas = array(
+			'business_id' => $business_id, 
+			'days' => $days,
+			'currency'=>$currency,
+			'customer_id'=>$customer_id
+		);
+
+		$url = "http://cloudbpay.bvortex.com/index.php/Api/subscription";
+		$requete = $url .'/'. $business_id .'/'. $days .'/'. $currency .'/'. $this->session->user_id;
+
+		$ch = curl_init($requete);
+		var_dump("<br>Requete". $requete);
+		var_dump("<br>Ch ". $ch );
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_POST, 1);
+		$result = curl_exec($ch);
+
+		/*
+		
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $datas);
+		$result = curl_exec($ch);
+*/
+		curl_close($ch);
+		
+		var_dump("Resultat ". $result);
 	}
 }
