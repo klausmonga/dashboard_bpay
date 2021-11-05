@@ -1,5 +1,7 @@
 # Bpay
 
+
+
 Encore plus d’accessibilité. Recevez et gérez simplement vos paiements électroniques
 Vous cherchez Bpay pour vos Business? Que vous vendiez à l’échelle locale ou nationale, nous sommes là pour vous aide
 
