@@ -16,9 +16,45 @@
 	<!-- Style-->
 	<link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
 	<link rel="stylesheet" href="<?= base_url('assets/css/skin_color.css') ?>">
+	<link rel="stylesheet" href="<?= base_url('assets/css/style_modal.css') ?>">
+	<script src="<?= base_url('assets/js/business.js') ?>"></script>
 
 	<!-- style vendor -->
 	<?= $style; ?>
+	<style>
+	#myInput {
+  background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 100%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+}
+
+#myUL {
+  /* Remove default list styling */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd; /* Add a border to all links */
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6; /* Grey background color */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove default text underline */
+  font-size: 18px; /* Increase the font-size */
+  color: black; /* Add a black text color */
+  display: block; /* Make it into a block element to fill the whole list */
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee; /* Add a hover effect to all links, except for headers */
+}
+</style>
 
 </head>
 
@@ -59,10 +95,11 @@
 							<div class="search-bx ml-10">
 								<form>
 									<div class="input-group">
-										<input type="search" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
+										<input type="text" class="form-control" placeholder="Recherche" aria-label="Search" aria-describedby="button-addon2"  id="myInput" >
 										<div class="input-group-append">
 											<button class="btn" type="submit" id="button-addon2"><img src="<?= base_url('assets/images/svg-icon/search.svg') ?>" class="img-fluid" alt="search"></button>
 										</div>
+										<ul id="charactersList"></ul>
 									</div>
 								</form>
 							</div>
@@ -170,96 +207,168 @@
 									<a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Transactions recues</a>
 								</li>
 							</ul>
+							
 							<div class="tab-content" id="pills-tabContent">
 								<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
 									<div class="row" >
 										<table class="table no-bordered no-margin table-striped">
 											<thead>
 												<tr>
-													<th>ITM</th>
-													<th>code</th>
-													<th>amount</th>
-													<th>currency</th>
-													<th>type</th>
+													<th>Destinataire</th>
+													<th>Motif</th>
+													<th>Montant</th>
+													<th>Dévise</th>
+													<th>Etat</th>
 												</tr>
 											</thead>
 										</table>
+										<div class = "box box-slided-up" id = "list" >
 										<?php $i = 1;
 										$varferrors = isset($transactionsended) ? $transactionsended : null;
 										foreach ($transactionsended as $value) {
 											# code...
 										?>
-											<tbody>
-											<div class="box box-slided-up">
-													<div class="box-header with-border">
-														<h6 class="box-title"><?= $value->code ?></h6>
-														<ul class="box-controls pull-right">
-															<li><a class="box-btn-slide" href="#"></a></li>
-														</ul>
+											<?Php 
+											$paymentdetails = $value->payment_details;
+											foreach ($paymentdetails as $paymentdetail){
+												$payments = $paymentdetails->payments;
+												foreach ($payments as $payment) { ?>
+												
+													<tbody>
+													
+													<div class="box box-slided-up">
+															<div class="box-header with-border">
+																<table class="table no-bordered no-margin table-striped">
+																			<tbody>
+																				<tr>
+																					<td><?php echo $i ?></td>
+																					<?php if ($payment->name == 'Réabonnement Bpay'){ ?>
+																						<td><?php echo ('Reab. Bpay')?></td><?php
+																					} else { ?>
+																						<td><?= $payment->name?></td> <?php
+																					}
+																						
+																					?>
+																					
+																					<td><i class="fa fa-arrow-up text-danger"></i><?= $payment->amount ?></td>
+																					<td><?= $payment->currency ?></td>
+																					<?php 
+																					if ($value->state != '7001'){ ?>
+																						<td><span class="label label-success">OK</span></td><?php 
+																					}else { ?>
+																						<td><span class="label badge badge-danger">échec</span></td><?php
+																					} ?>
+																					
+																				</tr>
+																				
+																			</tbody>
+																			
+																		</table>
+																	<ul class="box-controls pull-right">
+																		<li><a class="box-btn-slide" href="#"></a></li>
+																	</ul>
+															</div>
+															<div class="box-body">
+																<div class="table-responsive">
+																	
+																	<p class="nav-link active" >Nom : <?php echo $payment->name ?> </p>
+																	<p class="nav-link active" >Description : <?php echo $payment->description ?> </p>
+																	<p class="nav-link active" >Quantité : <?php echo $payment->quantity ?> </p>
+																	<p class="nav-link active" >Taxe : <?php echo $payment->tax ?> </p>
+																	<p class="nav-link active" >Date : <?php echo $payment->datetime ?> </p>
+																</div>
+															</div>
 													</div>
-													<div class="box-body">
-														<div class="table-responsive">
-															<table class="table no-bordered no-margin table-striped">
-																<tbody>
-																	<tr>
-																		<td><?php echo $i; ?></td>
-																		<td><?= $value->code ?></td>
-																		<td><i class="fa fa-arrow-up text-danger"></i><?= $value->amount ?></td>
-																		<td><?= $value->currency ?></td>
-																		<td><span class="label label-success"><?= $value->type ?></span></td>
-																	</tr>
-																</tbody>
-															</table>
-														</div>
-													</div>
-												</div>
+												
+											<?php			
+												
+													}
+													break;}?>
+											
 										<?php $i++;}?>
-											</tbody>
+										
+										</tbody>
+											
 									</div>
+								</div>
 								</div>
 								<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
 									<div class="row">
 										<table class="table no-bordered no-margin table-striped">
 											<thead>
 												<tr>
-													<th>ITM</th>
-													<th>code</th>
-													<th>amount</th>
-													<th>currency</th>
-													<th>type</th>
+												<th>Numéro</th>
+												<th>Motif</th>
+												<th>Montant</th>
+												<th>Dévise</th>
+												<th>Etat</th>
 												</tr>
 											</thead>
 										</table>
+										<div class = "box box-slided-up" id = "list2" >
 										<?php $i = 1;
-										foreach ($transactionreceived as $value){
+										$varferrors = isset($transactionreceived) ? $transactionreceived : null;
+										foreach ($transactionreceived as $value) {
 											# code...
-										?><tbody>
-											<div class="box box-slided-up">
-													<div class="box-header with-border">
-														<h6 class="box-title"><?= $value->code ?></h6>
-														<ul class="box-controls pull-right">
-															<li><a class="box-btn-slide" href="#"></a></li>
-														</ul>
-													</div>
-													<div class="box-body">
-														<div class="table-responsive">
+										?>
+											<?Php 
+											$paymentdetails = $value->payment_details;
+											foreach ($paymentdetails as $paymentdetail){
+												$payments = $paymentdetails->payments;
+												foreach ($payments as $payment) { ?>
+													<tbody id="myTable">
+													<div class="box box-slided-up">
+															<div class="box-header with-border">
 															<table class="table no-bordered no-margin table-striped">
-																<tbody>
-																	<tr>
-																		<td><?php echo $i; ?></td>
-																		<td><?= $value->code ?></td>
-																		<td><i class="fa fa-arrow-up text-danger"></i><?= $value->amount ?></td>
-																		<td><?= $value->currency ?></td>
-																		<td><span class="label label-success"><?= $value->type ?></span></td>
-																	</tr>
-																</tbody>
-															</table>
+																		<tbody>
+																			<tr>
+																				<td><?php echo $i ?></td>
+																				<?php if ($payment->name == 'Réabonnement Bpay'){ ?>
+																					<td><?php echo ('Reab. Bpay')?></td><?php
+																				} else { ?>
+																					<td><?= $payment->name?></td> <?php
+																				}
+																					
+																				?>
+																				
+																				<td><i class="fa fa-arrow-up text-danger"></i><?= $payment->amount ?></td>
+																				<td><?= $payment->currency ?></td>
+																				<?php 
+																				if ($value->state != '7001'){ ?>
+																					<td><span class="label label-success">OK</span></td><?php 
+																				}else { ?>
+																					<td><span class="label badge badge-danger">échec</span></td><?php
+																				} ?>
+																				
+																			</tr>
+																			
+																		</tbody>
+																		
+																	</table>
+																<ul class="box-controls pull-right">
+																	<li><a class="box-btn-slide" href="#"></a></li>
+																</ul>
+															</div>
+															<div class="box-body">
+																<div class="table-responsive">
+																	
+																	<p class="nav-link active" >Nom : <?php echo $payment->name ?> </p>
+																	<p class="nav-link active" >Description : <?php echo $payment->description ?> </p>
+																	<p class="nav-link active" >Quantité : <?php echo $payment->quantity ?> </p>
+																	<p class="nav-link active" >Taxe : <?php echo $payment->tax ?> </p>
+																	<p class="nav-link active" >Date : <?php echo $payment->datetime ?> </p>
+																</div>
+															</div>
 														</div>
-													</div>
-												</div>
-										<?php $i++;} ?>
+											<?php			}
+													break;}?>
+											
+										<?php $i++; }?>
 										</tbody>
+									
 									</div>
+									</div>
+									
 								</div>
 							</div>
 						</div>
@@ -278,31 +387,31 @@
 							<?php
 							if ($business != null) {
 								$i=1;
-								foreach ($business as $key => $value) { ?>
+								foreach ($business as $key => $valueb) { ?>
 									<div class="box-body p-0">
 										<div id="slimtest1">
 											<div class="d-flex bb-1 py-10 px-15">
 												<?php
-												if ($value['type'] == 2) { ?>
+												if ($valueb['type'] == 2) { ?>
 													<div class="mr-2"><img src="<?= base_url('assets/icon/shop_50px.png') ?>" alt="" srcset=""></div>
-												<?php } elseif ($value['type'] == 3) { ?>
+												<?php } elseif ($valueb['type'] == 3) { ?>
 													<div class="mr-2"><img src="<?= base_url('assets/icon/taxi_50px.png') ?>" alt="" srcset=""></div>
 
-												<?php } elseif ($value['type'] == 1) { ?>
+												<?php } elseif ($valueb['type'] == 1) { ?>
 													<div class="mr-2"><img src="<?= base_url('assets/icon/e-commerce_50px.png') ?>" alt="" srcset=""></div>
 
-												<?php } elseif ($value['type'] == 0) { ?>
+												<?php } elseif ($valueb['type'] == 0) { ?>
 													<div class="mr-2"><img src="<?= base_url('assets/icon/help_50px.png') ?>" alt="" srcset=""></div>
 
 												<?php } ?>
 												<div>
 													<h4 class="mb-0"><?php
-																		if ($value['type'] == 1) {
+																		if ($valueb['type'] == 1) {
 																			echo "E-commerce";
-																		} elseif ($value['type'] == 2) {
+																		} elseif ($valueb['type'] == 2) {
 																			# code...
 																			echo "Shop";
-																		} elseif ($value['type'] == 3) {
+																		} elseif ($valueb['type'] == 3) {
 																			# code...
 																			echo "Taxi";
 																		}
@@ -312,27 +421,27 @@
 																-webkit-box-orient : vertical;
 																word-wrap : break-word;
 																max-width : 30ch;
-																 " >Déscription : <?= urldecode($value['description']) ?></p>
-													<p class="text-fade" >Business key : <?= $value['business_key']?> </p>
+																 " >Déscription : <?= urldecode($valueb['description']) ?></p>
+													<p class="text-fade" >Business key : <?= $valueb['business_key']?> </p>
 													<?php 
-														if ($value['type'] == 1) { ?>
-																<p class="text-fade">Dev key : <?= $value['dev_key']?> </p>
+														if ($valueb['type'] == 1) { ?>
+																<p class="text-fade">Dev key : <?= $valueb['dev_key']?> </p>
 															<?php } ?>
-													<?php $tab[$i]=$value['description'] ?>
-													<?php if ($value['is_expired'] == 0) { ?>
+													<?php $tab[$i]=$valueb['description'] ?>
+													<?php if ($valueb['is_expired'] == 0) { ?>
 														<div>
 															<p class="text-right"><span class="label label-danger"> Inactif </span></p>
 														</div>
 													<?php }
-													if ($value['is_expired'] != 0) { 
-														if ($value['is_expired'] == 1 ){ ?>
+													if ($valueb['is_expired'] != 0) { 
+														if ($valueb['is_expired'] == 1 ){ ?>
 														<div>
-															<p class="text-right"><span class="label label-success"><?= $value['is_expired'] ?> transaction restante</span></p>
+															<p class="text-right"><span class="label label-success"><?= $valueb['is_expired'] ?> transaction restante</span></p>
 														</div>
 														<?php }
 														else { ?>
 															<div>
-																<p class="text-right"><span class="label label-success"><?= $value['is_expired'] ?> transactions restantes</span></p>
+																<p class="text-right"><span class="label label-success"><?= $valueb['is_expired'] ?> transactions restantes</span></p>
 															</div>
 														<?php } 
 														} ?>
@@ -340,12 +449,14 @@
 
 													<div>
 														<!--button type="button" class="waves-effect waves-light btn btn-outline btn-primary mb-5" data-toggle="modal" data-target="#abonnement"><i class="fa fa-paper-plane"></i> Abonnement</button-->
+														<button id = "lot_business_id"  type="button" name = "business_id_sub" data-whatever ="<?=$valueb['business_id']?>" class="waves-effect waves-light btn btn-outline btn-primary mb-5" data-toggle="modal" data-target="#abonnement"><i class="fa fa-paper-plane"></i> Abonnement</button>
 														
 														<?php 
-														if ($value['type'] > 1) { ?>
-																<button type="button" data-key="<?=$value['business_key']?>" data-toggle="modal" data-target="#recevoir" class="waves-effect waves-light btn btn-outline btn-info mb-5 attribut"><i class="fa fa-money"></i> Recevoir</button>
-															<?php } ?>
+														if ($valueb['type'] > 1) { ?>
+																<button type="button" data-whatever="<?=$valueb['business_key']?>" data-toggle="modal" data-target="#recevoir" class="waves-effect waves-light btn btn-outline btn-info mb-5 attribut"><i class="fa fa-money"></i> Recevoir</button>
 														
+																<?php } ?>
+																
 														
 													
 													</div>
@@ -377,6 +488,7 @@
 				<!-- /.content -->
 			</div>
 		</div>
+		
 		<!-- /.content-wrapper -->
 		<footer class="main-footer">
 			<div class="pull-right d-none d-sm-inline-block">
@@ -443,8 +555,10 @@
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span></button>
 				</div>
+				<div class="container">
 				<div   id="orderDetails" class="modal-body">
 					<form >
+						
 						<div class="row">
 							<div class="col-md-5 offset-1">
 								<div class="form-group">
@@ -461,12 +575,12 @@
 									</select>
 								</div>
 							</div>
-							<input id="busikey" type="hidden" value=<?= $value['business_key'] ?> class="form-control" name="business_key" id="key">
+							<input id="busikey" type="hidden"  class="form-control" name="business_key" >
 						</div>
 						<hr>
 						<div class="text-right">
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-								<button id = "btnqrcode" type="button" data-key="<?=$value['business_key']?>" data-toggle="modal" data-target="#payer" class="btn btn-primary">
+								<button id = "btnqrcode" type="button" data-key="<?=$valueb['business_key']?>" data-toggle="modal" data-target="#payer" class="btn btn-primary">
 									payer
 								</button>
 							<div id="modal1" class="modalqr"  style="display: none">
@@ -476,6 +590,7 @@
 						    </div>
 						</div>
 					</form>
+				</div>
 				</div>
 			</div>
 			<!-- /.modal-content -->
@@ -522,15 +637,21 @@
 	</div>
 	<!-- /.modal -->
 	<!-- Modal -->
-	<div class="modal  fade" id="abonnement">
+	
+	</div>
+	<div class="modal  fade"  id="abonnement" >
+		
 		<div class="modal-dialog">
-			<div class="modal-content  ">
+			<div class="modal-content"  style="width: 200%;
+											   margin-left : -250px;">	 
+					
+												 
 				<div class="modal-header">
-					<h4 class="modal-title">abonnement</h4>
+					<h4 class="modal-title" style="text-align: center;padding-left : 415px;">abonnement</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span></button>
 				</div>
-				<form action="<?= site_url('Bpay/subscription') ?>" method="post">
+				<!-- <form action="" method="post">
 					<div class="modal-body">
 						<div class="row">
 							<div class="form-group">
@@ -545,14 +666,99 @@
 								</select>
 							</div>
 						</div>
-						<input id="busikey" type="hidden" value=<?= $value['business_id'] ?> class="form-control" name="business_id" id="key">
+						<input id="busikey" type="hidden" value=<?= $valueb['business_id'] ?> class="form-control" name="business_id" id="key">
 					</div>
 					<hr>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-rounded btn-danger" data-dismiss="modal">Close</button>
-						<button type="submit" class="btn btn-rounded btn-primary float-right" data-key="<?=$value['business_key']?>">Save changes</button>
+						<button type="submit" class="btn btn-rounded btn-primary float-right" data-key="<?=$valueb['business_key']?>">Save changes</button>
 					</div>
-				</form>
+				</form>-->
+				<style> 
+						.table-responsive {
+    						max-height:400px;
+							}
+						</style>
+			
+			
+				<div class="demo">
+					<div class="container">
+						<div class="row">
+						
+							<?php $i = 1;
+								$varferrors = isset($returnedpackages) ? $returnedpackages : null;
+								$varbusiness = isset($business) ? $business: null;
+								
+								foreach ($returnedpackages as $values) { ?>
+											
+								<?php if ($values->id == 1) { 
+						                $cast ="pricingTable";
+										$color = "#4fc2f8";
+											} elseif ($values->id == 2) { 
+												$cast ="pricingTable orange";
+												$color = "#fb8c00";
+												 } elseif ($values->id == 3) { 
+												$cast="pricingTable pink";
+												$color = "#d81a60";
+													} else { 
+													$cast="pricingTable orange";
+													$color = "#4fc2f8";
+												} ?>
+
+
+
+						            <div class="col-md-4 col-sm-6">
+									<form action="<?= site_url('Bpay/subscriptiontwo') ?>" method="post">
+						                <div class = "<?php echo $cast ?>">
+											
+						                    <div class= "pricingTable-header" >
+						                        <h3 class="title"><?= $values->name ?></h3>
+						                        <span class="price-value">
+						                            $<?= $values->usd_cost ?><span class="month">/pay as you go</span>
+						                        </span>
+						                    </div>
+						                    <ul class="pricing-content">
+						                        <li><?= $values->tx ?> Transactions</li>
+						                        <li><?= $values->cdf_cost ?> FC</li>
+						                        <li><?= $values->usd_cost ?> USD</li>
+						                        <li>100% Sécurisé</li>
+						                        <li>
+												
+													
+														<select id="currencydevise_tx" name="currency" class="col-md-12 col-sm-12 form-control" required style="text-align: center;background-color :<?php echo $color ?> ; color :#fff;">
+															<option value="usd">USD</option>
+															<option value="cdf">CDF</option>
+														</select>
+		
+														</li>
+								                    	</ul>
+														
+														<input  id= "lot_tx_id" type="hidden" name="lot_tx_id" class="pricingTable-signup"  value="<?=  $values->id ?>" style="text-align: center;background-color :<?php echo $color ?> ; color :#fff;   "/>
+														<input  id="busiid" type="hidden" name="business_tx_id" class="pricingTable-signup"   style="text-align: center;background-color :<?php echo $color ?> ; color :#fff;   "/>
+														
+														<button href="#" class="pricingTable-signup">Souscrire</button>
+								                    	
+													
+    
+
+						                </div>
+									</form>
+						        </div>
+									
+								
+								<?php $i++ ;}?>
+								
+							</div>		 
+							<h3 id="test"></h3>
+						
+						
+					</div>
+				</div>		
+			</div>
+			
+			
+
+
 			</div>
 			<!-- /.modal-content -->
 		</div>
@@ -613,6 +819,9 @@
 	
 	<!-- /.modal -->
 
+
+	
+
 	<script>
 
 		$(document).ready(function(){
@@ -655,6 +864,85 @@
 			});
 		});
   	</script>
+
+	<script>
+		$('#abonnement').on('show.bs.modal', function (event) {
+		  var button = $(event.relatedTarget) // Button that triggered the modal
+		  var recipient = button.data('whatever') // Extract info from data-* attributes
+		  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+		  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+		  var modal = $(this)
+		  
+		  modal.find('.container #busiid').val(recipient)
+		})
+	</script>
+
+<script>
+		$('#recevoir').on('show.bs.modal', function (event) {
+		  var button = $(event.relatedTarget) // Button that triggered the modal
+		  var recipient = button.data('whatever') // Extract info from data-* attributes
+		  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+		  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+		  var modal = $(this)
+		  
+		  modal.find('.container #busikey').val(recipient)
+		})
+	</script>
+
+	<script>
+		var input = document.getElementById("myInput");
+		input.addEventListener("input", myFunction);
+		
+		function myFunction(e) {
+		  var filter = e.target.value.toUpperCase();
+		
+		  var list = document.getElementById("list");
+		  var divs = list.getElementsByTagName("div");
+		  for (var i = 0; i < divs.length; i++) {
+		    var a = divs[i].getElementsByTagName("td")[0];
+		
+		    if (a) {
+		      if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+		        divs[i].style.display = "";
+		      } else {
+		        divs[i].style.display = "none";
+		      }
+		    }
+		  }
+		
+		}
+
+	</script>
+	<script>
+		var input = document.getElementById("myInput");
+		input.addEventListener("input", myFunction);
+		
+		function myFunction(e) {
+		  var filter = e.target.value.toUpperCase();
+		
+		  var list = document.getElementById("list2");
+		  var divs = list.getElementsByTagName("div");
+		  for (var i = 0; i < divs.length; i++) {
+		    var a = divs[i].getElementsByTagName("td")[0];
+		
+		    if (a) {
+		      if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+		        divs[i].style.display = "";
+		      } else {
+		        divs[i].style.display = "none";
+		      }
+		    }
+		  }
+		
+		}
+
+	</script>
+
+
+
+
+
+
 	<script src="<?= base_url('assets/assets/vendor_components/apexcharts-bundle/data.js') ?>"></script>
 	<script src="<?= base_url('assets/assets/vendor_components/apexcharts-bundle/dist/apexcharts.js') ?>"></script>
 	<!--<script src="https://www.amcharts.com/lib/4/core.js"></script>
@@ -668,5 +956,6 @@
 	<script src="<?= base_url('assets/js/template.js') ?>"></script>
 	<script src="<?= base_url('assets\js\pages\dashboard9.js') ?>"></script>
 	<script src="<?= base_url('assets\js\demo.js') ?>"></script>
+	<script src="<?= base_url('assets\js\app.js') ?>"></script>
 </body>
 </html>

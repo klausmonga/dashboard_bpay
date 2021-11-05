@@ -19,12 +19,7 @@
 	</ul>
 </li>
 
-	<li>
-		<a href="<?=site_url('bpay')?>">
-			<img src="<?= base_url('assets/images/svg-icon/sidebar-menu/exchange.svg') ?>" class="svg-icon" alt="">
-			<span>Transaction</span>
-		</a>
-	</li>
+	
 
 	<li>
 		<a href="<?=site_url('bpay\logout')?>">

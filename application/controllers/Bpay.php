@@ -44,11 +44,25 @@ class Bpay extends CI_Controller{
 		 curl_setopt($chreceived, CURLOPT_POST, 1);
 		 $resultreceived = curl_exec($chreceived);
 		 $transactionreceived = json_decode($resultreceived);
-		 
+
+		 // active packages
+		
+		 $packages = "http://cloudbpay.bvortex.com/index.php/Api/active_txlot" ;
+		 $chpackages = curl_init(); 
+		 curl_setopt($chpackages, CURLOPT_URL, $packages);
+		 curl_setopt($chpackages, CURLOPT_RETURNTRANSFER, 1);
+		 curl_setopt($chpackages, CURLOPT_POST, 1);
+		 $activepackage = curl_exec($chpackages);
+		 $returnedpackages = json_decode($activepackage);
+
+
+
+
 		 // print_r($resultreceived);exit;
 		 $style['business'] =  $this->sort_array($returnedbusiness);
 		 $style['transactionsended'] = $transactionsended;
 		 $style['transactionreceived'] = $transactionreceived;
+		 $style['returnedpackages'] = $returnedpackages;
 		 $style['style'] = $this->load->view('style', "", true);
 		 $style['dashboardlink'] = $this->load->view('dashboardlink', "", true);
 
@@ -105,7 +119,7 @@ class Bpay extends CI_Controller{
 	public function connexion(){
 		
 		$url = "http://cloudbpay.bvortex.com/index.php/api/login";
-		$datas = array('phone_number' => $_POST['phone_number'], 'password' => $_POST['password']);
+		$datas = array('phone_number' => $_POST['phone_number'], 'password' =>$_POST['password']);
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -136,6 +150,14 @@ class Bpay extends CI_Controller{
 				'connected' => true,
 			);
 			$this->session->set_userdata($data_session);
+			
+
+			$url = "http://cloudbpay.bvortex.com/index.php/api/getBusiness/" . $this->session->user_id;
+			$ch  = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $url);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+			$business = curl_exec($ch);
+			$returnedbusiness = json_decode($business);
 
 			#transactions envoyees
 			$url = "http://cloudbpay.bvortex.com/index.php/api/get_sended_tx/" . $this->session->user_id;
@@ -156,6 +178,20 @@ class Bpay extends CI_Controller{
 			curl_setopt($chreceived, CURLOPT_POST, 1);
 			$resultreceived = curl_exec($chreceived);
 			$transactionreceived = json_decode($resultreceived);
+
+
+			// active packages
+		
+			$packages = "http://cloudbpay.bvortex.com/index.php/Api/active_txlot" ;
+			 $chpackages = curl_init(); 
+			 curl_setopt($chpackages, CURLOPT_URL, $packages);
+			 curl_setopt($chpackages, CURLOPT_RETURNTRANSFER, 1);
+			 curl_setopt($chpackages, CURLOPT_POST, 1);
+			 $activepackage = curl_exec($chpackages);
+			 $returnedpackages = json_decode($activepackage);
+
+
+
 		 
 			// print_r($resultreceived);;
 			$url = "http://cloudbpay.bvortex.com/index.php/api/getBusiness/" . $this->session->user_id;
@@ -164,10 +200,13 @@ class Bpay extends CI_Controller{
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 			$business = curl_exec($ch);
 			$returnedbusiness = json_decode($business);
+
+
 			$style['business'] =  $this->sort_array($returnedbusiness);
 			$style['style'] = $this->load->view('style', "", true);
 			$style['dashboardlink'] = $this->load->view('dashboardlink', "", true);
 			$style['transactionsended'] = $transactionsended;
+			$style['returnedpackages'] = $returnedpackages;
 			$style['transactionreceived'] = $transactionreceived;
 			$this->load->view('dashboard', $style);
 		}
@@ -335,6 +374,107 @@ class Bpay extends CI_Controller{
 		$style['dashboardlink'] = $this->load->view('dashboardlink', "", true);
 		$this->load->view('profile', $style);
 	}
+    
+
+	
+
+	public function subscriptiontwo (){
+
+		$business_id = $this->input->post('business_tx_id');
+		$lot_tx_id = $this->input->post('lot_tx_id');
+		$currency = $this->input->post('currency');
+
+		
+		$data = array(
+			"business_id" => $business_id,
+			"lot_tx_id" => $lot_tx_id,
+			"currency" => $currency,
+			"user_id" => $this->session->user_id
+		);
+
+
+		#All Business
+		
+
+
+		$url = "http://cloudbpay.bvortex.com/index.php/api/getBusiness/" . $this->session->user_id;
+		$ch  = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		$business = curl_exec($ch);
+		$returnedbusiness = json_decode($business);
+
+		//$str_data = json_encode($data);
+		$url = "http://cloudbpay.bvortex.com/index.php/Api/subscription/";
+		$requete = $url .'/'. $business_id .'/'. $lot_tx_id .'/'. $currency .'/'.$this->session->user_id;
+		echo($business_id);
+		echo($lot_tx_id);
+		echo($currency);
+		echo($this->session->user_id);
+		$ch = curl_init($requete);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_POST, 1);
+		$result = curl_exec($ch);
+		
+
+		#transactions envoyees
+		$url = "http://cloudbpay.bvortex.com/index.php/api/get_sended_tx/" . $this->session->user_id;
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_POST, 1);
+
+		$resultsended = curl_exec($ch);
+		$transactionsended = json_decode($resultsended);
+		#All Business
+		$url = "http://cloudbpay.bvortex.com/index.php/api/getBusiness/" . $this->session->user_id;
+		$ch  = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		$business = curl_exec($ch);
+		$returnedbusiness = json_decode($business);
+		//  print_r($resultsended); 
+
+		#transaction recues 
+		$urlreceived = "http://cloudbpay.bvortex.com/index.php/api/get_received_tx/" . $this->session->user_id;
+		$chreceived = curl_init();
+		curl_setopt($chreceived, CURLOPT_URL, $urlreceived);
+		curl_setopt($chreceived, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($chreceived, CURLOPT_POST, 1);
+		$resultreceived = curl_exec($chreceived);
+		$transactionreceived = json_decode($resultreceived);
+
+		// active packages
+	   
+		$packages = "http://cloudbpay.bvortex.com/index.php/Api/active_txlot" ;
+		$chpackages = curl_init(); 
+		curl_setopt($chpackages, CURLOPT_URL, $packages);
+		curl_setopt($chpackages, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($chpackages, CURLOPT_POST, 1);
+		$activepackage = curl_exec($chpackages);
+		$returnedpackages = json_decode($activepackage);
+
+
+
+
+		// print_r($resultreceived);exit;
+		$style['business'] =  $this->sort_array($returnedbusiness);
+		$style['transactionsended'] = $transactionsended;
+		$style['transactionreceived'] = $transactionreceived;
+		$style['returnedpackages'] = $returnedpackages;
+		$style['style'] = $this->load->view('style', "", true);
+		$style['dashboardlink'] = $this->load->view('dashboardlink', "", true);
+
+	   $this->load->view('dashboard', $style);
+
+		
+		
+		
+
+	}
+
+
+
 	public function sort_array($business){
 		
 				foreach($business as $key => $row){
@@ -373,7 +513,7 @@ class Bpay extends CI_Controller{
 				return $newtabbusiness;
 			}
 	public function addUser(){
-		$name = $this->input->post('name');
+		$business_name = $this->input->post('business_name');
 		$business_description = $this->input->post('business_description');
 		$categorie = $this->input->post('categorie');
 		
@@ -395,20 +535,20 @@ class Bpay extends CI_Controller{
 	public function subscription(){
 
 		$business_id = $this->input->post('business_id');
-		$days = $this->input->post('days');
+		$lot_tx_id = $this->input->post('lot_tx_id');
 		$currency = $this->input->post('currency');
 		
 		$customer_id = $this->input->post('customer_id');
 
 		$datas = array(
 			'business_id' => $business_id, 
-			'days' => $days,
+			'lot_tx_id' => $lot_tx_id,
 			'currency'=>$currency,
 			'customer_id'=>$customer_id
 		);
 
 		$url = "http://cloudbpay.bvortex.com/index.php/Api/subscription";
-		$requete = $url .'/'. $business_id .'/'. $days .'/'. $currency .'/'. $this->session->user_id;
+		$requete = $url .'/'. $business_id .'/'. $lot_tx_id .'/'. $currency .'/'. $this->session->user_id;
 
 		$ch = curl_init($requete);
 		var_dump("<br>Requete". $requete);
