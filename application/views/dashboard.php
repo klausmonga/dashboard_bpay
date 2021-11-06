@@ -97,7 +97,7 @@
 									<div class="input-group">
 										<input type="text" class="form-control" placeholder="Recherche" aria-label="Search" aria-describedby="button-addon2"  id="myInput" >
 										<div class="input-group-append">
-											<button class="btn" type="submit" id="button-addon2"><img src="<?= base_url('assets/images/svg-icon/search.svg') ?>" class="img-fluid" alt="search"></button>
+											<div class="btn"  id="button-addon2" style="margin-bottom: 10px;"><img src="<?= base_url('assets/images/svg-icon/search.svg') ?>" class="img-fluid" alt="search" ></div>
 										</div>
 										<ul id="charactersList"></ul>
 									</div>
