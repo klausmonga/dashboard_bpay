@@ -253,11 +253,15 @@
 																					<td><i class="fa fa-arrow-up text-danger"></i><?= $payment->amount ?></td>
 																					<td><?= $payment->currency ?></td>
 																					<?php 
-																					if ($value->state != '7001'){ ?>
-																						<td><span class="label label-success">OK</span></td><?php 
-																					}else { ?>
-																						<td><span class="label badge badge-danger">échec</span></td><?php
-																					} ?>
+																					if (($value->state == '7001') or ($value->state == '7003')){ ?>
+																						<td><span class="label badge badge-danger">échec</span></td><?php 
+																					}elseif ($value->state == '7002') { ?>
+																						<td><span class="label badge badge-warning">attente</span></td><?php
+																					}elseif ($value->state == '1') { ?>
+																						<td><span class="label label-success">ok</span></td>
+																						<?php } else { ?>
+																							<td><span class="label badge badge-danger">!</span></td>
+																						<?php }	?>
 																					
 																				</tr>
 																				
@@ -334,11 +338,15 @@
 																				<td><i class="fa fa-arrow-up text-danger"></i><?= $payment->amount ?></td>
 																				<td><?= $payment->currency ?></td>
 																				<?php 
-																				if ($value->state != '7001'){ ?>
-																					<td><span class="label label-success">OK</span></td><?php 
-																				}else { ?>
-																					<td><span class="label badge badge-danger">échec</span></td><?php
-																				} ?>
+																				if (($value->state == '7001') or ($value->state == '7003')){ ?>
+																					<td><span class="label badge badge-danger">échec</span></td><?php 
+																				}elseif ($value->state == '7002') { ?>
+																					<td><span class="label badge badge-warning">attente</span></td><?php
+																				}elseif ($value->state == '1') { ?>
+																					<td><span class="label label-success">ok</span></td>
+																					<?php } else { ?>
+																						<td><span class="label badge badge-danger">!</span></td>
+																					<?php }	?>
 																				
 																			</tr>
 																			
