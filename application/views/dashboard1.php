@@ -234,7 +234,7 @@
 												$payments = $paymentdetails->payments;
 												foreach ($payments as $payment) { ?>
 												
-													<tbody id="myTabless">
+													<tbody>
 													
 													<div class="box box-slided-up">
 															<div class="box-header with-border">
@@ -906,26 +906,18 @@
 		
 		  var list = document.getElementById("list");
 		  var divs = list.getElementsByTagName("div");
-		  
 		  for (var i = 0; i < divs.length; i++) {
 		    var a = divs[i].getElementsByTagName("td")[0];
-			var b = divs[i].getElementsByTagName("td")[1];
-			var c = divs[i].getElementsByTagName("td")[2];
-			var d = divs[i].getElementsByTagName("td")[3];
-			var e = divs[i].getElementsByTagName("td")[4];
 		
 		    if (a) {
-		      if (a.innerHTML.toUpperCase().indexOf(filter) > -1
-			  		|| b.innerHTML.toUpperCase().indexOf(filter) > -1
-					|| c.innerHTML.toUpperCase().indexOf(filter) > -1
-					|| d.innerHTML.toUpperCase().indexOf(filter) > -1
-					|| e.innerHTML.toUpperCase().indexOf(filter) > -1  ) {
+		      if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
 		        divs[i].style.display = "";
 		      } else {
 		        divs[i].style.display = "none";
 		      }
 		    }
 		  }
+		
 		}
 
 	</script>
@@ -940,17 +932,9 @@
 		  var divs = list.getElementsByTagName("div");
 		  for (var i = 0; i < divs.length; i++) {
 		    var a = divs[i].getElementsByTagName("td")[0];
-			var b = divs[i].getElementsByTagName("td")[1];
-			var c = divs[i].getElementsByTagName("td")[2];
-			var d = divs[i].getElementsByTagName("td")[3];
-			var e = divs[i].getElementsByTagName("td")[4];
 		
 		    if (a) {
-		      if (a.innerHTML.toUpperCase().indexOf(filter) > -1
-			  		|| b.innerHTML.toUpperCase().indexOf(filter) > -1
-					|| c.innerHTML.toUpperCase().indexOf(filter) > -1
-					|| d.innerHTML.toUpperCase().indexOf(filter) > -1
-					|| e.innerHTML.toUpperCase().indexOf(filter) > -1  ) {
+		      if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
 		        divs[i].style.display = "";
 		      } else {
 		        divs[i].style.display = "none";
